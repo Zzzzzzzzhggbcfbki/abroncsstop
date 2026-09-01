@@ -14,7 +14,7 @@ export default function Oldal() {
       cim="Gumihotel"
       bevezeto="Nincs hol tárolnia a kerekeit, vagy egyszerűen nem akar vele bajlódni? Hozza be, mi eltesszük, és a csere előtt előkészítjük."
       kep="/fotok/gumihotel-polc.jpg"
-      kepAlt="Gumiabroncsok a gumihotel polcain"
+      kepAlt="Gumiabroncsok és keréktárcsák a gumihotel állványain"
       arak={[
         { tetel: "1 kerék vagy abroncs", ar: "1 500 Ft" },
         { tetel: "Garnitúra, 4 db", ar: "6 000 Ft" },

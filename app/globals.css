@@ -13,10 +13,10 @@
   --tinta: #1c1b19;
   --tinta-halvany: #6b655d;
   --vonal: #ddd6ca;
-  --piros: #c4141b;          /* szöveg és ikon akcentus, világos háttéren AA */
-  --piros-tolt: #dc1f26;     /* tömör kitöltés: gomb, sáv. A logó jelzőpirosa, fehér szöveggel AA */
-  --piros-tolt-erosebb: #ad1017;
-  --piros-halvany: #fdebec;
+  --piros: #c40007;          /* szöveg és ikon akcentus, világos háttéren AA */
+  --piros-tolt: #d40008;     /* a logóból mért piros. Fehér szöveggel 5,5:1 */
+  --piros-tolt-erosebb: #a80006;
+  --piros-halvany: #fdeaeb;
   --arnyek: 0 1px 2px rgb(28 27 25 / 0.05), 0 12px 32px -18px rgb(28 27 25 / 0.22);
   --arnyek-emelt: 0 2px 4px rgb(28 27 25 / 0.06), 0 24px 56px -26px rgb(28 27 25 / 0.3);
 }

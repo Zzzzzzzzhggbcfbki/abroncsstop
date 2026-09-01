@@ -14,7 +14,7 @@ export default function Oldal() {
       cim="Defektjavítás"
       bevezeto="Szög, csavar, lassan engedő kerék. A futófelületi sérülések nagy része javítható, és a javítást általában meg lehet várni."
       kep="/fotok/defekt-javitas.jpg"
-      kepAlt="Abroncs futófelületi sérülésének javítása"
+      kepAlt="Csavar az abroncs futófelületében, mellette a tömítőszerszám"
       arak={[
         { tetel: "Átfutás", ar: "Általában megvárható" },
         { tetel: "Mire vonatkozik", ar: "Futófelületi sérülés" },

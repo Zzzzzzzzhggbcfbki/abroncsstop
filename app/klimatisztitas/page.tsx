@@ -14,7 +14,7 @@ export default function Oldal() {
       cim="Klímatisztítás ózonnal"
       bevezeto="A karbantartatlan autóklíma valódi veszélyforrás. Ózonnal a rendszer megbontása nélkül tisztítjuk, és nem marad utána vegyszer az utastérben."
       kep="/fotok/klima-ozon.jpg"
-      kepAlt="Ózonos klímatisztítás az autó utasterében"
+      kepAlt="Ózongenerátor az utasülésen, nyitott ajtóknál"
       arak={[
         { tetel: "Kezelési idő", ar: "40–60 perc" },
         { tetel: "Beülhet", ar: "20 perccel utána" },

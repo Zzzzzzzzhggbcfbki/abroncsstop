@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -26,12 +27,17 @@ export function SiteHeader() {
       <div className="mx-auto flex h-[68px] w-full max-w-[1240px] items-center gap-3 px-5 sm:gap-6 sm:px-8">
         <Link
           href="/"
-          className="group flex shrink-0 items-baseline gap-[7px] font-display text-[1.3rem] font-bold tracking-[-0.035em] text-tinta"
+          className="flex shrink-0 items-center"
           aria-label="Abroncs Stop, vissza a főoldalra"
-          translate="no"
         >
-          <span>Abroncs</span>
-          <span className="text-piros">Stop</span>
+          <Image
+            src="/logo/abroncsstop.png"
+            alt="Abroncs Stop"
+            width={1890}
+            height={788}
+            priority
+            className="h-10 w-auto sm:h-12"
+          />
         </Link>
 
         <nav className="ml-auto hidden items-center gap-7 lg:flex" aria-label="Fő navigáció">

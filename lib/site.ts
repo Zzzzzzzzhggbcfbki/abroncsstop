@@ -45,7 +45,7 @@ export const szolgaltatasok: Szolgaltatas[] = [
     osszefoglalo:
       "Nyári, téli és négyévszakos abroncsok szerelése, kiegyensúlyozása. A kerékcsavarokat nyomatékkulccsal húzzuk meg, gyári értékre.",
     kep: "/fotok/gumiszereles-kez.jpg",
-    kepAlt: "Gumiszerelés közben a műhelyben",
+    kepAlt: "Kesztyűs kéz igazítja az abroncsot az alufelnire a szerelőgépen",
   },
   {
     slug: "defektjavitas",
@@ -54,7 +54,7 @@ export const szolgaltatasok: Szolgaltatas[] = [
     osszefoglalo:
       "Futófelületi sérülés, szög, csavar. A legtöbb ilyen javítás megvárható, nem kell érte visszajönni.",
     kep: "/fotok/defekt-javitas.jpg",
-    kepAlt: "Abroncs futófelületi sérülésének javítása",
+    kepAlt: "Csavar az abroncs futófelületében, mellette a tömítőszerszám a munkapadon",
   },
   {
     slug: "tpms",
@@ -63,7 +63,7 @@ export const szolgaltatasok: Szolgaltatas[] = [
     osszefoglalo:
       "Guminyomás-ellenőrző rendszerrel szerelt autókat is szervizelünk. Szenzorkezelés, betanítás, diagnosztika.",
     kep: "/fotok/tpms-szenzor.jpg",
-    kepAlt: "TPMS szenzor a keréktárcsán",
+    kepAlt: "TPMS szenzor közelről, a keréktárcsa peremére szerelve",
     navban: true,
   },
   {
@@ -73,7 +73,7 @@ export const szolgaltatasok: Szolgaltatas[] = [
     osszefoglalo:
       "Nyáron a téli, télen a nyári garnitúrát nálunk hagyhatja. Riasztóval és vonuló biztonsági szolgálattal védett raktárban.",
     kep: "/fotok/gumihotel-polc.jpg",
-    kepAlt: "Gumiabroncsok a gumihotel polcain",
+    kepAlt: "Gumiabroncsok és keréktárcsák a gumihotel állványain",
     navban: true,
   },
   {
@@ -83,7 +83,7 @@ export const szolgaltatasok: Szolgaltatas[] = [
     osszefoglalo:
       "A klímarendszer megbontása nélkül, ózongázzal. Se vegyszer, se adalék, a kezelés 40 és 60 perc között van.",
     kep: "/fotok/klima-ozon.jpg",
-    kepAlt: "Ózonos klímatisztítás az utastérben",
+    kepAlt: "Ózongenerátor az utasülésen, nyitott ajtóknál",
     navban: true,
   },
   {
@@ -93,7 +93,7 @@ export const szolgaltatasok: Szolgaltatas[] = [
     osszefoglalo:
       "Ütődött, deformálódott keréktárcsa. A kisebb hibákat rövid idő alatt javítjuk, a komolyabbakat általában másnapra.",
     kep: "/fotok/felni-javitas.jpg",
-    kepAlt: "Alufelni javítása a műhelyben",
+    kepAlt: "Alufelni a javítógépbe fogva",
     navban: true,
   },
 ];
@@ -103,11 +103,18 @@ export const fenyszoro = {
   cim: "Fényszóró felújítás",
   osszefoglalo:
     "A megsárgult, karcos búra nemcsak csúnya, kevesebb fényt is enged ki. Polírozással visszahozzuk az átlátszóságot.",
-  kepek: [
-    { src: "/fotok/fenyszoro-01.jpg", alt: "Felújított fényszóró egy Volkswagen Golfon" },
-    { src: "/fotok/fenyszoro-02.jpg", alt: "Kipolírozott fényszóróbúra közelről" },
-    { src: "/fotok/fenyszoro-03.jpg", alt: "Fényszóró felújítás után, tiszta búrával" },
-    { src: "/fotok/fenyszoro-04.jpg", alt: "Fényszóró felújítás eredménye sötét karosszérián" },
+  // Mind a négy fotó a saját műhelyünkben készült, két autóról, felújítás előtt és után.
+  parok: [
+    {
+      elotte: "/fotok/fenyszoro-02.jpg",
+      utana: "/fotok/fenyszoro-01.jpg",
+      alt: "Ezüst Volkswagen Golf bal oldali fényszórója",
+    },
+    {
+      elotte: "/fotok/fenyszoro-04.jpg",
+      utana: "/fotok/fenyszoro-03.jpg",
+      alt: "Fekete személyautó jobb oldali fényszórója",
+    },
   ],
 } as const;
 

@@ -26,7 +26,7 @@ export default function OgKep() {
               width: 56,
               height: 56,
               borderRadius: 14,
-              background: "#d42a1f",
+              background: "#d40008",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -42,7 +42,7 @@ export default function OgKep() {
             />
           </div>
           <div style={{ display: "flex", fontSize: 34, fontWeight: 700, color: "#1c1b19" }}>
-            Abroncs&nbsp;<span style={{ color: "#c1231a" }}>Stop</span>
+            Abroncs&nbsp;<span style={{ color: "#c40007" }}>Stop</span>
           </div>
         </div>
 

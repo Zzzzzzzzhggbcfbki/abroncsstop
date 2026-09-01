@@ -14,9 +14,9 @@ export default function Oldal() {
     <SzolgaltatasOldal
       cim="Fényszóró felújítás"
       bevezeto="A búra idővel megsárgul, bepárásodik, tele lesz apró karcokkal. Ettől nemcsak öregnek látszik az autó, de kevesebb fény is jut ki belőle az útra."
-      kep="/fotok/fenyszoro-01.jpg"
-      kepAlt="Felújított fényszóró egy Volkswagen Golfon"
-      galeria={[...fenyszoro.kepek.slice(1)]}
+      kep="/fotok/fenyszoro-03.jpg"
+      kepAlt="Felújított, kitisztult fényszóróbúra"
+      parok={[...fenyszoro.parok]}
       arak={[
         { tetel: "Átfutás", ar: "Általában megvárható" },
         { tetel: "Mindkét oldal", ar: "Egy alkalommal" },
@@ -42,7 +42,7 @@ export default function Oldal() {
         {
           cim: "A képeken a saját munkánk",
           bekezdesek: [
-            "Nem katalógusfotók: a lenti képek a műhelyünkben készültek, felújítás után. Ha kíváncsi rá, milyen lenne a saját autóján, hozza be, és megnézzük együtt.",
+            "Nem katalógusfotók: a lenti két pár a műhelyünkben készült, ugyanarról a lámpáról felújítás előtt és után. Húzza el a csúszkát, és nézze meg a különbséget.",
           ],
         },
       ]}

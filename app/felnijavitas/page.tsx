@@ -14,7 +14,7 @@ export default function Oldal() {
       cim="Felnijavítás"
       bevezeto="Egy nagyobb kátyú, egy rosszul eltalált szegély, és a felni deformálódik. Ezt nem érdemes halogatni, mert a futóművet is elviheti."
       kep="/fotok/felni-javitas.jpg"
-      kepAlt="Alufelni javítása a műhelyben"
+      kepAlt="Alufelni a javítógépbe fogva"
       arak={[
         { tetel: "Kisebb deformáció", ar: "Megvárható" },
         { tetel: "Komolyabb sérülés", ar: "Általában másnap" },

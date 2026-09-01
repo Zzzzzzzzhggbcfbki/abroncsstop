@@ -21,6 +21,7 @@ import {
 import { Bevezeto, Cimsor, GombHoraf, GombLink, Szakasz } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
 import { HivasSav } from "@/components/hivas-sav";
+import { ElotteUtana } from "@/components/elotte-utana";
 
 const jotudniKivonat = [
   {
@@ -91,7 +92,7 @@ export default function Fooldal() {
         <div className="relative aspect-16/11 w-full lg:hidden">
           <Image
             src="/fotok/hero-gumiszereles.jpg"
-            alt="Kerékcsere az Abroncs Stop műhelyében"
+            alt="Szerelő emeli az abroncsot a szerelőgépre az Abroncs Stop műhelyében"
             fill
             priority
             sizes="100vw"
@@ -209,12 +210,18 @@ export default function Fooldal() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.05]"
                   />
+                  {/* A szövegsáv alá erős fátyol kell, mert a fotók alsó harmada
+                      helyenként világos: e nélkül a fehér szöveg nem érné el az AA-t. */}
                   <div
                     aria-hidden
-                    className="absolute inset-0 bg-gradient-to-t from-[#14120f]/95 via-[#14120f]/55 to-[#14120f]/10"
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(to top, rgba(17,15,13,0.96) 0%, rgba(17,15,13,0.92) 38%, rgba(17,15,13,0.62) 66%, rgba(17,15,13,0.14) 100%)",
+                    }}
                   />
                   <div className="relative p-6 sm:p-7">
-                    <span className="plakat block text-[1.4rem] text-white/45">
+                    <span className="plakat block text-[1.4rem] text-white/55">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <h3
@@ -225,7 +232,7 @@ export default function Fooldal() {
                       {sz.cim}
                     </h3>
                     <p
-                      className={`mt-3 max-w-[42ch] text-[0.95rem] leading-relaxed text-white/75 ${
+                      className={`mt-3 max-w-[42ch] text-[0.95rem] leading-relaxed text-white/85 ${
                         nagy ? "" : "line-clamp-2"
                       }`}
                     >
@@ -248,46 +255,42 @@ export default function Fooldal() {
         </div>
       </Szakasz>
 
-      {/* 4. Fényszóró: valódi munkafotók vízszintes sávban. */}
-      <section className="py-20 md:py-28">
-        <div className="mx-auto w-full max-w-[1240px] px-5 sm:px-8">
-          <Reveal>
-            <div className="max-w-[46ch]">
-              <Cimsor className="max-w-[13ch] text-balance">
-                Fényszóró felújítás
-              </Cimsor>
-              <Bevezeto className="mt-6">
-                A megsárgult búra nemcsak csúnya, kevesebb fényt is enged ki.
-                Polírozással visszahozzuk az átlátszóságát, így este megint annyit
-                lát, amennyit kellene. Az alábbi négy fotó a saját munkánk.
-              </Bevezeto>
-              <GombLink href={`/${fenyszoro.slug}`} variant="csendes" className="mt-6">
-                Fényszóró felújítás
-                <ArrowRight size={15} aria-hidden />
-              </GombLink>
-            </div>
+      {/* 4. Fényszóró: két valódi előtte-utána pár, csúszkával. A mozgatás
+          itt nem dísz, hanem maga a bizonyíték. */}
+      <Szakasz>
+        <div className="grid gap-10 md:grid-cols-12 md:items-end">
+          <Reveal className="md:col-span-6">
+            <Cimsor className="max-w-[13ch] text-balance">Fényszóró felújítás</Cimsor>
+          </Reveal>
+          <Reveal delay={0.06} className="md:col-span-6">
+            <Bevezeto>
+              A megsárgult búra nemcsak csúnya, kevesebb fényt is enged ki.
+              Polírozással visszahozzuk az átlátszóságát. Húzza el a csúszkát: mind
+              a négy fotó a mi műhelyünkben készült.
+            </Bevezeto>
           </Reveal>
         </div>
 
-        <Reveal delay={0.1}>
-          <ul className="mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:px-8 [scrollbar-width:thin]">
-            {fenyszoro.kepek.map((k) => (
-              <li
-                key={k.src}
-                className="relative aspect-3/4 w-[74vw] shrink-0 snap-start overflow-hidden rounded-[14px] bg-papir-melyebb sm:w-[38vw] lg:w-[23vw]"
-              >
-                <Image
-                  src={k.src}
-                  alt={k.alt}
-                  fill
-                  sizes="(max-width: 640px) 74vw, (max-width: 1024px) 38vw, 23vw"
-                  className="object-cover"
-                />
-              </li>
-            ))}
-          </ul>
+        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+          {fenyszoro.parok.map((par, i) => (
+            <Reveal key={par.elotte} delay={i * 0.08}>
+              <ElotteUtana
+                elotte={par.elotte}
+                utana={par.utana}
+                alt={par.alt}
+                className="aspect-3/4"
+              />
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={0.12}>
+          <GombLink href={`/${fenyszoro.slug}`} variant="csendes" className="mt-10">
+            Mit csinálunk a búrával
+            <ArrowRight size={15} aria-hidden />
+          </GombLink>
         </Reveal>
-      </section>
+      </Szakasz>
 
       {/* 5. Csomagok: három szint, az XL szélesebb, mert az a teljes. */}
       <Szakasz className="bg-papir-melyebb">
@@ -366,7 +369,7 @@ export default function Fooldal() {
             <div className="relative aspect-4/3 overflow-hidden rounded-[14px] bg-papir-melyebb shadow-lagy">
               <Image
                 src="/fotok/gumihotel-polc.jpg"
-                alt="Gumiabroncsok a gumihotel polcain"
+                alt="Gumiabroncsok és keréktárcsák a gumihotel állványain"
                 fill
                 sizes="(max-width: 768px) 100vw, 42vw"
                 className="object-cover"

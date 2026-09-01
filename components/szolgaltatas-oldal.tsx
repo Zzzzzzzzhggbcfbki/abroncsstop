@@ -5,6 +5,7 @@ import { ceg, nyitvatartas } from "@/lib/site";
 import { Bevezeto, Cimsor, GombHoraf } from "./ui";
 import { Reveal } from "./reveal";
 import { HivasSav } from "./hivas-sav";
+import { ElotteUtana } from "./elotte-utana";
 
 export type Blokk = {
   cim?: string;
@@ -22,7 +23,7 @@ export function SzolgaltatasOldal({
   blokkok,
   arak,
   arakCime = "Árak",
-  galeria,
+  parok,
   ctaCim,
   ctaSzoveg,
 }: {
@@ -33,7 +34,7 @@ export function SzolgaltatasOldal({
   blokkok: Blokk[];
   arak?: ArTetel[];
   arakCime?: string;
-  galeria?: { src: string; alt: string }[];
+  parok?: readonly { elotte: string; utana: string; alt: string }[];
   ctaCim?: string;
   ctaSzoveg?: string;
 }) {
@@ -54,7 +55,7 @@ export function SzolgaltatasOldal({
           </Cimsor>
           <Bevezeto className="mt-6 text-[1.15rem]">{bevezeto}</Bevezeto>
 
-          <div className="relative mt-10 aspect-16/9 overflow-hidden rounded-[14px] bg-papir-melyebb shadow-lagy sm:aspect-21/9">
+          <div className="relative mt-10 aspect-4/3 overflow-hidden rounded-[14px] bg-papir-melyebb shadow-lagy sm:aspect-16/9">
             <Image
               src={kep}
               alt={kepAlt}
@@ -106,24 +107,19 @@ export function SzolgaltatasOldal({
               </Reveal>
             ))}
 
-            {galeria && (
+            {parok && (
               <Reveal delay={0.1}>
-                <ul className="mt-14 grid grid-cols-2 gap-4">
-                  {galeria.map((g) => (
-                    <li
-                      key={g.src}
-                      className="relative aspect-3/4 overflow-hidden rounded-[14px] bg-papir-melyebb"
-                    >
-                      <Image
-                        src={g.src}
-                        alt={g.alt}
-                        fill
-                        sizes="(max-width: 768px) 48vw, 30vw"
-                        className="object-cover"
-                      />
-                    </li>
+                <div className="mt-12 grid gap-4 sm:grid-cols-2">
+                  {parok.map((par) => (
+                    <ElotteUtana
+                      key={par.elotte}
+                      elotte={par.elotte}
+                      utana={par.utana}
+                      alt={par.alt}
+                      className="aspect-3/4"
+                    />
                   ))}
-                </ul>
+                </div>
               </Reveal>
             )}
           </div>

@@ -14,7 +14,7 @@ export default function Oldal() {
       cim="TPMS és RDKS"
       bevezeto="A defektvisszajelzővel szerelt autókat is szervizeljük. A szenzorokat kezeljük, betanítjuk, és megmondjuk, ha valamelyik elem lemerült."
       kep="/fotok/tpms-szenzor.jpg"
-      kepAlt="TPMS szenzor a keréktárcsán"
+      kepAlt="TPMS szenzor közelről, a keréktárcsa peremére szerelve"
       arak={[
         { tetel: "Rendszer", ar: "Direkt és indirekt" },
         { tetel: "Betanítás", ar: "Helyben" },

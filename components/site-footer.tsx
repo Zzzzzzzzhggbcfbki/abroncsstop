@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Phone, EnvelopeSimple, MapPin, FacebookLogo } from "@phosphor-icons/react/dist/ssr";
 import { ceg, nyitvatartas, szolgaltatasok, fenyszoro } from "@/lib/site";
@@ -8,9 +9,13 @@ export function SiteFooter() {
       <div className="mx-auto w-full max-w-[1240px] px-5 py-16 sm:px-8">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <p translate="no" className="font-display text-2xl font-bold tracking-[-0.035em] text-tinta">
-              Abroncs <span className="text-piros">Stop</span>
-            </p>
+            <Image
+              src="/logo/abroncsstop.png"
+              alt="Abroncs Stop"
+              width={1890}
+              height={788}
+              className="h-14 w-auto"
+            />
             <p className="mt-3 max-w-[34ch] text-[1.05rem] leading-relaxed text-tinta-halvany">
               {ceg.szlogen}
             </p>
