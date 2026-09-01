@@ -2,6 +2,9 @@
 
 Gumiszerviz Isaszegen. Next.js 16 + Tailwind v4, statikusan előrenderelt oldalak.
 
+Éles: https://abroncsstop.vercel.app
+A `main` ágra pusholva a Vercel automatikusan élesít.
+
 ## Fejlesztés
 
 ```bash
@@ -50,6 +53,28 @@ pirosán. A paletta pirosa (`#d40008`) magából a logóból van kimérve.
 `public/logok/` — 21 gumimárka logója, a régi oldal médiatárából kivágva és
 egységes méretre igazítva. A márkafalon szürkeárnyalatosan jelennek meg,
 egérrel fölé állva színesednek.
+
+## A tartalom forrása
+
+Minden állítás a régi abroncsstop.hu WordPress oldal szövegéből származik,
+a WP REST API teljes kiírásán visszaellenőrizve. Ami nem szerepelt rajta,
+az nincs az oldalon sem. Új tényállítást ide ne írjunk be a tulajdonos
+megerősítése nélkül.
+
+## Hiányzó cégadatok
+
+A `lib/jogi.ts`-ben a `KITÖLTENDŐ` értékű mezőket a cégpapírokból kell pótolni:
+cégjegyzékszám, adószám, nyilvántartó bíróság, valamint a tárhelyszolgáltató
+adatai. Amíg hiányoznak, az impresszumban és az ÁSZF-ben pirossal, „kitöltendő”
+jelöléssel látszanak.
+
+## Süti és térkép
+
+Az oldal nem használ analitikai vagy hirdetési sütit. Az egyetlen harmadik feles
+beágyazás a kapcsolat oldal Google-térképe, ez hozzájárulás mögött van
+(`components/terkep.tsx`, `components/suti-sav.tsx`). Hozzájárulás nélkül az
+oldal nulla külső kérést indít. Ha később bármilyen mérőkód kerülne be, azt is
+a hozzájárulás mögé kell tenni, és a cookie tájékoztatót bővíteni.
 
 ## Egyeztetni való a tulajdonossal
 
