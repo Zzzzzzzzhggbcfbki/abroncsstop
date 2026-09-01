@@ -1,26 +1,93 @@
 @import "tailwindcss";
 
+/*
+  Abroncs Stop design tokenek.
+  A paletta a műhely valódi homlokzatáról jön: piros sáv, grafitszürke fal.
+  Sarokpolitika (egy rendszer, végig): panel 14px, gomb és input 10px, apró jelölő 6px.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --papir: #f7f4ef;
+  --papir-melyebb: #efeae1;
+  --lap: #ffffff;
+  --tinta: #1c1b19;
+  --tinta-halvany: #6b655d;
+  --vonal: #ddd6ca;
+  --piros: #c1231a;          /* szöveg és ikon akcentus, világos háttéren AA */
+  --piros-tolt: #d42a1f;     /* tömör kitöltés: gomb, sáv. Fehér szöveggel AA, mindkét módban */
+  --piros-tolt-erosebb: #a81e15;
+  --piros-halvany: #fdeceb;
+  --arnyek: 0 1px 2px rgb(28 27 25 / 0.05), 0 12px 32px -18px rgb(28 27 25 / 0.22);
+  --arnyek-emelt: 0 2px 4px rgb(28 27 25 / 0.06), 0 24px 56px -26px rgb(28 27 25 / 0.3);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-papir: var(--papir);
+  --color-papir-melyebb: var(--papir-melyebb);
+  --color-lap: var(--lap);
+  --color-tinta: var(--tinta);
+  --color-tinta-halvany: var(--tinta-halvany);
+  --color-vonal: var(--vonal);
+  --color-piros: var(--piros);
+  --color-piros-tolt: var(--piros-tolt);
+  --color-piros-tolt-erosebb: var(--piros-tolt-erosebb);
+  --color-piros-halvany: var(--piros-halvany);
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
+  --shadow-lagy: var(--arnyek);
+  --shadow-emelt: var(--arnyek-emelt);
+  --radius-panel: 14px;
+  --radius-vezerlo: 10px;
+  --radius-jelolo: 6px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--papir);
+  color: var(--tinta);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--piros-tolt);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--piros-tolt);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Márkafal végtelen sávja. A sáv nem visz információt a mozgással,
+   ezért reduced motion alatt egyszerűen megáll. */
+@keyframes markasav {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.markasav {
+  animation: markasav 55s linear infinite;
+}
+.markasav-tarolo:hover .markasav,
+.markasav-tarolo:focus-within .markasav {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .markasav { animation: none; }
+  .markasav-tarolo { overflow-x: auto; }
 }
