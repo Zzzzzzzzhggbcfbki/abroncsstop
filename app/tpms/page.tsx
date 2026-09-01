@@ -2,48 +2,40 @@ import type { Metadata } from "next";
 import { SzolgaltatasOldal } from "@/components/szolgaltatas-oldal";
 
 export const metadata: Metadata = {
-  title: "TPMS és RDKS szerviz",
+  title: "TPMS",
   description:
-    "Guminyomás-ellenőrző rendszerrel szerelt autók szervizelése Isaszegen: szenzorkezelés, betanítás, diagnosztika.",
+    "Műhelyünkben a TPMS vagy RDKS rendszerű defektvisszajelzővel ellátott autók is könnyedén szervizelhetőek. TPMS diagnosztika Isaszegen.",
   alternates: { canonical: "/tpms" },
 };
 
 export default function Oldal() {
   return (
     <SzolgaltatasOldal
-      cim="TPMS és RDKS"
-      bevezeto="A defektvisszajelzővel szerelt autókat is szervizeljük. A szenzorokat kezeljük, betanítjuk, és megmondjuk, ha valamelyik elem lemerült."
+      cim="TPMS"
+      bevezeto="Műhelyünkben a TPMS vagy RDKS rendszerű defektvisszajelzővel ellátott autók is könnyedén szervizelhetőek."
       kep="/fotok/tpms-szenzor.jpg"
       kepAlt="TPMS szenzor közelről, a keréktárcsa peremére szerelve"
-      arak={[
-        { tetel: "Rendszer", ar: "Direkt és indirekt" },
-        { tetel: "Betanítás", ar: "Helyben" },
-        { tetel: "Ár", ar: "Hívásra" },
-      ]}
-      arakCime="Jó tudni"
       blokkok={[
         {
           bekezdesek: [
-            "Az Európai Unió ECE R64-es rendelete miatt 2014. november 1. óta minden újonnan forgalomba helyezett gépjárműnek rendelkeznie kell guminyomás-ellenőrző rendszerrel. Ezért találkozik vele egyre több autós szezonváltáskor.",
+            "Az elmúlt években egyre inkább elterjedtek, de az Európai Unió ECE R 64-es rendelete nyomán 2014. november 1-jétől minden, az Unióban újonnan forgalomba helyezett gépjárműnek rendelkeznie kell ezzel a biztonsági rendszerrel.",
+            "A guminyomás ellenőrző rendszereknek két típusa létezik, az indirekt és a direkt. Kezdetben főként az indirekt guminyomás ellenőrző rendszert alkalmazták, mára pedig már egyre nagyobb teret hódítanak a direkt, külön szenzorokkal felszerelt rendszerek.",
           ],
         },
         {
-          cim: "Kétféle rendszer van",
+          cim: "Az indirekt rendszer",
           bekezdesek: [
-            "Az indirekt rendszer a kerekek fordulatszámát figyeli. Ha az egyik abroncsban csökken a nyomás, kisebb lesz a kerülete, tehát gyorsabban forog a többinél. Ezt érzékeli a központi egység, és szól a vezetőnek.",
-            "A direkt rendszerben minden kerékben külön szenzor ül, és az méri a tényleges nyomást. Kezdetben az indirekt volt elterjedtebb, ma már a direkt hódít teret.",
+            "Az indirekt a kerekek fordulatszámát figyeli. Ha csökken az egyik abroncsban a nyomás, akkor annak a kerülete kisebb lesz, ezáltal gyorsabban forog, mint a többi kerék. Ezt a központi egység érzékeli és figyelmezteti a vezetőt.",
           ],
         },
         {
           cim: "Miért van rá szükség",
           bekezdesek: [
-            "A cél kettős. Egyrészt a biztonság: a kimutatások szerint sok baleset történik amiatt, hogy rossz guminyomással közlekednek az autósok. Másrészt a fogyasztás és a környezet.",
-            "Nem mindegy ugyanis, hogy a gyárihoz képest például 30 százalékkal kisebb nyomással autózunk. Ilyenkor nemcsak több üzemanyag fogy, hanem a gumi is gyorsabban kopik.",
+            "A TPMS alkalmazásának célja kettős: elsőként növeli a biztonságot, hiszen a kimutatások szerint sok baleset történik amiatt, hogy rossz guminyomással közlekednek az autósok. A másik cél pedig a fogyasztás megfelelő szinten tartása és a környezetvédelem.",
+            "Nem mindegy ugyanis, hogy a gyárihoz képest például 30 százalékkal kisebb guminyomással autózunk. Ebben az esetben nemcsak több üzemanyagot égetünk el, hanem a gumi is intenzívebb kopásnak van kitéve.",
           ],
         },
       ]}
-      ctaCim="Világít a defektvisszajelző?"
-      ctaSzoveg="Hozza be, megnézzük, tényleg nyomásprobléma van-e, vagy csak betanítás kell a rendszernek."
     />
   );
 }

@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, EnvelopeSimple, MapPin, FacebookLogo } from "@phosphor-icons/react/dist/ssr";
-import { ceg, nyitvatartas, szolgaltatasok, fenyszoro } from "@/lib/site";
+import { ceg, nyitvatartas, szolgaltatasok } from "@/lib/site";
+import { jogiLinkek } from "@/lib/jogi";
+import { SutiBeallitasGomb } from "./suti-beallitas-gomb";
 
 export function SiteFooter() {
   return (
@@ -60,10 +62,10 @@ export function SiteFooter() {
               Szolgáltatások
             </h2>
             <ul className="mt-5 flex flex-col gap-2.5">
-              {[...szolgaltatasok, fenyszoro].map((sz) => (
+              {szolgaltatasok.map((sz) => (
                 <li key={sz.slug}>
                   <Link
-                    href={`/${sz.slug === "gumiszereles" || sz.slug === "defektjavitas" ? "#szolgaltatasok" : sz.slug}`}
+                    href={`/${sz.slug}`}
                     className="text-tinta-halvany transition-colors hover:text-piros"
                   >
                     {sz.cim}
@@ -73,6 +75,11 @@ export function SiteFooter() {
               <li>
                 <Link href="/csomagajanlat" className="text-tinta-halvany transition-colors hover:text-piros">
                   Csomagajánlat
+                </Link>
+              </li>
+              <li>
+                <Link href="/jo-tudni" className="text-tinta-halvany transition-colors hover:text-piros">
+                  Jó tudni
                 </Link>
               </li>
             </ul>
@@ -86,11 +93,7 @@ export function SiteFooter() {
               {nyitvatartas.map((n) => (
                 <div key={n.nap} className="flex items-baseline justify-between gap-4">
                   <dt className="text-tinta-halvany">{n.nap}</dt>
-                  <dd
-                    className={`font-display font-semibold tabular-nums ${
-                      n.nyitva ? "text-tinta" : "text-tinta-halvany"
-                    }`}
-                  >
+                  <dd className="font-display font-semibold tabular-nums text-tinta">
                     {n.ora}
                   </dd>
                 </div>
@@ -102,9 +105,29 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-vonal pt-7 text-sm text-tinta-halvany sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} {ceg.nev}</p>
-          <p>{ceg.cim.teljes}</p>
+        <div className="mt-14 border-t border-vonal pt-7">
+          <nav aria-label="Jogi információk">
+            <ul className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
+              {jogiLinkek.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="text-tinta-halvany transition-colors hover:text-piros"
+                  >
+                    {l.cim}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <SutiBeallitasGomb />
+              </li>
+            </ul>
+          </nav>
+
+          <div className="mt-6 flex flex-col gap-2 text-sm text-tinta-halvany sm:flex-row sm:items-center sm:justify-between">
+            <p>© {new Date().getFullYear()} {ceg.nev}</p>
+            <p>{ceg.cim.teljes}</p>
+          </div>
         </div>
       </div>
     </footer>

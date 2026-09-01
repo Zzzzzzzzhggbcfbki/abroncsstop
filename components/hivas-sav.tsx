@@ -3,8 +3,8 @@ import { ceg } from "@/lib/site";
 import { GombHoraf, GombLink } from "./ui";
 
 export function HivasSav({
-  cim = "Nem tudja, mire van szüksége?",
-  szoveg = "Mondja el, mit tapasztal az autón, és megmondjuk, mit érdemes csinálni vele. Ha nálunk a helye, azt is, mikor tud jönni.",
+  cim = "Legyen partnerünk a biztonságos autózásban",
+  szoveg = "Bővebb információért hívja munkatársunkat.",
 }: {
   cim?: string;
   szoveg?: string;
@@ -35,7 +35,7 @@ export function HivasSav({
               variant="masodlagos"
               className="border-white/45 bg-transparent text-white hover:border-white hover:bg-white/10"
             >
-              Hol találja
+              Kapcsolat
             </GombLink>
           </div>
         </div>

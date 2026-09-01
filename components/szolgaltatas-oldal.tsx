@@ -148,11 +148,9 @@ export function SzolgaltatasOldal({
               )}
 
               <div className="rounded-[14px] border border-vonal bg-lap p-7 shadow-lagy">
-                <h2 className="plakat text-[1.5rem] text-tinta">
-                  Időpontot kérne?
-                </h2>
+                <h2 className="plakat text-[1.5rem] text-tinta">Bejelentkezés</h2>
                 <p className="mt-3 text-[0.98rem] leading-relaxed text-tinta-halvany">
-                  Hívjon, és megbeszéljük, mikor tudjuk fogadni. {ceg.kapcsolattarto} veszi fel.
+                  Bővebb információért hívja munkatársunkat. {ceg.kapcsolattarto}.
                 </p>
                 <GombHoraf href={ceg.telefonHref} className="mt-6 w-full">
                   <Phone size={18} weight="fill" aria-hidden />
@@ -164,13 +162,7 @@ export function SzolgaltatasOldal({
                     {nyitvatartas.map((n) => (
                       <div key={n.nap} className="flex items-baseline justify-between gap-3">
                         <dt className="text-tinta-halvany">{n.nap}</dt>
-                        <dd
-                          className={`tabular-nums ${
-                            n.nyitva ? "font-semibold text-tinta" : "text-tinta-halvany"
-                          }`}
-                        >
-                          {n.ora}
-                        </dd>
+                        <dd className="font-semibold tabular-nums text-tinta">{n.ora}</dd>
                       </div>
                     ))}
                   </dl>

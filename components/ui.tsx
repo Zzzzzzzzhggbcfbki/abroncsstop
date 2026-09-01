@@ -44,6 +44,23 @@ export function GombHoraf({
   );
 }
 
+export function Gomb({
+  variant = "elsodleges",
+  className = "",
+  children,
+  ...props
+}: ComponentProps<"button"> & { variant?: GombVariant }) {
+  return (
+    <button
+      type="button"
+      className={`${gombAlap} ${gombVariansok[variant]} ${className}`}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+}
+
 export function Szakasz({
   children,
   className = "",

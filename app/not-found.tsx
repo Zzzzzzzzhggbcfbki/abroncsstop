@@ -12,8 +12,8 @@ export default function NemTalalhato() {
         Ez az oldal nincs meg
       </Cimsor>
       <Bevezeto className="mt-6">
-        Vagy elköltözött, vagy elgépelés került a címbe. A szolgáltatásaink a
-        főoldalról mind elérhetők, és telefonon úgyis gyorsabb.
+        Vagy elköltözött, vagy elgépelés került a címbe. Szolgáltatásaink a
+        főoldalról mind elérhetők.
       </Bevezeto>
       <div className="mt-9 flex flex-col gap-3 sm:flex-row">
         <GombHoraf href={ceg.telefonHref}>

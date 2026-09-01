@@ -2,8 +2,6 @@ import type { MetadataRoute } from "next";
 
 const utvonalak = [
   "",
-  "gumiszereles",
-  "defektjavitas",
   "tpms",
   "gumihotel",
   "klimatisztitas",
@@ -12,6 +10,10 @@ const utvonalak = [
   "csomagajanlat",
   "jo-tudni",
   "kapcsolat",
+  "impresszum",
+  "adatkezelesi-tajekoztato",
+  "cookie-tajekoztato",
+  "aszf",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

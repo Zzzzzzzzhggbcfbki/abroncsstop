@@ -8,16 +8,9 @@ import { HivasSav } from "@/components/hivas-sav";
 export const metadata: Metadata = {
   title: "Csomagajánlat",
   description:
-    "S, M és XL csomag négy gumi szerelése mellé: gumijavítás, szelepcsere, ózonos klímatisztítás és szezonális tárolás egy évig. 5 000, 10 000 és 25 000 Ft.",
+    "Vásárolható csomagajánlat 4 db gumi szerelése mellé: S 5 000 Ft, M 10 000 Ft, XL 25 000 Ft. Gumijavítás, szelepcsere, ózonos klímatisztítás és szezonális gumitárolás.",
   alternates: { canonical: "/csomagajanlat" },
 };
-
-const nemVonatkozik = [
-  "Oldalfalsérülés",
-  "Vágás vagy hasadás",
-  "Keréktárcsa oxidációja",
-  "Sérült keréktárcsa",
-];
 
 export default function Oldal() {
   return (
@@ -27,35 +20,16 @@ export default function Oldal() {
           Csomagajánlat
         </Cimsor>
         <Bevezeto className="mt-6 text-[1.15rem]">
-          Négy gumi szerelése mellé megvásárolható csomagok. Egyszer fizet, és a
-          vásárlástól számított egy évig nem kell külön intéznie a benne foglalt
-          munkákat.
+          {csomagFeltetel.megkotes} {csomagFeltetel.ervenyesseg}
         </Bevezeto>
       </Szakasz>
 
       <section className="px-5 pb-16 sm:px-8 md:pb-24">
-        <div className="mx-auto grid w-full max-w-[1240px] gap-4 lg:grid-cols-4">
+        <div className="mx-auto grid w-full max-w-[1240px] gap-4 lg:grid-cols-3">
           {csomagok.map((cs, i) => (
-            <Reveal
-              key={cs.kod}
-              delay={i * 0.06}
-              className={cs.kiemelt ? "lg:col-span-2" : "lg:col-span-1"}
-            >
-              <div
-                className={`flex h-full flex-col rounded-[14px] border p-7 sm:p-9 ${
-                  cs.kiemelt ? "border-piros bg-lap shadow-emelt" : "border-vonal bg-lap shadow-lagy"
-                }`}
-              >
-                <div className="flex items-baseline justify-between gap-4">
-                  <span className="plakat text-[3.6rem] text-tinta">
-                    {cs.kod}
-                  </span>
-                  {cs.kiemelt && (
-                    <span className="plakat-vekony rounded-[6px] bg-piros-halvany px-2.5 py-1 text-[11px] text-piros">
-                      A teljes
-                    </span>
-                  )}
-                </div>
+            <Reveal key={cs.kod} delay={i * 0.06}>
+              <div className="flex h-full flex-col rounded-[14px] border border-vonal bg-lap p-7 shadow-lagy sm:p-9">
+                <span className="plakat text-[3.6rem] text-tinta">{cs.kod}</span>
                 <p className="plakat mt-6 text-[2.8rem] tabular-nums text-piros">
                   {cs.ar.toLocaleString("hu-HU")} Ft
                 </p>
@@ -77,45 +51,33 @@ export default function Oldal() {
         <div className="grid gap-10 md:grid-cols-2">
           <Reveal>
             <div className="h-full rounded-[14px] border border-vonal bg-lap p-8">
-              <h2 className="plakat text-[1.8rem] text-tinta">
-                Mit jelent a normál gumijavítás
-              </h2>
+              <h2 className="plakat text-[1.8rem] text-tinta">Normál gumijavítás</h2>
               <p className="mt-4 leading-[1.7] text-tinta-halvany">
-                {csomagFeltetel.mireVonatkozik} Ez a leggyakoribb defekttípus, és a
-                csomagban foglalt javítások erre vonatkoznak.
+                {csomagFeltetel.normalGumijavitas}
               </p>
               <p className="mt-4 leading-[1.7] text-tinta-halvany">
-                {csomagFeltetel.megkotes}
+                {csomagFeltetel.bovebben}
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={0.08}>
             <div className="h-full rounded-[14px] border border-vonal bg-lap p-8">
-              <h2 className="plakat text-[1.8rem] text-tinta">
-                Mire nem vonatkozik
-              </h2>
+              <h2 className="plakat text-[1.8rem] text-tinta">Mire nem vonatkozik</h2>
               <ul className="mt-6 flex flex-col gap-3">
-                {nemVonatkozik.map((n) => (
+                {csomagFeltetel.nemVonatkozik.map((n) => (
                   <li key={n} className="flex gap-3 leading-relaxed text-tinta">
                     <X size={19} weight="bold" className="mt-0.5 shrink-0 text-tinta-halvany" aria-hidden />
                     {n}
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 text-[0.95rem] leading-relaxed text-tinta-halvany">
-                Ezekben az esetekben egyedi árajánlatot adunk, mert a javíthatóság
-                a sérülés mértékén múlik.
-              </p>
             </div>
           </Reveal>
         </div>
       </Szakasz>
 
-      <HivasSav
-        cim="Melyik csomag éri meg Önnek?"
-        szoveg="Attól függ, mennyit autózik és milyen úton. Mondja el, és megmondjuk, melyik hozza vissza az árát."
-      />
+      <HivasSav />
     </>
   );
 }

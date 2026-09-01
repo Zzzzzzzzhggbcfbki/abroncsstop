@@ -10,11 +10,12 @@ import {
 import { ceg, nyitvatartas } from "@/lib/site";
 import { Bevezeto, Cimsor, GombHoraf, Szakasz } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
+import { Terkep } from "@/components/terkep";
 
 export const metadata: Metadata = {
   title: "Kapcsolat",
   description:
-    "Abroncs Stop Bt., 2117 Isaszeg, Kossuth Lajos utca 126/A. Telefon: 30 621 1195. Nyitvatartás: hétfőtől péntekig 8 és 18 óra között, szombaton 8 és 13 óra között.",
+    "Abroncs Stop Bt., 2117 Isaszeg, Kossuth Lajos utca 126/A. Telefon: +36 30 621 1195. Nyitvatartás: hétfőtől péntekig 8 és 18 óra között.",
   alternates: { canonical: "/kapcsolat" },
 };
 
@@ -26,9 +27,8 @@ export default function Oldal() {
           Hol találja
         </Cimsor>
         <Bevezeto className="mt-6 text-[1.15rem]">
-          A műhely Isaszegen, a Kossuth Lajos utca 126/A alatt van. Ha időpontot
-          kérne vagy csak megkérdezné, mennyibe kerül valami, telefonon a
-          leggyorsabb.
+          Abroncs Stop Bt., gumiszerviz Isaszegen. Bővebb információért hívja
+          munkatársunkat.
         </Bevezeto>
       </Szakasz>
 
@@ -95,11 +95,7 @@ export default function Oldal() {
                       className="flex items-baseline justify-between gap-4 py-3.5 first:pt-0 last:pb-0"
                     >
                       <dt className="text-tinta">{n.nap}</dt>
-                      <dd
-                        className={`font-display font-semibold tabular-nums ${
-                          n.nyitva ? "text-tinta" : "text-tinta-halvany"
-                        }`}
-                      >
+                      <dd className="font-display font-semibold tabular-nums text-tinta">
                         {n.ora}
                       </dd>
                     </div>
@@ -121,15 +117,7 @@ export default function Oldal() {
                   className="object-cover"
                 />
               </div>
-              <div className="overflow-hidden rounded-[14px] border border-vonal bg-papir-melyebb">
-                <iframe
-                  src={ceg.terkep}
-                  title="Az Abroncs Stop műhelye a térképen"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="h-[380px] w-full border-0 sm:h-[440px]"
-                />
-              </div>
+              <Terkep />
             </div>
           </Reveal>
         </div>

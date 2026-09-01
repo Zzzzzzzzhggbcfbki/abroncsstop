@@ -1,13 +1,25 @@
-// Minden üzleti adat egy helyen. Forrás: abroncsstop.hu (2026-09-01) + a műhely homlokzati táblája.
+/*
+  MINDEN ADAT A RÉGI abroncsstop.hu OLDALRÓL SZÁRMAZIK.
+  Ellenőrizve a WP REST API teljes szövegkiírásán, 2026-09-01.
+  Ide ne kerüljön olyan állítás, ami nem szerepel a régi oldalon.
+*/
+
 export const ceg = {
   nev: "Abroncs Stop Bt.",
   rovidNev: "Abroncs Stop",
+  // kezdőlap: „Gördülékeny megoldás minden keréken”
   szlogen: "Gördülékeny megoldás minden keréken",
+  // kezdőlap: „LEGYEN PARTNERÜNK A BIZTONSÁGOS AUTÓZÁSBAN!”
+  mottó: "Legyen partnerünk a biztonságos autózásban",
+  // kapcsolat oldal: „HAMMEL BARNABÁS”
   kapcsolattarto: "Hammel Barnabás",
+  // kapcsolat oldal: „Tel: 30/621-1195”
   telefon: "+36 30 621 1195",
   telefonHref: "tel:+36306211195",
-  telefonKiiras: "30 621 1195",
+  telefonKiiras: "+36 30 621 1195",
+  // kapcsolat oldal: „Email: abroncs.stop@gmail.com”
   email: "abroncs.stop@gmail.com",
+  // kapcsolat oldal térképe: „2117 Isaszeg, Kossuth Lajos u. 126/A”
   cim: {
     utca: "Kossuth Lajos utca 126/A",
     iranyitoszam: "2117",
@@ -21,89 +33,66 @@ export const ceg = {
     "https://www.google.com/maps/search/?api=1&query=2117+Isaszeg+Kossuth+Lajos+utca+126%2FA",
 } as const;
 
-export const nyitvatartas = [
-  { nap: "Hétfő–péntek", ora: "8:00–18:00", nyitva: true },
-  { nap: "Szombat", ora: "8:00–13:00", nyitva: true },
-  { nap: "Vasárnap", ora: "Zárva", nyitva: false },
-] as const;
+// A régi oldal fejlécében mindenhol: „NYITVATARTÁS : H - P : 08 - 18”.
+// Szombati vagy vasárnapi nyitvatartás sehol nem szerepel rajta.
+export const nyitvatartas = [{ nap: "Hétfő–péntek", ora: "8:00–18:00" }] as const;
 
 export type Szolgaltatas = {
   slug: string;
   cim: string;
-  rovid: string;
   osszefoglalo: string;
   kep: string;
   kepAlt: string;
-  navban?: boolean;
 };
 
+// Pontosan a régi oldal menüjének szolgáltatásai, az ott olvasható szöveggel.
 export const szolgaltatasok: Szolgaltatas[] = [
   {
-    slug: "gumiszereles",
-    cim: "Gumiszerelés és centírozás",
-    rovid: "Szerelés, centírozás",
-    osszefoglalo:
-      "Nyári, téli és négyévszakos abroncsok szerelése, kiegyensúlyozása. A kerékcsavarokat nyomatékkulccsal húzzuk meg, gyári értékre.",
-    kep: "/fotok/gumiszereles-kez.jpg",
-    kepAlt: "Kesztyűs kéz igazítja az abroncsot az alufelnire a szerelőgépen",
-  },
-  {
-    slug: "defektjavitas",
-    cim: "Defektjavítás",
-    rovid: "Defektjavítás",
-    osszefoglalo:
-      "Futófelületi sérülés, szög, csavar. A legtöbb ilyen javítás megvárható, nem kell érte visszajönni.",
-    kep: "/fotok/defekt-javitas.jpg",
-    kepAlt: "Csavar az abroncs futófelületében, mellette a tömítőszerszám a munkapadon",
+    slug: "fenyszoro-felujitas",
+    cim: "Fényszóró felújítás",
+    osszefoglalo: "Autója fényszóróit újjá varázsoljuk. Kérje szolgáltatásunkat.",
+    kep: "/fotok/fenyszoro-03.jpg",
+    kepAlt: "Felújított, kitisztult fényszóróbúra",
   },
   {
     slug: "tpms",
-    cim: "TPMS és RDKS",
-    rovid: "TPMS",
+    cim: "TPMS",
     osszefoglalo:
-      "Guminyomás-ellenőrző rendszerrel szerelt autókat is szervizelünk. Szenzorkezelés, betanítás, diagnosztika.",
+      "Műhelyünkben a TPMS vagy RDKS rendszerű defektvisszajelzővel ellátott autók is könnyedén szervizelhetőek.",
     kep: "/fotok/tpms-szenzor.jpg",
     kepAlt: "TPMS szenzor közelről, a keréktárcsa peremére szerelve",
-    navban: true,
   },
   {
     slug: "gumihotel",
     cim: "Gumihotel",
-    rovid: "Gumihotel",
     osszefoglalo:
-      "Nyáron a téli, télen a nyári garnitúrát nálunk hagyhatja. Riasztóval és vonuló biztonsági szolgálattal védett raktárban.",
+      "Kerekeit nincs hol tárolnia? Üzletünkben lehetősége van arra, hogy keréktárcsáit, gumiabroncsait tárolja.",
     kep: "/fotok/gumihotel-polc.jpg",
     kepAlt: "Gumiabroncsok és keréktárcsák a gumihotel állványain",
-    navban: true,
   },
   {
     slug: "klimatisztitas",
-    cim: "Klímatisztítás ózonnal",
-    rovid: "Klímatisztítás",
+    cim: "Klímatisztítás",
     osszefoglalo:
-      "A klímarendszer megbontása nélkül, ózongázzal. Se vegyszer, se adalék, a kezelés 40 és 60 perc között van.",
+      "Előzze meg a klíma okozta fertőzéseket. Négy az egyben kezelés ózonnal, a klímarendszer megbontása nélkül.",
     kep: "/fotok/klima-ozon.jpg",
     kepAlt: "Ózongenerátor az utasülésen, nyitott ajtóknál",
-    navban: true,
   },
   {
     slug: "felnijavitas",
     cim: "Felnijavítás",
-    rovid: "Felnijavítás",
     osszefoglalo:
-      "Ütődött, deformálódott keréktárcsa. A kisebb hibákat rövid idő alatt javítjuk, a komolyabbakat általában másnapra.",
+      "A használat során nem ritka, hogy egy felni megütődik, és ennek okán deformálttá válik.",
     kep: "/fotok/felni-javitas.jpg",
     kepAlt: "Alufelni a javítógépbe fogva",
-    navban: true,
   },
 ];
 
+// A „Lámpa felújítása” oldal képgalériája: „Munkáinkból ízelítő”.
+// A négy fotó két előtte-utána pár ugyanarról a két autóról.
 export const fenyszoro = {
   slug: "fenyszoro-felujitas",
   cim: "Fényszóró felújítás",
-  osszefoglalo:
-    "A megsárgult, karcos búra nemcsak csúnya, kevesebb fényt is enged ki. Polírozással visszahozzuk az átlátszóságot.",
-  // Mind a négy fotó a saját műhelyünkben készült, két autóról, felújítás előtt és után.
   parok: [
     {
       elotte: "/fotok/fenyszoro-02.jpg",
@@ -118,15 +107,12 @@ export const fenyszoro = {
   ],
 } as const;
 
+// A „termek” oldalról, szó szerinti tartalommal.
 export const csomagok = [
   {
     kod: "S",
     ar: 5000,
-    tartalom: [
-      "2 db normál gumijavítás vagy szelepcsere",
-      "A vásárlástól számított egy évig",
-    ],
-    kiemelt: false,
+    tartalom: ["2 db normál gumijavítás vagy szelepcsere"],
   },
   {
     kod: "M",
@@ -134,56 +120,43 @@ export const csomagok = [
     tartalom: [
       "2 db normál gumijavítás vagy szelepcsere",
       "1 db ózonos klíma- és utastér-fertőtlenítés",
-      "A vásárlástól számított egy évig",
     ],
-    kiemelt: false,
   },
   {
     kod: "XL",
     ar: 25000,
     tartalom: [
-      "3 db normál gumijavítás vagy szelepcsere",
+      "2 db normál gumijavítás vagy szelepcsere",
+      "1 db gumijavítás vagy szelepcsere",
       "1 db ózonos klímatisztítás és utastér-fertőtlenítés",
-      "2 db szezonális gumitárolás, maximum egy évig",
-      "A vásárlástól számított egy évig",
+      "2 db szezonális gumitárolás, maximum 1 évig",
     ],
-    kiemelt: true,
   },
 ] as const;
 
 export const csomagFeltetel = {
-  mireVonatkozik: "Futófelületi sérülés: szög, csavar.",
-  mireNem:
-    "Oldalfalsérülésre, vágásra, hasadásra, keréktárcsa oxidációjára és keréktárcsa sérülésére nem vonatkozik.",
-  megkotes: "A csomag 4 db gumi szerelése mellé vásárolható meg.",
+  ervenyesseg: "A vásárlástól számított egy évig.",
+  megkotes: "Vásárolható csomagajánlat 4 db gumi szerelése mellé.",
+  normalGumijavitas: "Futófelületi sérülés: szög, csavar.",
+  nemVonatkozik: [
+    "Oldalfelületi sérülés",
+    "Vágás",
+    "Hasadás",
+    "Keréktárcsa oxidáció",
+    "Keréktárcsa sérülés",
+  ],
+  bovebben: "Bővebb információért hívja munkatársunkat!",
 } as const;
 
+// A „ghotel” oldalról: „A tárolás díja: 1500ft /db / szezon 6000ft / garnitúra (4db)”
 export const gumihotelArak = [
-  { tetel: "1 kerék vagy abroncs", ar: "1 500 Ft / szezon" },
-  { tetel: "Garnitúra, 4 db", ar: "6 000 Ft / szezon" },
+  { tetel: "1 db / szezon", ar: "1 500 Ft" },
+  { tetel: "Garnitúra, 4 db", ar: "6 000 Ft" },
 ] as const;
-
-export const markak = [
-  "michelin", "continental", "goodyear", "pirelli", "dunlop", "bridgestone",
-  "hankook", "nokian", "toyo", "falken", "kleber", "semperit",
-  "fulda", "firestone", "sava", "debica", "uniroyal", "kumho",
-  "vredestein", "bfgoodrich", "kormoran",
-] as const;
-
-export const markaNevek: Record<string, string> = {
-  michelin: "Michelin", continental: "Continental", goodyear: "Goodyear",
-  pirelli: "Pirelli", dunlop: "Dunlop", bridgestone: "Bridgestone",
-  hankook: "Hankook", nokian: "Nokian Tyres", toyo: "Toyo Tires",
-  falken: "Falken", kleber: "Kleber", semperit: "Semperit",
-  fulda: "Fulda", firestone: "Firestone", sava: "Sava",
-  debica: "Dębica", uniroyal: "Uniroyal", kumho: "Kumho",
-  vredestein: "Vredestein", bfgoodrich: "BFGoodrich", kormoran: "Kormoran",
-};
 
 export const navLinkek = [
   { href: "/#szolgaltatasok", cim: "Szolgáltatások" },
-  { href: "/csomagajanlat", cim: "Csomagok" },
-  { href: "/gumihotel", cim: "Gumihotel" },
+  { href: "/csomagajanlat", cim: "Csomagajánlat" },
   { href: "/jo-tudni", cim: "Jó tudni" },
   { href: "/kapcsolat", cim: "Kapcsolat" },
 ] as const;

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Archivo, Public_Sans } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { SutiSav } from "@/components/suti-sav";
 import { ceg } from "@/lib/site";
 import "./globals.css";
 
@@ -26,15 +27,14 @@ export const metadata: Metadata = {
     template: "%s | Abroncs Stop, Isaszeg",
   },
   description:
-    "Gumiszerelés, centírozás, defektjavítás, TPMS, gumihotel, klímatisztítás és fényszóró felújítás Isaszegen, a Kossuth Lajos utcában. Hívjon: 30 621 1195.",
+    "Gumiszerviz Isaszegen. Fényszóró felújítás, TPMS, gumihotel, klímatisztítás és felnijavítás a Kossuth Lajos utcában. Telefon: +36 30 621 1195.",
   keywords: [
     "gumiszerviz Isaszeg",
-    "gumiszerelés Isaszeg",
-    "defektjavítás Isaszeg",
     "gumihotel Isaszeg",
     "TPMS Isaszeg",
-    "fényszóró felújítás",
+    "fényszóró felújítás Isaszeg",
     "klímatisztítás Isaszeg",
+    "felnijavítás Isaszeg",
   ],
   openGraph: {
     type: "website",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: "Abroncs Stop Bt.",
     title: "Abroncs Stop | Gumiszerviz Isaszegen",
     description:
-      "Gumiszerelés, centírozás, defektjavítás, TPMS és gumihotel egy helyen, Isaszegen.",
+      "Gördülékeny megoldás minden keréken. Fényszóró felújítás, TPMS, gumihotel, klímatisztítás, felnijavítás.",
   },
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
@@ -58,7 +58,7 @@ const jsonLd = {
   "@type": "AutoRepair",
   name: ceg.nev,
   description:
-    "Gumiszerviz Isaszegen: gumiszerelés, centírozás, defektjavítás, TPMS, gumihotel, klímatisztítás, felnijavítás és fényszóró felújítás.",
+    "Gumiszerviz Isaszegen: fényszóró felújítás, TPMS, gumihotel, klímatisztítás és felnijavítás.",
   url: "https://abroncsstop.hu",
   telephone: ceg.telefon,
   email: ceg.email,
@@ -75,12 +75,6 @@ const jsonLd = {
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       opens: "08:00",
       closes: "18:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Saturday"],
-      opens: "08:00",
-      closes: "13:00",
     },
   ],
   sameAs: [ceg.facebook],
@@ -101,6 +95,7 @@ export default function RootLayout({
         <SiteHeader />
         <main id="tartalom">{children}</main>
         <SiteFooter />
+        <SutiSav />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
