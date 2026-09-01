@@ -14,7 +14,7 @@ export function HivasSav({
       <div className="mx-auto w-full max-w-[1240px] overflow-hidden rounded-[14px] bg-piros-tolt">
         <div className="grid gap-8 px-7 py-12 sm:px-12 md:grid-cols-12 md:items-center md:py-14">
           <div className="md:col-span-7">
-            <h2 className="font-display text-[1.9rem] font-semibold leading-[1.1] tracking-[-0.03em] text-white sm:text-[2.3rem]">
+            <h2 className="plakat max-w-[16ch] text-[2.1rem] text-white sm:text-[2.7rem]">
               {cim}
             </h2>
             <p className="mt-4 max-w-[46ch] text-[1.05rem] leading-relaxed text-white/85">

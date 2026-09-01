@@ -51,7 +51,7 @@ export function SiteFooter() {
           </div>
 
           <div className="md:col-span-4">
-            <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.14em] text-tinta-halvany">
+            <h2 className="plakat-vekony text-[12px] text-tinta-halvany">
               Szolgáltatások
             </h2>
             <ul className="mt-5 flex flex-col gap-2.5">
@@ -74,7 +74,7 @@ export function SiteFooter() {
           </div>
 
           <div className="md:col-span-3">
-            <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.14em] text-tinta-halvany">
+            <h2 className="plakat-vekony text-[12px] text-tinta-halvany">
               Nyitvatartás
             </h2>
             <dl className="mt-5 flex flex-col gap-2.5">

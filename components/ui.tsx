@@ -7,7 +7,7 @@ import type { ComponentProps, ReactNode } from "react";
 type GombVariant = "elsodleges" | "masodlagos" | "csendes";
 
 const gombAlap =
-  "inline-flex touch-manipulation items-center justify-center gap-2 whitespace-nowrap rounded-[10px] px-5 py-3 font-display text-[15px] font-semibold tracking-[-0.01em] transition-[transform,background-color,border-color,color] duration-200 active:translate-y-px";
+  "plakat-vekony inline-flex touch-manipulation items-center justify-center gap-2 whitespace-nowrap rounded-[10px] px-5 py-3.5 text-[14px] tracking-[0.045em] transition-[transform,background-color,border-color,color] duration-200 active:translate-y-px";
 
 const gombVariansok: Record<GombVariant, string> = {
   elsodleges:
@@ -15,7 +15,7 @@ const gombVariansok: Record<GombVariant, string> = {
   masodlagos:
     "border border-vonal bg-lap text-tinta hover:border-tinta-halvany hover:bg-papir-melyebb",
   csendes:
-    "text-tinta underline decoration-vonal decoration-2 underline-offset-[6px] hover:decoration-piros px-0 py-1",
+    "text-tinta underline decoration-vonal decoration-2 underline-offset-[7px] hover:decoration-piros px-0 py-1",
 };
 
 export function GombLink({
@@ -71,12 +71,12 @@ export function Cimsor({
 }) {
   return (
     <As
-      className={`font-display font-semibold tracking-[-0.03em] text-tinta ${
+      className={`plakat text-tinta ${
         As === "h1"
-          ? "text-[2.4rem] leading-[1.05] sm:text-[3rem] lg:text-[3.5rem]"
+          ? "text-[3.1rem] sm:text-[4.4rem] lg:text-[5.6rem]"
           : As === "h2"
-            ? "text-[2rem] leading-[1.08] sm:text-[2.6rem] lg:text-[3rem]"
-            : "text-xl leading-snug sm:text-2xl"
+            ? "text-[2.5rem] sm:text-[3.4rem] lg:text-[4.2rem]"
+            : "text-[1.45rem] sm:text-[1.7rem]"
       } ${className}`}
     >
       {children}

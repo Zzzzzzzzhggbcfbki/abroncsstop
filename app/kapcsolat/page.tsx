@@ -22,12 +22,13 @@ export default function Oldal() {
   return (
     <>
       <Szakasz className="pt-10 pb-8 md:pt-14 md:pb-10">
-        <Cimsor as="h1" className="max-w-[18ch] text-balance">
-          Isaszegen, a Kossuth Lajos utcában
+        <Cimsor as="h1" className="max-w-[13ch] text-balance">
+          Hol találja
         </Cimsor>
         <Bevezeto className="mt-6 text-[1.15rem]">
-          A műhely a Kossuth Lajos utca 126/A alatt van. Ha időpontot kérne vagy
-          csak megkérdezné, mennyibe kerül valami, telefonon a leggyorsabb.
+          A műhely Isaszegen, a Kossuth Lajos utca 126/A alatt van. Ha időpontot
+          kérne vagy csak megkérdezné, mennyibe kerül valami, telefonon a
+          leggyorsabb.
         </Bevezeto>
       </Szakasz>
 
@@ -36,12 +37,12 @@ export default function Oldal() {
           <Reveal className="lg:col-span-5">
             <div className="flex h-full flex-col gap-4">
               <div className="rounded-[14px] border border-vonal bg-lap p-7 shadow-lagy sm:p-8">
-                <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.13em] text-tinta-halvany">
+                <h2 className="plakat-vekony text-[12px] text-tinta-halvany">
                   Elérhetőség
                 </h2>
                 <a
                   href={ceg.telefonHref}
-                  className="mt-5 flex items-center gap-3 font-display text-[2rem] font-semibold tracking-[-0.03em] text-tinta transition-colors hover:text-piros"
+                  className="plakat mt-5 flex items-center gap-3 text-[2.2rem] text-tinta transition-colors hover:text-piros"
                 >
                   <Phone size={26} weight="fill" className="text-piros" aria-hidden />
                   {ceg.telefonKiiras}
@@ -84,7 +85,7 @@ export default function Oldal() {
               </div>
 
               <div className="rounded-[14px] border border-vonal bg-lap p-7 shadow-lagy sm:p-8">
-                <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.13em] text-tinta-halvany">
+                <h2 className="plakat-vekony text-[12px] text-tinta-halvany">
                   Nyitvatartás
                 </h2>
                 <dl className="mt-5 divide-y divide-vonal">

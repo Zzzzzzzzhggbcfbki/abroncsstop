@@ -13,10 +13,10 @@
   --tinta: #1c1b19;
   --tinta-halvany: #6b655d;
   --vonal: #ddd6ca;
-  --piros: #c1231a;          /* szöveg és ikon akcentus, világos háttéren AA */
-  --piros-tolt: #d42a1f;     /* tömör kitöltés: gomb, sáv. Fehér szöveggel AA, mindkét módban */
-  --piros-tolt-erosebb: #a81e15;
-  --piros-halvany: #fdeceb;
+  --piros: #c4141b;          /* szöveg és ikon akcentus, világos háttéren AA */
+  --piros-tolt: #dc1f26;     /* tömör kitöltés: gomb, sáv. A logó jelzőpirosa, fehér szöveggel AA */
+  --piros-tolt-erosebb: #ad1017;
+  --piros-halvany: #fdebec;
   --arnyek: 0 1px 2px rgb(28 27 25 / 0.05), 0 12px 32px -18px rgb(28 27 25 / 0.22);
   --arnyek-emelt: 0 2px 4px rgb(28 27 25 / 0.06), 0 24px 56px -26px rgb(28 27 25 / 0.3);
 }
@@ -90,4 +90,25 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .markasav { animation: none; }
   .markasav-tarolo { overflow-x: auto; }
+}
+
+/*
+  Plakátcímsor. Keskenyített, vaskos, verzál Archivo: ez adja a műhelyhangulatot,
+  amitől nem magazinnak, hanem szerviznek néz ki az oldal.
+  A magyar ékezetes verzálok (Á É Í Ó Ő Ú Ű) miatt a sormagasság nem mehet 0.9 alá.
+*/
+.plakat {
+  font-family: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  font-stretch: 79%;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  line-height: 0.93;
+}
+
+.plakat-vekony {
+  font-stretch: 79%;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }

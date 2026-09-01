@@ -43,13 +43,13 @@ export function SzolgaltatasOldal({
         <div className="mx-auto w-full max-w-[1240px]">
           <Link
             href="/#szolgaltatasok"
-            className="inline-flex items-center gap-2 font-display text-sm font-semibold text-tinta-halvany transition-colors hover:text-piros"
+            className="plakat-vekony inline-flex items-center gap-2 text-[12px] text-tinta-halvany transition-colors hover:text-piros"
           >
             <ArrowLeft size={15} aria-hidden />
             Szolgáltatások
           </Link>
 
-          <Cimsor as="h1" className="mt-7 max-w-[16ch] text-balance">
+          <Cimsor as="h1" className="mt-6 max-w-[13ch] text-balance">
             {cim}
           </Cimsor>
           <Bevezeto className="mt-6 text-[1.15rem]">{bevezeto}</Bevezeto>
@@ -74,7 +74,7 @@ export function SzolgaltatasOldal({
               <Reveal key={b.cim ?? i} delay={i * 0.05}>
                 <div className={i > 0 ? "mt-12" : ""}>
                   {b.cim && (
-                    <h2 className="font-display text-2xl font-semibold tracking-[-0.025em] text-tinta sm:text-[1.75rem]">
+                    <h2 className="plakat text-[1.8rem] text-tinta sm:text-[2.1rem]">
                       {b.cim}
                     </h2>
                   )}
@@ -132,7 +132,7 @@ export function SzolgaltatasOldal({
             <div className="sticky top-[92px] flex flex-col gap-4">
               {arak && (
                 <div className="rounded-[14px] border border-vonal bg-lap p-7 shadow-lagy">
-                  <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.13em] text-tinta-halvany">
+                  <h2 className="plakat-vekony text-[12px] text-tinta-halvany">
                     {arakCime}
                   </h2>
                   <dl className="mt-5 divide-y divide-vonal">
@@ -152,7 +152,7 @@ export function SzolgaltatasOldal({
               )}
 
               <div className="rounded-[14px] border border-vonal bg-lap p-7 shadow-lagy">
-                <h2 className="font-display text-lg font-semibold tracking-[-0.02em] text-tinta">
+                <h2 className="plakat text-[1.5rem] text-tinta">
                   Időpontot kérne?
                 </h2>
                 <p className="mt-3 text-[0.98rem] leading-relaxed text-tinta-halvany">

@@ -74,7 +74,7 @@ export default function Oldal() {
         <div className="mx-auto grid w-full max-w-[1240px] gap-12 md:grid-cols-12 md:gap-16">
           <nav className="md:col-span-4 lg:col-span-3" aria-label="Tartalom">
             <div className="sticky top-[92px] rounded-[14px] border border-vonal bg-lap p-6">
-              <h2 className="font-display text-[13px] font-semibold uppercase tracking-[0.13em] text-tinta-halvany">
+              <h2 className="plakat-vekony text-[12px] text-tinta-halvany">
                 Tartalom
               </h2>
               <ol className="mt-4 flex flex-col gap-3">
@@ -102,7 +102,7 @@ export default function Oldal() {
                   id={t.id}
                   className={`scroll-mt-28 ${i > 0 ? "mt-14 border-t border-vonal pt-14" : ""}`}
                 >
-                  <h2 className="font-display text-[1.75rem] font-semibold tracking-[-0.028em] text-tinta sm:text-[2.1rem]">
+                  <h2 className="plakat text-[1.9rem] text-tinta sm:text-[2.4rem]">
                     {t.cim}
                   </h2>
                   {t.bekezdesek.map((p) => (

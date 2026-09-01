@@ -5,9 +5,11 @@ import { SiteFooter } from "@/components/site-footer";
 import { ceg } from "@/lib/site";
 import "./globals.css";
 
+// A wdth tengely adja a keskenyített, plakátszerű címsorokat.
 const archivo = Archivo({
   variable: "--font-archivo",
   subsets: ["latin", "latin-ext"],
+  axes: ["wdth"],
   display: "swap",
 });
 

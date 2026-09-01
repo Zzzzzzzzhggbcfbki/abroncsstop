@@ -47,16 +47,16 @@ export default function Oldal() {
                 }`}
               >
                 <div className="flex items-baseline justify-between gap-4">
-                  <span className="font-display text-[3rem] font-bold leading-none tracking-[-0.04em] text-tinta">
+                  <span className="plakat text-[3.6rem] text-tinta">
                     {cs.kod}
                   </span>
                   {cs.kiemelt && (
-                    <span className="rounded-[6px] bg-piros-halvany px-2.5 py-1 font-display text-[12px] font-semibold uppercase tracking-[0.12em] text-piros">
+                    <span className="plakat-vekony rounded-[6px] bg-piros-halvany px-2.5 py-1 text-[11px] text-piros">
                       A teljes
                     </span>
                   )}
                 </div>
-                <p className="mt-6 font-display text-4xl font-semibold tracking-[-0.035em] tabular-nums text-piros">
+                <p className="plakat mt-6 text-[2.8rem] tabular-nums text-piros">
                   {cs.ar.toLocaleString("hu-HU")} Ft
                 </p>
                 <ul className="mt-8 flex flex-1 flex-col gap-4 border-t border-vonal pt-8">
@@ -77,7 +77,7 @@ export default function Oldal() {
         <div className="grid gap-10 md:grid-cols-2">
           <Reveal>
             <div className="h-full rounded-[14px] border border-vonal bg-lap p-8">
-              <h2 className="font-display text-2xl font-semibold tracking-[-0.025em] text-tinta">
+              <h2 className="plakat text-[1.8rem] text-tinta">
                 Mit jelent a normál gumijavítás
               </h2>
               <p className="mt-4 leading-[1.7] text-tinta-halvany">
@@ -92,7 +92,7 @@ export default function Oldal() {
 
           <Reveal delay={0.08}>
             <div className="h-full rounded-[14px] border border-vonal bg-lap p-8">
-              <h2 className="font-display text-2xl font-semibold tracking-[-0.025em] text-tinta">
+              <h2 className="plakat text-[1.8rem] text-tinta">
                 Mire nem vonatkozik
               </h2>
               <ul className="mt-6 flex flex-col gap-3">

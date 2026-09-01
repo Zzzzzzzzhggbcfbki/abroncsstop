@@ -43,17 +43,36 @@ const jotudniKivonat = [
 export default function Fooldal() {
   return (
     <>
-      {/* 1. Hero: aszimmetrikus osztás, bal oldalon a mondanivaló, jobbon a kép. */}
-      <section className="px-5 pb-4 pt-10 sm:px-8 md:pb-10 md:pt-16">
-        <div className="mx-auto grid w-full max-w-[1240px] items-center gap-10 md:grid-cols-12 md:gap-12">
-          <div className="md:col-span-7">
+      {/* 1. Hero: a fotó a jobb képernyőszélig fut, ferde éllel. A cím
+          keskenyített verzál, mert a műhely nyelve ez, nem a magazintipográfia. */}
+      <section className="relative">
+        <div
+          className="absolute inset-y-0 right-0 hidden w-[47%] lg:block"
+          aria-hidden
+        >
+          <div
+            className="relative h-full w-full"
+            style={{ clipPath: "polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
+          >
+            <Image
+              src="/fotok/hero-gumiszereles.jpg"
+              alt=""
+              fill
+              priority
+              sizes="50vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
+
+        <div className="relative mx-auto w-full max-w-[1240px] px-5 sm:px-8">
+          <div className="flex flex-col justify-center py-14 lg:min-h-[620px] lg:w-[53%] lg:py-20 lg:pr-8">
             <Cimsor as="h1" className="text-balance">
-              Gumiszerviz Isaszegen, a{" "}
-              <span className="text-piros">Kossuth Lajos</span> utcában.
+              Gumiszerviz <span className="text-piros">Isaszegen</span>
             </Cimsor>
-            <Bevezeto className="mt-6">
-              Szerelés, centírozás, defektjavítás, TPMS és gumihotel egy helyen.
-              Hívjon, és megmondjuk, mikor tudjuk fogadni.
+            <Bevezeto className="mt-7 text-[1.1rem]">
+              Szerelés, centírozás, defektjavítás, TPMS és gumihotel egy helyen, a
+              Kossuth Lajos utcában. Hívjon, és megmondjuk, mikor tudjuk fogadni.
             </Bevezeto>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <GombHoraf href={ceg.telefonHref}>
@@ -66,30 +85,29 @@ export default function Fooldal() {
               </GombLink>
             </div>
           </div>
+        </div>
 
-          <div className="md:col-span-5">
-            <div className="relative aspect-4/5 overflow-hidden rounded-[14px] bg-papir-melyebb shadow-emelt">
-              <Image
-                src="/fotok/hero-gumiszereles.jpg"
-                alt="Kerékcsere az Abroncs Stop műhelyében"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
+        {/* Mobilon a kép a szöveg alá kerül, teljes szélességben. */}
+        <div className="relative aspect-16/11 w-full lg:hidden">
+          <Image
+            src="/fotok/hero-gumiszereles.jpg"
+            alt="Kerékcsere az Abroncs Stop műhelyében"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
         </div>
       </section>
 
       {/* 2. Adatsáv: a három dolog, amiért egy helyi műhely oldalára jönnek. */}
-      <section className="px-5 sm:px-8">
+      <section className="px-5 pt-10 sm:px-8 lg:pt-14">
         <div className="mx-auto w-full max-w-[1240px] rounded-[14px] border border-vonal bg-lap shadow-lagy">
           <dl className="grid divide-y divide-vonal sm:grid-cols-3 sm:divide-x sm:divide-y-0">
             <div className="flex items-start gap-4 p-6 sm:p-7">
               <Clock size={22} className="mt-0.5 shrink-0 text-piros" aria-hidden />
               <div className="min-w-0">
-                <dt className="font-display text-[13px] font-semibold uppercase tracking-[0.12em] text-tinta-halvany">
+                <dt className="plakat-vekony text-[12px] text-tinta-halvany">
                   Nyitvatartás
                 </dt>
                 <dd className="mt-2 space-y-1">
@@ -107,7 +125,7 @@ export default function Fooldal() {
             <div className="flex items-start gap-4 p-6 sm:p-7">
               <MapPin size={22} className="mt-0.5 shrink-0 text-piros" aria-hidden />
               <div className="min-w-0">
-                <dt className="font-display text-[13px] font-semibold uppercase tracking-[0.12em] text-tinta-halvany">
+                <dt className="plakat-vekony text-[12px] text-tinta-halvany">
                   Cím
                 </dt>
                 <dd className="mt-2 text-tinta">
@@ -131,7 +149,7 @@ export default function Fooldal() {
             <div className="flex items-start gap-4 p-6 sm:p-7">
               <Phone size={22} className="mt-0.5 shrink-0 text-piros" aria-hidden />
               <div className="min-w-0">
-                <dt className="font-display text-[13px] font-semibold uppercase tracking-[0.12em] text-tinta-halvany">
+                <dt className="plakat-vekony text-[12px] text-tinta-halvany">
                   Telefon
                 </dt>
                 <dd className="mt-2">
@@ -154,61 +172,70 @@ export default function Fooldal() {
       {/* 3. Szolgáltatások: bento, hat cella, három közülük képes. */}
       <Szakasz id="szolgaltatasok">
         <Reveal>
-          <Cimsor className="max-w-[20ch] text-balance">
-            Amit a kerék körül helyben elvégzünk
+          <Cimsor className="max-w-[14ch] text-balance">
+            Amit elvégzünk
           </Cimsor>
-          <Bevezeto className="mt-5">
-            A gumitól a klímán át a fényszóróig. Ha valamihez nem mi kellünk,
-            megmondjuk, kihez érdemes vinni.
+          <Bevezeto className="mt-6">
+            A gumitól a klímán át a fényszóróig, a kerék körüli munkák nagy részét
+            helyben megoldjuk. Ha valamihez nem mi kellünk, megmondjuk, kihez
+            érdemes vinni.
           </Bevezeto>
         </Reveal>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-6">
+        {/* Fotóra ülő kártyák, változó méretben: 3x2 nagy, két 3x1, három 2x1.
+            Pontosan hat cella, üres hely nélkül. */}
+        <div className="mt-12 grid gap-4 md:auto-rows-[248px] md:grid-cols-6">
           {szolgaltatasok.map((sz, i) => {
-            // Bento ritmus: 4+2 / 2+2+2 / 6. Pontosan hat cella, üres hely nélkül.
-            const oszlop =
-              i === 0 ? "md:col-span-4" : i === 5 ? "md:col-span-6" : "md:col-span-2";
-            const kepHelye =
-              i === 0 || i === 5 ? "oldalt" : i === 1 ? "nincs" : "felul";
+            const meret = [
+              "md:col-span-3 md:row-span-2",
+              "md:col-span-3",
+              "md:col-span-3",
+              "md:col-span-2",
+              "md:col-span-2",
+              "md:col-span-2",
+            ][i];
+            const nagy = i === 0;
 
             return (
-              <Reveal key={sz.slug} delay={i * 0.05} className={oszlop}>
+              <Reveal key={sz.slug} delay={i * 0.05} className={meret}>
                 <Link
                   href={`/${sz.slug}`}
-                  className={`group flex h-full overflow-hidden rounded-[14px] border shadow-lagy transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-tinta-halvany hover:shadow-emelt ${
-                    kepHelye === "nincs"
-                      ? "border-vonal bg-papir-melyebb"
-                      : "border-vonal bg-lap"
-                  } ${kepHelye === "oldalt" ? "flex-col sm:flex-row-reverse" : "flex-col"}`}
+                  className="group relative flex h-full min-h-[300px] flex-col justify-end overflow-hidden rounded-[14px] md:min-h-0"
                 >
-                  {kepHelye !== "nincs" && (
-                    <div
-                      className={`relative shrink-0 overflow-hidden bg-papir-melyebb ${
-                        kepHelye === "oldalt"
-                          ? "h-48 sm:h-auto sm:w-[38%]"
-                          : "aspect-16/10"
+                  <Image
+                    src={sz.kep}
+                    alt={sz.kepAlt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.05]"
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-t from-[#14120f]/95 via-[#14120f]/55 to-[#14120f]/10"
+                  />
+                  <div className="relative p-6 sm:p-7">
+                    <span className="plakat block text-[1.4rem] text-white/45">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3
+                      className={`plakat mt-2.5 text-white ${
+                        nagy ? "text-[2rem] sm:text-[2.5rem]" : "text-[1.55rem]"
                       }`}
                     >
-                      <Image
-                        src={sz.kep}
-                        alt={sz.kepAlt}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      />
-                    </div>
-                  )}
-                  <div className="flex flex-1 flex-col p-6 sm:p-7">
-                    <h3 className="font-display text-xl font-semibold tracking-[-0.02em] text-tinta">
                       {sz.cim}
                     </h3>
-                    <p className="mt-3 max-w-[46ch] text-[0.98rem] leading-relaxed text-tinta-halvany">
+                    <p
+                      className={`mt-3 max-w-[42ch] text-[0.95rem] leading-relaxed text-white/75 ${
+                        nagy ? "" : "line-clamp-2"
+                      }`}
+                    >
                       {sz.osszefoglalo}
                     </p>
-                    <span className="mt-auto inline-flex items-center gap-1.5 pt-6 font-display text-sm font-semibold text-piros">
+                    <span className="plakat-vekony mt-5 inline-flex items-center gap-1.5 text-[13px] text-white">
                       Részletek
                       <ArrowRight
-                        size={15}
+                        size={14}
+                        weight="bold"
                         aria-hidden
                         className="transition-transform duration-300 group-hover:translate-x-1"
                       />
@@ -226,13 +253,13 @@ export default function Fooldal() {
         <div className="mx-auto w-full max-w-[1240px] px-5 sm:px-8">
           <Reveal>
             <div className="max-w-[46ch]">
-              <Cimsor className="text-balance">
-                A megsárgult búra kevesebb fényt enged ki
+              <Cimsor className="max-w-[13ch] text-balance">
+                Fényszóró felújítás
               </Cimsor>
-              <Bevezeto className="mt-5">
-                A búra idővel bepárásodik, megkarcolódik, megsárgul. Polírozással
-                visszahozzuk az átlátszóságát, így este megint annyit lát, amennyit
-                kellene. Az alábbi négy fotó a saját munkánk.
+              <Bevezeto className="mt-6">
+                A megsárgult búra nemcsak csúnya, kevesebb fényt is enged ki.
+                Polírozással visszahozzuk az átlátszóságát, így este megint annyit
+                lát, amennyit kellene. Az alábbi négy fotó a saját munkánk.
               </Bevezeto>
               <GombLink href={`/${fenyszoro.slug}`} variant="csendes" className="mt-6">
                 Fényszóró felújítás
@@ -266,12 +293,12 @@ export default function Fooldal() {
       <Szakasz className="bg-papir-melyebb">
         <Reveal>
           <div className="flex flex-col gap-5">
-            <Cimsor className="max-w-[22ch] text-balance">
-              Csomagajánlat négy gumi szerelése mellé
+            <Cimsor className="max-w-[14ch] text-balance">
+              Csomagajánlat
             </Cimsor>
             <Bevezeto>
-              Egyszer fizet, és egy évig nem kell külön gondolkodnia a
-              gumijavításon. A csomag a szereléssel együtt vásárolható meg.
+              Négy gumi szerelése mellé megvásárolható. Egyszer fizet, és egy évig
+              nem kell külön gondolkodnia a gumijavításon.
             </Bevezeto>
           </div>
         </Reveal>
@@ -291,16 +318,16 @@ export default function Fooldal() {
                 }`}
               >
                 <div className="flex items-baseline justify-between gap-4">
-                  <span className="font-display text-[2.6rem] font-bold leading-none tracking-[-0.04em] text-tinta">
+                  <span className="plakat text-[3.2rem] text-tinta">
                     {cs.kod}
                   </span>
                   {cs.kiemelt && (
-                    <span className="rounded-[6px] bg-piros-halvany px-2.5 py-1 font-display text-[12px] font-semibold uppercase tracking-[0.12em] text-piros">
+                    <span className="plakat-vekony rounded-[6px] bg-piros-halvany px-2.5 py-1 text-[11px] text-piros">
                       A teljes
                     </span>
                   )}
                 </div>
-                <p className="mt-5 font-display text-3xl font-semibold tracking-[-0.03em] text-piros tabular-nums">
+                <p className="plakat mt-5 text-[2.4rem] text-piros tabular-nums">
                   {cs.ar.toLocaleString("hu-HU")} Ft
                 </p>
                 <ul className="mt-7 flex flex-col gap-3 border-t border-vonal pt-7">
@@ -348,10 +375,11 @@ export default function Fooldal() {
           </Reveal>
 
           <Reveal delay={0.08} className="md:col-span-7">
-            <Cimsor className="max-w-[20ch] text-balance">
-              Nyáron a télit, télen a nyárit nálunk hagyhatja
+            <Cimsor className="max-w-[12ch] text-balance">
+              Gumihotel
             </Cimsor>
-            <Bevezeto className="mt-5">
+            <Bevezeto className="mt-6">
+              Nyáron a télit, télen a nyárit nálunk hagyhatja.{" "}
               Nem kell hazacipelni a garnitúrát, és nem kell helyet keresni neki a
               garázsban. Ha esedékes a csere, elég telefonálnia: mire ideér, a
               kerekek elő vannak készítve. Fizetni a tárolás végén kell.
@@ -361,9 +389,7 @@ export default function Fooldal() {
               {gumihotelArak.map((a) => (
                 <div key={a.tetel} className="flex items-baseline justify-between gap-6 py-4">
                   <dt className="text-tinta">{a.tetel}</dt>
-                  <dd className="font-display text-lg font-semibold tabular-nums text-tinta">
-                    {a.ar}
-                  </dd>
+                  <dd className="plakat text-[1.5rem] tabular-nums text-tinta">{a.ar}</dd>
                 </div>
               ))}
             </dl>
@@ -384,7 +410,7 @@ export default function Fooldal() {
       {/* 7. Márkák: egyetlen futósáv az oldalon, ezért nem terhelő. */}
       <section className="border-y border-vonal bg-papir-melyebb py-14">
         <div className="mx-auto mb-9 w-full max-w-[1240px] px-5 sm:px-8">
-          <h2 className="font-display text-lg font-semibold tracking-[-0.02em] text-tinta">
+          <h2 className="plakat-vekony text-[13px] text-tinta-halvany">
             Ezekhez a márkákhoz szerzünk be abroncsot
           </h2>
         </div>
