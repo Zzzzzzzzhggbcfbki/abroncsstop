@@ -38,19 +38,16 @@ export default function Oldal() {
         {
           cim: "A szolgáltatások köre",
           lista: [
-            "Fényszóró felújítás",
             "TPMS rendszerrel szerelt járművek szervizelése",
             "Gumihotel, szezonális gumi- és keréktárolás",
             "Klímatisztítás ózonnal, utastér-fertőtlenítés",
             "Felnijavítás",
-            "Csomagajánlat 4 db gumi szerelése mellé",
           ],
         },
         {
           cim: "Árak és fizetés",
           bekezdesek: [
             "A weboldalon feltüntetett árak forintban értendők. A fizetés a munka elvégzése után, a telephelyen történik. A gumihotel szolgáltatás díját a tárolás végén kell megfizetni.",
-            "A csomagajánlat 4 db gumi szerelése mellé vásárolható meg, és a vásárlástól számított egy évig érvényes. A csomagban foglalt normál gumijavítás a futófelületi sérülésekre vonatkozik, vagyis szögre és csavarra. Nem vonatkozik oldalfelületi sérülésre, vágásra, hasadásra, keréktárcsa oxidációjára és keréktárcsa sérülésére.",
           ],
         },
         {

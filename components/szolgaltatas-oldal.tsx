@@ -5,7 +5,6 @@ import { ceg, nyitvatartas } from "@/lib/site";
 import { Bevezeto, Cimsor, GombHoraf } from "./ui";
 import { Reveal } from "./reveal";
 import { HivasSav } from "./hivas-sav";
-import { ElotteUtana } from "./elotte-utana";
 
 export type Blokk = {
   cim?: string;
@@ -23,7 +22,6 @@ export function SzolgaltatasOldal({
   blokkok,
   arak,
   arakCime = "Árak",
-  parok,
   ctaCim,
   ctaSzoveg,
 }: {
@@ -34,7 +32,6 @@ export function SzolgaltatasOldal({
   blokkok: Blokk[];
   arak?: ArTetel[];
   arakCime?: string;
-  parok?: readonly { elotte: string; utana: string; alt: string }[];
   ctaCim?: string;
   ctaSzoveg?: string;
 }) {
@@ -107,21 +104,6 @@ export function SzolgaltatasOldal({
               </Reveal>
             ))}
 
-            {parok && (
-              <Reveal delay={0.1}>
-                <div className="mt-12 grid gap-4 sm:grid-cols-2">
-                  {parok.map((par) => (
-                    <ElotteUtana
-                      key={par.elotte}
-                      elotte={par.elotte}
-                      utana={par.utana}
-                      alt={par.alt}
-                      className="aspect-3/4"
-                    />
-                  ))}
-                </div>
-              </Reveal>
-            )}
           </div>
 
           <aside className="md:col-span-5 lg:col-span-4">

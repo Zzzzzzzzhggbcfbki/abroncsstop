@@ -5,15 +5,10 @@ import {
   ceg,
   nyitvatartas,
   szolgaltatasok,
-  fenyszoro,
-  csomagok,
-  csomagFeltetel,
   gumihotelArak,
 } from "@/lib/site";
 import { Bevezeto, Cimsor, GombHoraf, GombLink, Szakasz } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
-import { HivasSav } from "@/components/hivas-sav";
-import { ElotteUtana } from "@/components/elotte-utana";
 
 // A „Jó tudni” oldal első három témájának nyitómondatai, szó szerint.
 const jotudniKivonat = [
@@ -61,8 +56,8 @@ export default function Fooldal() {
               Gumiszerviz <span className="text-piros">Isaszegen</span>
             </Cimsor>
             <Bevezeto className="mt-7 text-[1.1rem]">
-              {ceg.szlogen}. Fényszóró felújítás, TPMS diagnosztika, gumihotel,
-              klímatisztítás és felnijavítás.
+              {ceg.szlogen}. TPMS diagnosztika, gumihotel, klímatisztítás és
+              felnijavítás.
             </Bevezeto>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <GombHoraf href={ceg.telefonHref}>
@@ -74,6 +69,33 @@ export default function Fooldal() {
                 <ArrowRight size={17} aria-hidden />
               </GombLink>
             </div>
+
+            {/* A cím külön kártyán, mert ez a második legfontosabb adat a
+                telefonszám után: aki idejön, tudni akarja, hova induljon. */}
+            <a
+              href={ceg.terkepLink}
+              target="_blank"
+              rel="noreferrer"
+              className="group mt-8 flex max-w-[26rem] items-center gap-5 rounded-[14px] border-l-4 border-piros-tolt bg-lap py-5 pl-5 pr-6 shadow-emelt transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              <MapPin size={30} weight="fill" className="shrink-0 text-piros" aria-hidden />
+              <span className="min-w-0">
+                <span className="plakat-vekony block text-[11px] text-tinta-halvany">
+                  Itt talál minket
+                </span>
+                <span className="plakat mt-1.5 block text-[1.45rem] leading-[1.1] text-tinta">
+                  {ceg.cim.telepules}, {ceg.cim.utca}
+                </span>
+                <span className="mt-2 inline-flex items-center gap-1 font-display text-sm font-semibold text-piros">
+                  Útvonaltervezés
+                  <ArrowUpRight
+                    size={14}
+                    aria-hidden
+                    className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
+                </span>
+              </span>
+            </a>
           </div>
         </div>
 
@@ -89,11 +111,11 @@ export default function Fooldal() {
         </div>
       </section>
 
-      {/* 2. Adatsáv. Nyitvatartás, cím, telefon: mind a régi oldal fejlécéből
-          és kapcsolat oldaláról. */}
+      {/* 2. Adatsáv. Nyitvatartás és telefon a régi oldal fejlécéből.
+          A cím feljebb, a heróban van, kiemelt kártyán. */}
       <section className="px-5 pt-10 sm:px-8 lg:pt-14">
         <div className="mx-auto w-full max-w-[1240px] rounded-[14px] border border-vonal bg-lap shadow-lagy">
-          <dl className="grid divide-y divide-vonal sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+          <dl className="grid divide-y divide-vonal sm:grid-cols-2 sm:divide-x sm:divide-y-0">
             <div className="flex items-start gap-4 p-6 sm:p-7">
               <Clock size={22} className="mt-0.5 shrink-0 text-piros" aria-hidden />
               <div className="min-w-0">
@@ -104,28 +126,6 @@ export default function Fooldal() {
                     <strong className="font-semibold tabular-nums">{n.ora}</strong>
                   </dd>
                 ))}
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4 p-6 sm:p-7">
-              <MapPin size={22} className="mt-0.5 shrink-0 text-piros" aria-hidden />
-              <div className="min-w-0">
-                <dt className="plakat-vekony text-[12px] text-tinta-halvany">Cím</dt>
-                <dd className="mt-2 text-tinta">
-                  {ceg.cim.iranyitoszam} {ceg.cim.telepules},<br />
-                  {ceg.cim.utca}
-                </dd>
-                <dd className="mt-2">
-                  <a
-                    href={ceg.terkepLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 font-display text-sm font-semibold text-piros hover:underline"
-                  >
-                    Útvonal
-                    <ArrowUpRight size={14} aria-hidden />
-                  </a>
-                </dd>
               </div>
             </div>
 
@@ -150,12 +150,11 @@ export default function Fooldal() {
         </div>
       </section>
 
-      {/* 3. Szolgáltatások: pontosan a régi menü öt szolgáltatása.
-          Bento ritmus 3x2 / 3 / 3 / 3, öt cella, üres hely nélkül. */}
-      <Szakasz id="szolgaltatasok">
+      {/* 3. Szolgáltatások: a régi menü szolgáltatásai a fényszóró nélkül.
+          Bento ritmus 3x2 / 3 / 3 / 6, négy cella, üres hely nélkül. */}
+      <Szakasz id="szolgaltatasok" className="border-y border-vonal bg-papir-melyebb">
         <Reveal>
           <Cimsor className="max-w-[14ch] text-balance">Szolgáltatásaink</Cimsor>
-          <Bevezeto className="mt-6">{ceg.mottó}.</Bevezeto>
         </Reveal>
 
         <div className="mt-12 grid gap-4 md:auto-rows-[248px] md:grid-cols-6">
@@ -164,8 +163,7 @@ export default function Fooldal() {
               "md:col-span-3 md:row-span-2",
               "md:col-span-3",
               "md:col-span-3",
-              "md:col-span-3",
-              "md:col-span-3",
+              "md:col-span-6",
             ][i];
             const nagy = i === 0;
 
@@ -182,8 +180,8 @@ export default function Fooldal() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.05]"
                   />
-                  {/* Erős fátyol a szövegsáv alatt: e nélkül a fehér szöveg
-                      a világosabb fotórészeken nem érné el a WCAG AA-t. */}
+                  {/* A szövegsáv alá erős fátyol kell, mert a fotók alsó harmada
+                      helyenként világos: e nélkül a fehér szöveg nem érné el az AA-t. */}
                   <div
                     aria-hidden
                     className="absolute inset-0"
@@ -227,90 +225,51 @@ export default function Fooldal() {
         </div>
       </Szakasz>
 
-      {/* 4. „Munkáinkból ízelítő”: a régi fényszóró oldal négy fotója,
-          két előtte-utána párként. */}
-      <Szakasz className="bg-papir-melyebb">
-        <div className="grid gap-10 md:grid-cols-12 md:items-end">
-          <Reveal className="md:col-span-6">
-            <Cimsor className="max-w-[13ch] text-balance">Munkáinkból ízelítő</Cimsor>
-          </Reveal>
-          <Reveal delay={0.06} className="md:col-span-6">
-            <Bevezeto>
-              Autója fényszóróit újjá varázsoljuk. Húzza el a csúszkát: mind a négy
-              fotó a saját műhelyünkben készült, ugyanarról a lámpáról felújítás
-              előtt és után.
-            </Bevezeto>
-          </Reveal>
-        </div>
+      {/* 4. Hívás. Ez az oldal fő konverziós pontja, ezért a telefonszám
+          maga a főcím, nem egy gomb felirata. */}
+      <section className="px-5 py-4 sm:px-8">
+        <div className="mx-auto w-full max-w-[1240px] overflow-hidden rounded-[14px] bg-piros-tolt">
+          <div className="grid gap-10 px-7 py-12 sm:px-12 sm:py-14 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-7">
+              <p className="plakat-vekony text-[12px] text-white/70">Bejelentkezés</p>
+              <h2 className="plakat mt-3 max-w-[13ch] text-[2.3rem] text-white sm:text-[3rem]">
+                Hívjon most
+              </h2>
+              <p className="mt-5 max-w-[42ch] text-[1.05rem] leading-relaxed text-white/85">
+                {ceg.kapcsolattarto} veszi fel. Mondja el, mi a gond az autóval, és
+                megbeszéljük a többit.
+              </p>
+            </div>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2">
-          {fenyszoro.parok.map((par, i) => (
-            <Reveal key={par.elotte} delay={i * 0.08}>
-              <ElotteUtana
-                elotte={par.elotte}
-                utana={par.utana}
-                alt={par.alt}
-                className="aspect-3/4"
-              />
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal delay={0.12}>
-          <GombLink href={`/${fenyszoro.slug}`} variant="csendes" className="mt-10">
-            Fényszóró felújítás
-            <ArrowRight size={15} aria-hidden />
-          </GombLink>
-        </Reveal>
-      </Szakasz>
-
-      {/* 5. Csomagajánlat, a „termek” oldal tartalmával. */}
-      <Szakasz>
-        <Reveal>
-          <div className="flex flex-col gap-5">
-            <Cimsor className="max-w-[14ch] text-balance">Csomagajánlat</Cimsor>
-            <Bevezeto>
-              {csomagFeltetel.megkotes} {csomagFeltetel.ervenyesseg}
-            </Bevezeto>
+            <div className="lg:col-span-5">
+              <a
+                href={ceg.telefonHref}
+                className="plakat block text-[2.2rem] leading-none text-white transition-opacity hover:opacity-85 sm:text-[3.1rem] lg:text-right"
+              >
+                {ceg.telefonKiiras}
+              </a>
+              <dl className="mt-6 flex flex-col gap-2 border-t border-white/25 pt-6 lg:items-end">
+                {nyitvatartas.map((n) => (
+                  <div key={n.nap} className="flex items-baseline gap-3 text-white/85">
+                    <dt>{n.nap}</dt>
+                    <dd className="font-display font-semibold tabular-nums text-white">
+                      {n.ora}
+                    </dd>
+                  </div>
+                ))}
+                <a
+                  href={`mailto:${ceg.email}`}
+                  className="mt-1 text-white/85 underline decoration-white/40 underline-offset-4 hover:decoration-white"
+                >
+                  {ceg.email}
+                </a>
+              </dl>
+            </div>
           </div>
-        </Reveal>
-
-        <div className="mt-12 grid gap-4 lg:grid-cols-3">
-          {csomagok.map((cs, i) => (
-            <Reveal key={cs.kod} delay={i * 0.06}>
-              <div className="flex h-full flex-col rounded-[14px] border border-vonal bg-lap p-7 shadow-lagy sm:p-8">
-                <span className="plakat text-[3.2rem] text-tinta">{cs.kod}</span>
-                <p className="plakat mt-5 text-[2.4rem] tabular-nums text-piros">
-                  {cs.ar.toLocaleString("hu-HU")} Ft
-                </p>
-                <ul className="mt-7 flex flex-col gap-3 border-t border-vonal pt-7">
-                  {cs.tartalom.map((t) => (
-                    <li key={t} className="flex gap-3 text-[0.98rem] leading-relaxed text-tinta">
-                      <span aria-hidden className="mt-2 h-[3px] w-4 shrink-0 rounded-full bg-piros" />
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          ))}
         </div>
+      </section>
 
-        <Reveal delay={0.1}>
-          <div className="mt-8 flex flex-col gap-6 rounded-[14px] border border-vonal bg-lap p-7 sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-[62ch] text-[0.95rem] leading-relaxed text-tinta-halvany">
-              <strong className="font-semibold text-tinta">Normál gumijavítás:</strong>{" "}
-              {csomagFeltetel.normalGumijavitas} Nem vonatkozik:{" "}
-              {csomagFeltetel.nemVonatkozik.join(", ").toLowerCase()}.
-            </p>
-            <GombLink href="/csomagajanlat" variant="masodlagos" className="shrink-0">
-              Csomagok részletesen
-            </GombLink>
-          </div>
-        </Reveal>
-      </Szakasz>
-
-      {/* 6. Gumihotel, a „ghotel” oldal szövegével és áraival. */}
+      {/* 5. Gumihotel, a „ghotel” oldal szövegével és áraival. */}
       <Szakasz className="bg-papir-melyebb">
         <div className="grid items-center gap-10 md:grid-cols-12 md:gap-14">
           <Reveal className="md:col-span-5">
@@ -356,7 +315,7 @@ export default function Fooldal() {
         </div>
       </Szakasz>
 
-      {/* 7. Jó tudni: a régi oldal cikkének első három témája. */}
+      {/* 6. Jó tudni: a régi oldal cikkének első három témája. */}
       <Szakasz>
         <div className="grid gap-12 md:grid-cols-12">
           <Reveal className="md:col-span-4">
@@ -388,8 +347,6 @@ export default function Fooldal() {
           </ol>
         </div>
       </Szakasz>
-
-      <HivasSav />
     </>
   );
 }

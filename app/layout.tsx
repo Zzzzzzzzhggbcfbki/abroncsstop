@@ -27,12 +27,11 @@ export const metadata: Metadata = {
     template: "%s | Abroncs Stop, Isaszeg",
   },
   description:
-    "Gumiszerviz Isaszegen. Fényszóró felújítás, TPMS, gumihotel, klímatisztítás és felnijavítás a Kossuth Lajos utcában. Telefon: +36 30 621 1195.",
+    "Gumiszerviz Isaszegen. TPMS, gumihotel, klímatisztítás és felnijavítás a Kossuth Lajos utcában. Telefon: +36 30 621 1195.",
   keywords: [
     "gumiszerviz Isaszeg",
     "gumihotel Isaszeg",
     "TPMS Isaszeg",
-    "fényszóró felújítás Isaszeg",
     "klímatisztítás Isaszeg",
     "felnijavítás Isaszeg",
   ],
@@ -42,7 +41,7 @@ export const metadata: Metadata = {
     siteName: "Abroncs Stop Bt.",
     title: "Abroncs Stop | Gumiszerviz Isaszegen",
     description:
-      "Gördülékeny megoldás minden keréken. Fényszóró felújítás, TPMS, gumihotel, klímatisztítás, felnijavítás.",
+      "Gördülékeny megoldás minden keréken. TPMS, gumihotel, klímatisztítás, felnijavítás.",
   },
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
@@ -58,7 +57,7 @@ const jsonLd = {
   "@type": "AutoRepair",
   name: ceg.nev,
   description:
-    "Gumiszerviz Isaszegen: fényszóró felújítás, TPMS, gumihotel, klímatisztítás és felnijavítás.",
+    "Gumiszerviz Isaszegen: TPMS, gumihotel, klímatisztítás és felnijavítás.",
   url: "https://abroncsstop.hu",
   telephone: ceg.telefon,
   email: ceg.email,

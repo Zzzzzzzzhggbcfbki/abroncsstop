@@ -7,12 +7,12 @@
 */
 :root {
   color-scheme: light;
-  --papir: #f7f4ef;
-  --papir-melyebb: #efeae1;
+  --papir: #f0ece3;
+  --papir-melyebb: #e6e0d4;
   --lap: #ffffff;
   --tinta: #1c1b19;
   --tinta-halvany: #6b655d;
-  --vonal: #ddd6ca;
+  --vonal: #d6cebe;
   --piros: #c40007;          /* szöveg és ikon akcentus, világos háttéren AA */
   --piros-tolt: #d40008;     /* a logóból mért piros. Fehér szöveggel 5,5:1 */
   --piros-tolt-erosebb: #a80006;
@@ -56,7 +56,15 @@ html {
 }
 
 body {
-  background: var(--papir);
+  background-color: var(--papir);
+  background-image: repeating-linear-gradient(
+    118deg,
+    rgb(28 27 25 / 0.028) 0px,
+    rgb(28 27 25 / 0.028) 1px,
+    transparent 1px,
+    transparent 9px
+  );
+  background-attachment: fixed;
   color: var(--tinta);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;

@@ -6,8 +6,6 @@ const utvonalak = [
   "gumihotel",
   "klimatisztitas",
   "felnijavitas",
-  "fenyszoro-felujitas",
-  "csomagajanlat",
   "jo-tudni",
   "kapcsolat",
   "impresszum",

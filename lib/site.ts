@@ -45,15 +45,9 @@ export type Szolgaltatas = {
   kepAlt: string;
 };
 
-// Pontosan a régi oldal menüjének szolgáltatásai, az ott olvasható szöveggel.
+// A régi oldal menüjének szolgáltatásai, az ott olvasható szöveggel.
+// A fényszóró felújítás 2026 szeptemberében kikerült: a cég már nem vállalja.
 export const szolgaltatasok: Szolgaltatas[] = [
-  {
-    slug: "fenyszoro-felujitas",
-    cim: "Fényszóró felújítás",
-    osszefoglalo: "Autója fényszóróit újjá varázsoljuk. Kérje szolgáltatásunkat.",
-    kep: "/fotok/fenyszoro-03.jpg",
-    kepAlt: "Felújított, kitisztult fényszóróbúra",
-  },
   {
     slug: "tpms",
     cim: "TPMS",
@@ -88,66 +82,6 @@ export const szolgaltatasok: Szolgaltatas[] = [
   },
 ];
 
-// A „Lámpa felújítása” oldal képgalériája: „Munkáinkból ízelítő”.
-// A négy fotó két előtte-utána pár ugyanarról a két autóról.
-export const fenyszoro = {
-  slug: "fenyszoro-felujitas",
-  cim: "Fényszóró felújítás",
-  parok: [
-    {
-      elotte: "/fotok/fenyszoro-02.jpg",
-      utana: "/fotok/fenyszoro-01.jpg",
-      alt: "Ezüst Volkswagen Golf bal oldali fényszórója",
-    },
-    {
-      elotte: "/fotok/fenyszoro-04.jpg",
-      utana: "/fotok/fenyszoro-03.jpg",
-      alt: "Fekete személyautó jobb oldali fényszórója",
-    },
-  ],
-} as const;
-
-// A „termek” oldalról, szó szerinti tartalommal.
-export const csomagok = [
-  {
-    kod: "S",
-    ar: 5000,
-    tartalom: ["2 db normál gumijavítás vagy szelepcsere"],
-  },
-  {
-    kod: "M",
-    ar: 10000,
-    tartalom: [
-      "2 db normál gumijavítás vagy szelepcsere",
-      "1 db ózonos klíma- és utastér-fertőtlenítés",
-    ],
-  },
-  {
-    kod: "XL",
-    ar: 25000,
-    tartalom: [
-      "2 db normál gumijavítás vagy szelepcsere",
-      "1 db gumijavítás vagy szelepcsere",
-      "1 db ózonos klímatisztítás és utastér-fertőtlenítés",
-      "2 db szezonális gumitárolás, maximum 1 évig",
-    ],
-  },
-] as const;
-
-export const csomagFeltetel = {
-  ervenyesseg: "A vásárlástól számított egy évig.",
-  megkotes: "Vásárolható csomagajánlat 4 db gumi szerelése mellé.",
-  normalGumijavitas: "Futófelületi sérülés: szög, csavar.",
-  nemVonatkozik: [
-    "Oldalfelületi sérülés",
-    "Vágás",
-    "Hasadás",
-    "Keréktárcsa oxidáció",
-    "Keréktárcsa sérülés",
-  ],
-  bovebben: "Bővebb információért hívja munkatársunkat!",
-} as const;
-
 // A „ghotel” oldalról: „A tárolás díja: 1500ft /db / szezon 6000ft / garnitúra (4db)”
 export const gumihotelArak = [
   { tetel: "1 db / szezon", ar: "1 500 Ft" },
@@ -156,7 +90,6 @@ export const gumihotelArak = [
 
 export const navLinkek = [
   { href: "/#szolgaltatasok", cim: "Szolgáltatások" },
-  { href: "/csomagajanlat", cim: "Csomagajánlat" },
   { href: "/jo-tudni", cim: "Jó tudni" },
   { href: "/kapcsolat", cim: "Kapcsolat" },
 ] as const;

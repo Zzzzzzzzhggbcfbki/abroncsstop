@@ -73,11 +73,6 @@ export function SiteFooter() {
                 </li>
               ))}
               <li>
-                <Link href="/csomagajanlat" className="text-tinta-halvany transition-colors hover:text-piros">
-                  Csomagajánlat
-                </Link>
-              </li>
-              <li>
                 <Link href="/jo-tudni" className="text-tinta-halvany transition-colors hover:text-piros">
                   Jó tudni
                 </Link>
