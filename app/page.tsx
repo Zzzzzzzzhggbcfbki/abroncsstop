@@ -82,8 +82,8 @@ export default function Fooldal() {
 
         <div className="relative aspect-16/11 w-full lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:h-full lg:w-[47%] lg:[clip-path:polygon(15%_0%,100%_0%,100%_100%,0%_100%)]">
           <Image
-            src="/fotok/muhely-homlokzat.jpg"
-            alt="Az Abroncs Stop műhelyének bejárata Isaszegen"
+            src="/fotok/muhely-homlokzat-tabla.jpg"
+            alt="Az Abroncs Stop műhelye Isaszegen, nyitott szerelőkapukkal"
             fill
             priority
             sizes="(max-width: 1023px) 100vw, 50vw"
