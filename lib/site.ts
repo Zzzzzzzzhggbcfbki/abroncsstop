@@ -57,6 +57,14 @@ export const szolgaltatasok: Szolgaltatas[] = [
     kepAlt: "TPMS szenzor közelről, a keréktárcsa peremére szerelve",
   },
   {
+    slug: "felnijavitas",
+    cim: "Felnijavítás",
+    osszefoglalo:
+      "A használat során nem ritka, hogy egy felni megütődik, és ennek okán deformálttá válik.",
+    kep: "/fotok/felni-javitas.jpg",
+    kepAlt: "Alufelni a javítógépbe fogva",
+  },
+  {
     slug: "gumihotel",
     cim: "Gumihotel",
     osszefoglalo:
@@ -71,14 +79,6 @@ export const szolgaltatasok: Szolgaltatas[] = [
       "Előzze meg a klíma okozta fertőzéseket. Négy az egyben kezelés ózonnal, a klímarendszer megbontása nélkül.",
     kep: "/fotok/klima-ozon.jpg",
     kepAlt: "Ózongenerátor az utasülésen, nyitott ajtóknál",
-  },
-  {
-    slug: "felnijavitas",
-    cim: "Felnijavítás",
-    osszefoglalo:
-      "A használat során nem ritka, hogy egy felni megütődik, és ennek okán deformálttá válik.",
-    kep: "/fotok/felni-javitas.jpg",
-    kepAlt: "Alufelni a javítógépbe fogva",
   },
 ];
 

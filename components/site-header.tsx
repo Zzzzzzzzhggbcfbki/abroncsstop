@@ -45,8 +45,8 @@ export function SiteHeader() {
           <Image
             src="/logo/abroncsstop.png"
             alt="Abroncs Stop"
-            width={1890}
-            height={788}
+            width={768}
+            height={320}
             priority
             className="h-10 w-auto sm:h-12"
           />
@@ -66,7 +66,7 @@ export function SiteHeader() {
 
         <a
           href={ceg.telefonHref}
-          className="ml-auto inline-flex shrink-0 touch-manipulation items-center gap-2 rounded-[10px] bg-piros-tolt px-3 py-2.5 font-display text-[14px] font-semibold text-white transition-colors hover:bg-piros-tolt-erosebb active:translate-y-px sm:px-4 sm:text-[15px] lg:ml-0"
+          className="ml-auto inline-flex shrink-0 touch-manipulation items-center gap-2 rounded-[10px] bg-piros-tolt px-3.5 py-3 font-display text-[14px] font-semibold text-white transition-colors hover:bg-piros-tolt-erosebb active:translate-y-px sm:px-4 sm:text-[15px] lg:ml-0"
         >
           <Phone size={17} weight="fill" aria-hidden />
           {ceg.telefonKiiras}

@@ -194,3 +194,26 @@ body {
     padding-bottom: calc(1rem + env(safe-area-inset-bottom));
   }
 }
+
+/* A Reveal komponens beúszása. Csak transform és opacity mozog, hogy a
+   böngésző a kompozitoron tudja futtatni. */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-lathato {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

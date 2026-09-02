@@ -32,34 +32,19 @@ const jotudniKivonat = [
 export default function Fooldal() {
   return (
     <>
-      {/* 1. Hero. A cím és az alatta lévő sor a régi oldal saját szövege. */}
+      {/* 1. Hero. A cím és az alatta lévő sor a régi oldal saját szövege.
+          Egyetlen képelem, hogy mobilon ne töltsön le két hero fotót. */}
       <section className="relative">
-        <div className="absolute inset-y-0 right-0 hidden w-[47%] lg:block" aria-hidden>
-          <div
-            className="relative h-full w-full"
-            style={{ clipPath: "polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
-          >
-            <Image
-              src="/fotok/hero-gumiszereles.jpg"
-              alt=""
-              fill
-              priority
-              sizes="50vw"
-              className="object-cover"
-            />
-          </div>
-        </div>
-
         <div className="relative mx-auto w-full max-w-[1240px] px-5 sm:px-8">
-          <div className="flex flex-col justify-center py-14 lg:min-h-[620px] lg:w-[53%] lg:py-20 lg:pr-8">
+          <div className="flex flex-col justify-center py-10 sm:py-14 lg:min-h-[620px] lg:w-[53%] lg:py-20 lg:pr-8">
             <Cimsor as="h1" className="text-balance">
               Gumiszerviz <span className="text-piros">Isaszegen</span>
             </Cimsor>
-            <Bevezeto className="mt-7 text-[1.1rem]">
+            <Bevezeto className="mt-5 text-[1.05rem] sm:mt-7 sm:text-[1.1rem]">
               {ceg.szlogen}. TPMS diagnosztika, gumihotel, klímatisztítás és
               felnijavítás.
             </Bevezeto>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row">
               <GombHoraf href={ceg.telefonHref}>
                 <Phone size={18} weight="fill" aria-hidden />
                 {ceg.telefonKiiras}
@@ -76,7 +61,7 @@ export default function Fooldal() {
               href={ceg.terkepLink}
               target="_blank"
               rel="noreferrer"
-              className="group mt-8 flex max-w-[26rem] items-center gap-5 rounded-[14px] border-l-4 border-piros-tolt bg-lap py-5 pl-5 pr-6 shadow-emelt transition-transform duration-200 hover:-translate-y-0.5"
+              className="group mt-6 flex max-w-[26rem] items-center gap-5 rounded-[14px] border-l-4 border-piros-tolt bg-lap py-5 pl-5 pr-6 shadow-emelt transition-transform duration-200 hover:-translate-y-0.5 sm:mt-8"
             >
               <MapPin size={30} weight="fill" className="shrink-0 text-piros" aria-hidden />
               <span className="min-w-0">
@@ -99,13 +84,13 @@ export default function Fooldal() {
           </div>
         </div>
 
-        <div className="relative aspect-16/11 w-full lg:hidden">
+        <div className="relative aspect-16/11 w-full lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:h-full lg:w-[47%] lg:[clip-path:polygon(15%_0%,100%_0%,100%_100%,0%_100%)]">
           <Image
             src="/fotok/hero-gumiszereles.jpg"
             alt="Kerékszerelés az Abroncs Stop műhelyében"
             fill
             priority
-            sizes="100vw"
+            sizes="(max-width: 1023px) 100vw, 50vw"
             className="object-cover"
           />
         </div>
@@ -113,34 +98,38 @@ export default function Fooldal() {
 
       {/* 2. Adatsáv. Nyitvatartás és telefon a régi oldal fejlécéből.
           A cím feljebb, a heróban van, kiemelt kártyán. */}
-      <section className="px-5 pt-10 sm:px-8 lg:pt-14">
+      <section className="px-5 pb-14 pt-10 sm:px-8 lg:pb-20 lg:pt-14">
         <div className="mx-auto w-full max-w-[1240px] rounded-[14px] border border-vonal bg-lap shadow-lagy">
           <dl className="grid divide-y divide-vonal sm:grid-cols-2 sm:divide-x sm:divide-y-0">
-            <div className="flex items-start gap-4 p-6 sm:p-7">
-              <Clock size={22} className="mt-0.5 shrink-0 text-piros" aria-hidden />
+            <div className="flex items-start gap-4 p-5 sm:p-6">
+              <Clock size={22} className="mt-1 shrink-0 text-piros" aria-hidden />
               <div className="min-w-0">
                 <dt className="plakat-vekony text-[12px] text-tinta-halvany">Nyitvatartás</dt>
                 {nyitvatartas.map((n) => (
-                  <dd key={n.nap} className="mt-2 text-tinta">
-                    {n.nap}:{" "}
-                    <strong className="font-semibold tabular-nums">{n.ora}</strong>
+                  <dd key={n.nap} className="mt-1">
+                    <span className="plakat block text-[1.35rem] leading-[1.15] text-tinta sm:text-[1.5rem]">
+                      {n.ora}
+                    </span>
+                    <span className="mt-0.5 block text-[0.95rem] text-tinta-halvany">
+                      {n.nap}
+                    </span>
                   </dd>
                 ))}
               </div>
             </div>
 
-            <div className="flex items-start gap-4 p-6 sm:p-7">
-              <Phone size={22} className="mt-0.5 shrink-0 text-piros" aria-hidden />
+            <div className="flex items-start gap-4 p-5 sm:p-6">
+              <Phone size={22} className="mt-1 shrink-0 text-piros" aria-hidden />
               <div className="min-w-0">
                 <dt className="plakat-vekony text-[12px] text-tinta-halvany">Telefon</dt>
-                <dd className="mt-2">
+                <dd className="mt-1">
                   <a
                     href={ceg.telefonHref}
-                    className="font-display text-xl font-semibold text-tinta hover:text-piros"
+                    className="plakat block text-[1.35rem] leading-[1.15] text-tinta transition-colors hover:text-piros sm:text-[1.5rem]"
                   >
                     {ceg.telefonKiiras}
                   </a>
-                  <span className="mt-1 block text-sm text-tinta-halvany">
+                  <span className="mt-0.5 block text-[0.95rem] text-tinta-halvany">
                     {ceg.kapcsolattarto}
                   </span>
                 </dd>

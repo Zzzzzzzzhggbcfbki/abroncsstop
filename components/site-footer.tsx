@@ -8,14 +8,14 @@ import { SutiBeallitasGomb } from "./suti-beallitas-gomb";
 export function SiteFooter() {
   return (
     <footer className="border-t border-vonal bg-papir-melyebb">
-      <div className="mx-auto w-full max-w-[1240px] px-5 py-16 sm:px-8">
+      <div className="mx-auto w-full max-w-[1240px] px-5 pb-[104px] pt-16 sm:px-8 lg:pb-16">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <Image
               src="/logo/abroncsstop.png"
               alt="Abroncs Stop"
-              width={1890}
-              height={788}
+              width={768}
+              height={320}
               className="h-14 w-auto"
             />
             <p className="mt-3 max-w-[34ch] text-[1.05rem] leading-relaxed text-tinta-halvany">
@@ -31,7 +31,7 @@ export function SiteFooter() {
               </a>
               <a
                 href={`mailto:${ceg.email}`}
-                className="inline-flex items-center gap-3 break-words text-tinta-halvany hover:text-tinta"
+                className="inline-flex min-h-[40px] items-center gap-3 break-words text-tinta-halvany hover:text-tinta"
               >
                 <EnvelopeSimple size={20} className="text-piros" aria-hidden />
                 {ceg.email}
@@ -40,7 +40,7 @@ export function SiteFooter() {
                 href={ceg.terkepLink}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-3 break-words text-tinta-halvany hover:text-tinta"
+                className="inline-flex min-h-[40px] items-center gap-3 break-words text-tinta-halvany hover:text-tinta"
               >
                 <MapPin size={20} className="text-piros" aria-hidden />
                 {ceg.cim.teljes}
@@ -49,7 +49,7 @@ export function SiteFooter() {
                 href={ceg.facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-3 break-words text-tinta-halvany hover:text-tinta"
+                className="inline-flex min-h-[40px] items-center gap-3 break-words text-tinta-halvany hover:text-tinta"
               >
                 <FacebookLogo size={20} className="text-piros" aria-hidden />
                 Abroncs Stop a Facebookon
@@ -61,19 +61,19 @@ export function SiteFooter() {
             <h2 className="plakat-vekony text-[12px] text-tinta-halvany">
               Szolgáltatások
             </h2>
-            <ul className="mt-5 flex flex-col gap-2.5">
+            <ul className="mt-5 flex flex-col gap-1">
               {szolgaltatasok.map((sz) => (
                 <li key={sz.slug}>
                   <Link
                     href={`/${sz.slug}`}
-                    className="text-tinta-halvany transition-colors hover:text-piros"
+                    className="inline-flex min-h-[40px] items-center text-tinta-halvany transition-colors hover:text-piros"
                   >
                     {sz.cim}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="/jo-tudni" className="text-tinta-halvany transition-colors hover:text-piros">
+                <Link href="/jo-tudni" className="inline-flex min-h-[40px] items-center text-tinta-halvany transition-colors hover:text-piros">
                   Jó tudni
                 </Link>
               </li>
@@ -107,7 +107,7 @@ export function SiteFooter() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-tinta-halvany transition-colors hover:text-piros"
+                    className="inline-flex min-h-[40px] items-center text-tinta-halvany transition-colors hover:text-piros"
                   >
                     {l.cim}
                   </Link>

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Archivo, Public_Sans } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { MobilHivosav } from "@/components/mobil-hivosav";
 import { SutiSav } from "@/components/suti-sav";
 import { ceg } from "@/lib/site";
 import "./globals.css";
@@ -84,6 +85,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="hu">
+      <head>
+        <noscript>
+          <style>{`.reveal{opacity:1;transform:none}`}</style>
+        </noscript>
+      </head>
       <body className={`${archivo.variable} ${publicSans.variable} antialiased`}>
         <a
           href="#tartalom"
@@ -94,6 +100,7 @@ export default function RootLayout({
         <SiteHeader />
         <main id="tartalom">{children}</main>
         <SiteFooter />
+        <MobilHivosav />
         <SutiSav />
         <script
           type="application/ld+json"

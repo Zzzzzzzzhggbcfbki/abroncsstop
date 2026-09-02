@@ -64,7 +64,7 @@ export function SutiSav() {
       role="dialog"
       aria-modal="false"
       aria-labelledby="suti-cim"
-      className="fixed inset-x-0 bottom-0 z-[90] px-4 pb-4 sm:px-6 sm:pb-6"
+      className="fixed inset-x-0 bottom-0 z-[90] px-4 pb-[86px] sm:px-6 lg:pb-6"
     >
       <div className="mx-auto flex w-full max-w-[1000px] flex-col gap-5 rounded-[14px] border border-vonal bg-lap p-6 shadow-emelt sm:p-7 md:flex-row md:items-center md:gap-8">
         <div className="md:flex-1">

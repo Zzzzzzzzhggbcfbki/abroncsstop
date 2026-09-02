@@ -1,38 +1,58 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
-import type { ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
-/* Egyetlen mozgás az oldalon: a szekciók tartalma alulról úszik be,
-   sorban. Ez a sorrendet közli, vagyis azt, hogy mit olvasson elsőnek. */
+/*
+  A szekciók tartalma alulról úszik be, sorban: ez a sorrendet közli, vagyis
+  azt, mit olvasson elsőnek. Korábban a motion könyvtár csinálta, de az
+  önmagában száz kilobájt fölött volt egy ilyen egyszerű mozgásért. Mobilon,
+  gyenge térerőn ez sokat számít, ezért IntersectionObserver és CSS átmenet
+  végzi ugyanezt, néhány soros futásidővel.
+*/
 export function Reveal({
   children,
   delay = 0,
   className = "",
-  as = "div",
+  as: As = "div",
 }: {
   children: ReactNode;
   delay?: number;
   className?: string;
   as?: "div" | "li" | "section";
 }) {
-  const csokkentett = useReducedMotion();
-  const M = motion[as];
+  const elem = useRef<HTMLElement>(null);
+  const [lathato, setLathato] = useState(false);
 
-  if (csokkentett) {
-    const As = as;
-    return <As className={className}>{children}</As>;
-  }
+  useEffect(() => {
+    const e = elem.current;
+    if (!e) return;
+
+    // Csökkentett mozgás mellett azonnal a végállapot látszik.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setLathato(true);
+      return;
+    }
+
+    const figyelo = new IntersectionObserver(
+      ([bejegyzes]) => {
+        if (bejegyzes.isIntersecting) {
+          setLathato(true);
+          figyelo.disconnect();
+        }
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -8% 0px" },
+    );
+    figyelo.observe(e);
+    return () => figyelo.disconnect();
+  }, []);
 
   return (
-    <M
-      initial={{ opacity: 0, y: 22 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] }}
-      className={className}
+    <As
+      ref={elem as React.Ref<never>}
+      className={`reveal ${lathato ? "reveal-lathato" : ""} ${className}`}
+      style={{ transitionDelay: `${delay}s` }}
     >
       {children}
-    </M>
+    </As>
   );
 }
