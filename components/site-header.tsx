@@ -28,7 +28,7 @@ export function SiteHeader() {
       <div className="border-b-[3px] border-piros-tolt bg-sav-hatter text-sav-szoveg">
         <div className="mx-auto flex w-full max-w-[1240px] items-center justify-between gap-4 px-5 py-2 sm:px-8">
           <p className="plakat-vekony text-[11px] sm:text-[12px]">
-            Gumiszerviz Isaszegen
+            Isaszeg Gumiszerviz
           </p>
           <p className="plakat-vekony hidden text-[11px] opacity-70 sm:block sm:text-[12px]">
             {nyitvatartas[0].nap} {nyitvatartas[0].ora}

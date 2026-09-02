@@ -9,7 +9,7 @@ import { SutiBeallitasGomb } from "./suti-beallitas-gomb";
 export function SiteFooter() {
   return (
     <footer className="relative overflow-hidden border-t border-lablec-vonal bg-lablec-hatter text-lablec-tinta">
-      <AbroncsMinta vilagos className="-top-16 right-[8%] h-[150%] w-[210px] rotate-[9deg]" />
+      <AbroncsMinta vilagos className="-right-[8%] top-[14%] h-[180px] w-[70%] -rotate-[6deg]" />
       <div className="mx-auto w-full max-w-[1240px] px-5 pb-[104px] pt-16 sm:px-8 lg:pb-16">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">

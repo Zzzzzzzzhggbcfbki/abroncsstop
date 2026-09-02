@@ -262,21 +262,33 @@ body {
   border-radius: 8px;
 }
 
-/* Futófelület-rajz díszítésként. Maszk, nem háttérkép: a színt a token adja,
-   ezért nem kell külön világos és sötét változat. */
-.abroncsminta {
+/* Keréknyom díszítésként. Maszkként használjuk, mert a grafika szemcséje az
+   alfa csatornában van: így a színt a token adja, és sötét módban is helyes. */
+.abroncsminta,
+.abroncsnyom-felirat {
   position: absolute;
   pointer-events: none;
-  background-color: var(--tinta);
-  opacity: 0.05;
-  -webkit-mask-image: url("/abroncsminta.svg");
-  mask-image: url("/abroncsminta.svg");
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
 }
+.abroncsminta {
+  background-color: var(--tinta);
+  opacity: 0.07;
+  -webkit-mask-image: url("/abroncs-nyom.png");
+  mask-image: url("/abroncs-nyom.png");
+}
 .abroncsminta-vilagos {
   background-color: var(--lablec-tinta);
-  opacity: 0.06;
+  opacity: 0.09;
+}
+
+/* A hero és a szolgáltatások sávja közti színváltást ez a feliratos keréknyom
+   takarja el. Erősebb, mint a háttérminta, mert itt olvasható a márkanév. */
+.abroncsnyom-felirat {
+  background-color: var(--tinta);
+  opacity: 0.16;
+  -webkit-mask-image: url("/abroncs-nyom-felirat.png");
+  mask-image: url("/abroncs-nyom-felirat.png");
 }

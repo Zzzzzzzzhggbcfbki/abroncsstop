@@ -4,7 +4,7 @@ import { Phone, MapPin, Clock, ArrowRight, ArrowUpRight } from "@phosphor-icons/
 import { ceg, nyitvatartas, szolgaltatasok } from "@/lib/site";
 import { Bevezeto, Cimsor, GombHoraf, GombLink, Szakasz } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
-import { AbroncsMinta } from "@/components/abroncs-minta";
+import { AbroncsMinta, AbroncsNyomFelirat } from "@/components/abroncs-minta";
 
 // A „Jó tudni” oldal első három témájának nyitómondatai, szó szerint.
 const jotudniKivonat = [
@@ -34,7 +34,7 @@ export default function Fooldal() {
         <div className="relative mx-auto w-full max-w-[1240px] px-5 sm:px-8">
           <div className="flex flex-col justify-center py-10 sm:py-14 lg:min-h-[620px] lg:w-[53%] lg:py-20 lg:pr-8">
             <Cimsor as="h1" className="text-balance">
-              Gumiszerviz <span className="text-piros">Isaszegen</span>
+              Isaszeg <span className="text-piros">Gumiszerviz</span>
             </Cimsor>
             <Bevezeto className="mt-5 text-[1.05rem] sm:mt-7 sm:text-[1.1rem]">
               {ceg.szlogen}. TPMS diagnosztika, gumihotel, klímatisztítás és
@@ -82,8 +82,8 @@ export default function Fooldal() {
 
         <div className="relative aspect-16/11 w-full lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:h-full lg:w-[47%] lg:[clip-path:polygon(15%_0%,100%_0%,100%_100%,0%_100%)]">
           <Image
-            src="/fotok/hero-gumiszereles.jpg"
-            alt="Kerékszerelés az Abroncs Stop műhelyében"
+            src="/fotok/muhely-homlokzat.jpg"
+            alt="Az Abroncs Stop műhelyének bejárata Isaszegen"
             fill
             priority
             sizes="(max-width: 1023px) 100vw, 50vw"
@@ -135,13 +135,19 @@ export default function Fooldal() {
         </div>
       </section>
 
+      {/* A hero és a szolgáltatások sávja közti színváltást a feliratos
+          keréknyom takarja el. Nulla magasságú tartó, hogy semmit ne toljon el. */}
+      <div className="relative z-10 mx-auto h-0 w-full max-w-[1240px] px-5 sm:px-8">
+        <AbroncsNyomFelirat className="inset-x-5 -top-[68px] h-[136px] sm:inset-x-8" />
+      </div>
+
       {/* 3. Szolgáltatások: a régi menü szolgáltatásai a fényszóró nélkül.
           Bento ritmus 3x2 / 3 / 3 / 6, négy cella, üres hely nélkül. */}
       <Szakasz
         id="szolgaltatasok"
         className="relative overflow-hidden border-y border-vonal bg-papir-melyebb"
       >
-        <AbroncsMinta className="-top-28 right-[-70px] h-[150%] w-[250px] rotate-[13deg]" />
+        <AbroncsMinta className="-right-[12%] top-[6%] h-[190px] w-[85%] -rotate-[7deg]" />
         <Reveal>
           <Cimsor className="max-w-[14ch] text-balance">Szolgáltatásaink</Cimsor>
         </Reveal>
@@ -309,7 +315,7 @@ export default function Fooldal() {
 
       {/* 6. Jó tudni: a régi oldal cikkének első három témája. */}
       <Szakasz className="relative overflow-hidden">
-        <AbroncsMinta className="-bottom-24 left-[-80px] h-[145%] w-[230px] -rotate-[11deg]" />
+        <AbroncsMinta className="-left-[14%] bottom-[4%] h-[170px] w-[80%] rotate-[5deg]" />
         <div className="grid gap-12 md:grid-cols-12">
           <Reveal className="md:col-span-4">
             <Cimsor className="text-balance">Jó tudni</Cimsor>
