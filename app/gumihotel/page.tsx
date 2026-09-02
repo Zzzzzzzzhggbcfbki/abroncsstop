@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { SzolgaltatasOldal } from "@/components/szolgaltatas-oldal";
-import { gumihotelArak } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Gumihotel",
   description:
-    "Gumihotel szolgáltatás Isaszegen. A tárolás díja 1 500 Ft darabonként szezononként, garnitúránként 6 000 Ft. Korszerű riasztórendszer és vonuló biztonsági szolgálat védi.",
+    "Gumihotel szolgáltatás Isaszegen. Nyáron a télit, télen a nyárit nálunk hagyhatja. Korszerű riasztórendszer és vonuló biztonsági szolgálat védi. Hívjon: +36 30 621 1195.",
   alternates: { canonical: "/gumihotel" },
 };
 
@@ -16,8 +15,12 @@ export default function Oldal() {
       bevezeto="Kerekeit nincs hol tárolnia? Vagy csak meg akarja magát kímélni az ezzel járó kellemetlenségektől? Hozza hozzánk."
       kep="/fotok/gumihotel-polc.jpg"
       kepAlt="Gumiabroncsok és keréktárcsák a gumihotel állványain"
-      arak={[...gumihotelArak]}
-      arakCime="A tárolás díja, szezononként"
+      arak={[
+        { tetel: "Fizetés", ar: "A tárolás végén" },
+        { tetel: "Védelem", ar: "Riasztó és őrszolgálat" },
+        { tetel: "Díjszabás", ar: "Hívásra" },
+      ]}
+      arakCime="Jó tudni"
       blokkok={[
         {
           bekezdesek: [

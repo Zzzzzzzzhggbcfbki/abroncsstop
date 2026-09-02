@@ -82,12 +82,6 @@ export const szolgaltatasok: Szolgaltatas[] = [
   },
 ];
 
-// A „ghotel” oldalról: „A tárolás díja: 1500ft /db / szezon 6000ft / garnitúra (4db)”
-export const gumihotelArak = [
-  { tetel: "1 db / szezon", ar: "1 500 Ft" },
-  { tetel: "Garnitúra, 4 db", ar: "6 000 Ft" },
-] as const;
-
 export const navLinkek = [
   { href: "/#szolgaltatasok", cim: "Szolgáltatások" },
   { href: "/jo-tudni", cim: "Jó tudni" },

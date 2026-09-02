@@ -1,12 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, MapPin, Clock, ArrowRight, ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
-import {
-  ceg,
-  nyitvatartas,
-  szolgaltatasok,
-  gumihotelArak,
-} from "@/lib/site";
+import { ceg, nyitvatartas, szolgaltatasok } from "@/lib/site";
 import { Bevezeto, Cimsor, GombHoraf, GombLink, Szakasz } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
 
@@ -283,17 +278,20 @@ export default function Fooldal() {
             </Bevezeto>
 
             <dl className="mt-8 divide-y divide-vonal border-y border-vonal">
-              {gumihotelArak.map((a) => (
-                <div key={a.tetel} className="flex items-baseline justify-between gap-6 py-4">
-                  <dt className="text-tinta">{a.tetel}</dt>
-                  <dd className="plakat text-[1.5rem] tabular-nums text-tinta">{a.ar}</dd>
-                </div>
-              ))}
+              <div className="flex items-baseline justify-between gap-6 py-4">
+                <dt className="text-tinta">Fizetés</dt>
+                <dd className="plakat text-[1.35rem] text-tinta">Utólag, a tárolás végén</dd>
+              </div>
+              <div className="flex items-baseline justify-between gap-6 py-4">
+                <dt className="text-tinta">Védelem</dt>
+                <dd className="plakat text-[1.35rem] text-tinta">Riasztó és őrszolgálat</dd>
+              </div>
             </dl>
 
             <p className="mt-6 text-[0.95rem] leading-relaxed text-tinta-halvany">
               A nálunk tárolt kerekeit vagy abroncsait korszerű riasztórendszer és
-              vonuló biztonsági szolgálat védi.
+              vonuló biztonsági szolgálat védi. A tárolás díjáról telefonon
+              tájékoztatjuk.
             </p>
 
             <GombLink href="/gumihotel" variant="csendes" className="mt-6">
