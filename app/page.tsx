@@ -28,58 +28,66 @@ const jotudniKivonat = [
 export default function Fooldal() {
   return (
     <>
-      {/* 1. Hero. A cím és az alatta lévő sor a régi oldal saját szövege.
-          Egyetlen képelem, hogy mobilon ne töltsön le két hero fotót. */}
-      <section className="relative">
-        <div className="relative mx-auto w-full max-w-[1240px] px-5 sm:px-8">
-          <div className="flex flex-col justify-center py-10 sm:py-14 lg:min-h-[620px] lg:w-[53%] lg:py-20 lg:pr-8">
-            <Cimsor as="h1" className="text-balance">
-              Isaszeg <span className="text-piros">Gumiszerviz</span>
-            </Cimsor>
-            <Bevezeto className="mt-5 text-[1.05rem] sm:mt-7 sm:text-[1.1rem]">
-              {ceg.szlogen}. TPMS diagnosztika, gumihotel, klímatisztítás és
-              felnijavítás.
-            </Bevezeto>
-            <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row">
-              <GombHoraf href={ceg.telefonHref}>
-                <Phone size={18} weight="fill" aria-hidden />
-                {ceg.telefonKiiras}
-              </GombHoraf>
-              <GombLink href="#szolgaltatasok" variant="masodlagos">
-                Szolgáltatások
-                <ArrowRight size={17} aria-hidden />
-              </GombLink>
+      {/* 1-2. Hero és adatsáv közös kereten. A fotó ennek a keretnek a teljes
+          magasságát kitölti, tehát átnyúlik az adatsáv mögé is, egészen a
+          szolgáltatások sötétebb sávjának széléig. A cím és az alatta lévő sor
+          a régi oldal saját szövege. Egyetlen képelem, hogy mobilon ne
+          töltsön le két hero fotót. */}
+      <div className="relative">
+        <section className="relative">
+          <div className="relative z-10 mx-auto w-full max-w-[1240px] px-5 sm:px-8">
+            <div className="flex flex-col justify-center py-10 sm:py-14 lg:min-h-[620px] lg:w-[53%] lg:py-20 lg:pr-8">
+              <Cimsor as="h1" className="text-balance">
+                Isaszeg <span className="text-piros">Gumiszerviz</span>
+              </Cimsor>
+              <Bevezeto className="mt-5 text-[1.05rem] sm:mt-7 sm:text-[1.1rem]">
+                {ceg.szlogen}. TPMS diagnosztika, gumihotel, klímatisztítás és
+                felnijavítás.
+              </Bevezeto>
+              <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row">
+                <GombHoraf href={ceg.telefonHref}>
+                  <Phone size={18} weight="fill" aria-hidden />
+                  {ceg.telefonKiiras}
+                </GombHoraf>
+                <GombLink href="#szolgaltatasok" variant="masodlagos">
+                  Szolgáltatások
+                  <ArrowRight size={17} aria-hidden />
+                </GombLink>
             </div>
 
-            {/* A cím külön kártyán, mert ez a második legfontosabb adat a
-                telefonszám után: aki idejön, tudni akarja, hova induljon. */}
-            <a
-              href={ceg.terkepLink}
-              target="_blank"
-              rel="noreferrer"
-              className="group mt-6 flex max-w-[26rem] items-center gap-5 rounded-[14px] border-l-4 border-piros-tolt bg-lap py-5 pl-5 pr-6 shadow-emelt transition-transform duration-200 hover:-translate-y-0.5 sm:mt-8"
-            >
-              <MapPin size={30} weight="fill" className="shrink-0 text-piros" aria-hidden />
-              <span className="min-w-0">
-                <span className="plakat-vekony block text-[11px] text-tinta-halvany">
-                  Itt talál minket
+              {/* A cím külön kártyán, mert ez a második legfontosabb adat a
+                  telefonszám után: aki idejön, tudni akarja, hova induljon. */}
+              <a
+                href={ceg.terkepLink}
+                target="_blank"
+                rel="noreferrer"
+                className="group mt-6 flex max-w-[26rem] items-center gap-5 rounded-[14px] border-l-4 border-piros-tolt bg-lap py-5 pl-5 pr-6 shadow-emelt transition-transform duration-200 hover:-translate-y-0.5 sm:mt-8"
+              >
+                <MapPin size={30} weight="fill" className="shrink-0 text-piros" aria-hidden />
+                <span className="min-w-0">
+                  <span className="plakat-vekony block text-[11px] text-tinta-halvany">
+                    Itt talál minket
+                  </span>
+                  <span className="plakat mt-1.5 block text-[1.45rem] leading-[1.1] text-tinta">
+                    {ceg.cim.telepules}, {ceg.cim.utca}
+                  </span>
+                  <span className="mt-2 inline-flex items-center gap-1 font-display text-sm font-semibold text-piros">
+                    Útvonaltervezés
+                    <ArrowUpRight
+                      size={14}
+                      aria-hidden
+                      className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
+                  </span>
                 </span>
-                <span className="plakat mt-1.5 block text-[1.45rem] leading-[1.1] text-tinta">
-                  {ceg.cim.telepules}, {ceg.cim.utca}
-                </span>
-                <span className="mt-2 inline-flex items-center gap-1 font-display text-sm font-semibold text-piros">
-                  Útvonaltervezés
-                  <ArrowUpRight
-                    size={14}
-                    aria-hidden
-                    className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  />
-                </span>
-              </span>
-            </a>
+              </a>
+            </div>
           </div>
-        </div>
+        </section>
 
+        {/* Nagy képernyőn a kivágás magas és keskeny, ezért a fotó középpontja
+            kissé jobbra tolva, hogy a homlokzat felirata egészben látszódjon.
+            Mobilon a széles, 16:11-es vágásban erre nincs szükség. */}
         <div className="relative aspect-16/11 w-full lg:absolute lg:inset-y-0 lg:right-0 lg:aspect-auto lg:h-full lg:w-[47%] lg:[clip-path:polygon(15%_0%,100%_0%,100%_100%,0%_100%)]">
           <Image
             src="/fotok/muhely-homlokzat-tabla.jpg"
@@ -87,53 +95,53 @@ export default function Fooldal() {
             fill
             priority
             sizes="(max-width: 1023px) 100vw, 50vw"
-            className="object-cover"
+            className="object-cover lg:object-[60%_center]"
           />
         </div>
-      </section>
 
-      {/* 2. Adatsáv. Nyitvatartás és telefon a régi oldal fejlécéből.
-          A cím feljebb, a heróban van, kiemelt kártyán. */}
-      <section className="px-5 pb-14 pt-10 sm:px-8 lg:pb-20 lg:pt-14">
-        <div className="mx-auto w-full max-w-[1240px] rounded-[14px] border border-vonal bg-lap shadow-lagy">
-          <dl className="grid divide-y divide-vonal sm:grid-cols-2 sm:divide-x sm:divide-y-0">
-            <div className="flex items-start gap-4 p-5 sm:p-6">
-              <Clock size={22} className="mt-1 shrink-0 text-piros" aria-hidden />
-              <div className="min-w-0">
-                <dt className="plakat-vekony text-[12px] text-tinta-halvany">Nyitvatartás</dt>
-                {nyitvatartas.map((n) => (
-                  <dd key={n.nap} className="mt-1">
-                    <span className="plakat block text-[1.35rem] leading-[1.15] text-tinta sm:text-[1.5rem]">
-                      {n.ora}
-                    </span>
+        {/* Adatsáv. Nyitvatartás és telefon a régi oldal fejlécéből; a cím
+            feljebb, a heróban van, kiemelt kártyán. A lap a fotó fölött ül. */}
+        <section className="relative z-10 px-5 pb-14 pt-10 sm:px-8 lg:pb-20 lg:pt-14">
+          <div className="mx-auto w-full max-w-[1240px] rounded-[14px] border border-vonal bg-lap shadow-lagy">
+            <dl className="grid divide-y divide-vonal sm:grid-cols-2 sm:divide-x sm:divide-y-0">
+              <div className="flex items-start gap-4 p-5 sm:p-6">
+                <Clock size={22} className="mt-1 shrink-0 text-piros" aria-hidden />
+                <div className="min-w-0">
+                  <dt className="plakat-vekony text-[12px] text-tinta-halvany">Nyitvatartás</dt>
+                  {nyitvatartas.map((n) => (
+                    <dd key={n.nap} className="mt-1">
+                      <span className="plakat block text-[1.35rem] leading-[1.15] text-tinta sm:text-[1.5rem]">
+                        {n.ora}
+                      </span>
+                      <span className="mt-0.5 block text-[0.95rem] text-tinta-halvany">
+                        {n.nap}
+                      </span>
+                    </dd>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-5 sm:p-6">
+                <Phone size={22} className="mt-1 shrink-0 text-piros" aria-hidden />
+                <div className="min-w-0">
+                  <dt className="plakat-vekony text-[12px] text-tinta-halvany">Telefon</dt>
+                  <dd className="mt-1">
+                    <a
+                      href={ceg.telefonHref}
+                      className="plakat block text-[1.35rem] leading-[1.15] text-tinta transition-colors hover:text-piros sm:text-[1.5rem]"
+                    >
+                      {ceg.telefonKiiras}
+                    </a>
                     <span className="mt-0.5 block text-[0.95rem] text-tinta-halvany">
-                      {n.nap}
+                      {ceg.kapcsolattarto}
                     </span>
                   </dd>
-                ))}
+                </div>
               </div>
-            </div>
-
-            <div className="flex items-start gap-4 p-5 sm:p-6">
-              <Phone size={22} className="mt-1 shrink-0 text-piros" aria-hidden />
-              <div className="min-w-0">
-                <dt className="plakat-vekony text-[12px] text-tinta-halvany">Telefon</dt>
-                <dd className="mt-1">
-                  <a
-                    href={ceg.telefonHref}
-                    className="plakat block text-[1.35rem] leading-[1.15] text-tinta transition-colors hover:text-piros sm:text-[1.5rem]"
-                  >
-                    {ceg.telefonKiiras}
-                  </a>
-                  <span className="mt-0.5 block text-[0.95rem] text-tinta-halvany">
-                    {ceg.kapcsolattarto}
-                  </span>
-                </dd>
-              </div>
-            </div>
-          </dl>
-        </div>
-      </section>
+            </dl>
+          </div>
+        </section>
+      </div>
 
       {/* 3. Szolgáltatások: a régi menü szolgáltatásai a fényszóró nélkül.
           Bento ritmus 3x2 / 3 / 3 / 6, négy cella, üres hely nélkül. */}
