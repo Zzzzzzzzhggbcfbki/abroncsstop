@@ -21,28 +21,11 @@
   --piros-halvany: #fdeaeb;
   --sav-hatter: #15191a;     /* legfelső sáv */
   --sav-szoveg: #ffffff;
-  --racs: rgb(21 25 26 / 0.038);   /* futófelület-minta, vékony lamellák */
-  --racs-szeles: rgb(21 25 26 / 0.02); /* mögötte szélesebb, lágy sáv */
   --lablec-hatter: #191d1f;        /* grafit lábléc: lezárja az oldalt */
   --lablec-tinta: #e8ebec;
   --lablec-halvany: #9aa2a4;
   --lablec-vonal: #2e3436;
   --lablec-piros: #ff6259;
-  --futofelulet:
-    repeating-linear-gradient(
-      118deg,
-      var(--racs) 0px,
-      var(--racs) 1.5px,
-      transparent 1.5px,
-      transparent 11px
-    ),
-    repeating-linear-gradient(
-      118deg,
-      var(--racs-szeles) 0px,
-      var(--racs-szeles) 26px,
-      transparent 26px,
-      transparent 66px
-    );
   --arnyek: 0 1px 2px rgb(21 25 26 / 0.06), 0 12px 32px -18px rgb(21 25 26 / 0.24);
   --arnyek-emelt: 0 2px 4px rgb(21 25 26 / 0.07), 0 24px 56px -26px rgb(21 25 26 / 0.32);
 }
@@ -61,8 +44,6 @@
   --piros-halvany: #2b1416;
   --sav-hatter: #262b2e;
   --sav-szoveg: #e9eced;
-  --racs: rgb(255 255 255 / 0.032);
-  --racs-szeles: rgb(255 255 255 / 0.016);
   --lablec-hatter: #1e2225;
   --lablec-tinta: #e8ebec;
   --lablec-halvany: #9aa2a4;
@@ -114,9 +95,7 @@ html {
 }
 
 body {
-  background-color: var(--papir);
-  background-image: var(--futofelulet);
-  background-attachment: fixed;
+  background: var(--papir);
   color: var(--tinta);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -278,10 +257,4 @@ body {
   background: #eef0f0;
   padding: 6px 10px;
   border-radius: 8px;
-}
-
-/* A mélyebb sávok saját háttérszíne ráfestene a test mintájára, ezért itt
-   külön megkapják ugyanazt a futófelület-mintát. */
-.bg-papir-melyebb {
-  background-image: var(--futofelulet);
 }
