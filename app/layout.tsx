@@ -49,8 +49,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f7f4ef",
-  colorScheme: "light",
+  themeColor: "#e9ebeb",
+  colorScheme: "light dark",
 };
 
 const jsonLd = {
@@ -86,6 +86,13 @@ export default function RootLayout({
   return (
     <html lang="hu">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              'try{if(localStorage.getItem("abroncsstop-tema")==="sotet"){' +
+              'document.documentElement.setAttribute("data-tema","sotet")}}catch(e){}',
+          }}
+        />
         <noscript>
           <style>{`.reveal{opacity:1;transform:none}`}</style>
         </noscript>

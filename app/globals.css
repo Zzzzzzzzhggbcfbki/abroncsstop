@@ -19,8 +19,30 @@
   --piros-tolt: #d40008;     /* a logóból mért piros. Fehér szöveggel 5,5:1 */
   --piros-tolt-erosebb: #a80006;
   --piros-halvany: #fdeaeb;
+  --sav-hatter: #15191a;     /* legfelső sáv */
+  --sav-szoveg: #ffffff;
+  --racs: rgb(21 25 26 / 0.022); /* a háttér ferde vonalkázása */
   --arnyek: 0 1px 2px rgb(21 25 26 / 0.06), 0 12px 32px -18px rgb(21 25 26 / 0.24);
   --arnyek-emelt: 0 2px 4px rgb(21 25 26 / 0.07), 0 24px 56px -26px rgb(21 25 26 / 0.32);
+}
+
+:root[data-tema="sotet"] {
+  color-scheme: dark;
+  --papir: #15181a;
+  --papir-melyebb: #1c1f22;
+  --lap: #202427;
+  --tinta: #e9eced;
+  --tinta-halvany: #9aa2a4;
+  --vonal: #313739;
+  --piros: #ff6259;          /* szöveg és ikon, sötét alapon 6,1:1 */
+  --piros-tolt: #d40008;     /* marad a márkapiros, fehér szöveggel 5,5:1 */
+  --piros-tolt-erosebb: #b00006;
+  --piros-halvany: #2b1416;
+  --sav-hatter: #262b2e;
+  --sav-szoveg: #e9eced;
+  --racs: rgb(255 255 255 / 0.026);
+  --arnyek: 0 1px 2px rgb(0 0 0 / 0.5), 0 12px 32px -18px rgb(0 0 0 / 0.75);
+  --arnyek-emelt: 0 2px 4px rgb(0 0 0 / 0.55), 0 24px 56px -26px rgb(0 0 0 / 0.85);
 }
 
 @theme inline {
@@ -34,6 +56,8 @@
   --color-piros-tolt: var(--piros-tolt);
   --color-piros-tolt-erosebb: var(--piros-tolt-erosebb);
   --color-piros-halvany: var(--piros-halvany);
+  --color-sav-hatter: var(--sav-hatter);
+  --color-sav-szoveg: var(--sav-szoveg);
   --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
   --shadow-lagy: var(--arnyek);
@@ -61,8 +85,8 @@ body {
   background-color: var(--papir);
   background-image: repeating-linear-gradient(
     118deg,
-    rgb(21 25 26 / 0.022) 0px,
-    rgb(21 25 26 / 0.022) 1px,
+    var(--racs) 0px,
+    var(--racs) 1px,
     transparent 1px,
     transparent 9px
   );
@@ -218,4 +242,14 @@ body {
     transform: none;
     transition: none;
   }
+}
+
+/* A logó fekete feliratú, átlátszó hátterű. Sötét módban ezért világos
+   alátétre kerül, hogy a márkajel változatlan maradhasson: nem kell hozzá
+   második képfájl, és nem villanhat fel a rossz változat. */
+:root[data-tema="sotet"] .dark-alatet,
+:root[data-tema="sotet"] [data-alatet] {
+  background: #eef0f0;
+  padding: 6px 10px;
+  border-radius: 8px;
 }

@@ -15,7 +15,7 @@ export default function OgKep() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#f7f4ef",
+          background: "#e9ebeb",
           padding: 72,
           fontFamily: "sans-serif",
         }}
@@ -41,7 +41,7 @@ export default function OgKep() {
               }}
             />
           </div>
-          <div style={{ display: "flex", fontSize: 34, fontWeight: 700, color: "#1c1b19" }}>
+          <div style={{ display: "flex", fontSize: 34, fontWeight: 700, color: "#15191a" }}>
             Abroncs&nbsp;<span style={{ color: "#c40007" }}>Stop</span>
           </div>
         </div>
@@ -53,13 +53,13 @@ export default function OgKep() {
               fontWeight: 700,
               letterSpacing: -2.5,
               lineHeight: 1.05,
-              color: "#1c1b19",
+              color: "#15191a",
               maxWidth: 940,
             }}
           >
             Gumiszerviz Isaszegen, a Kossuth Lajos utcában.
           </div>
-          <div style={{ marginTop: 26, fontSize: 30, color: "#6b655d" }}>
+          <div style={{ marginTop: 26, fontSize: 30, color: "#58605f" }}>
             Szerelés, centírozás, defektjavítás, TPMS, gumihotel.
           </div>
         </div>
@@ -69,14 +69,14 @@ export default function OgKep() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            borderTop: "2px solid #ddd6ca",
+            borderTop: "2px solid #c7cbcb",
             paddingTop: 30,
             fontSize: 28,
-            color: "#1c1b19",
+            color: "#15191a",
           }}
         >
           <div style={{ display: "flex", fontWeight: 700 }}>{ceg.telefonKiiras}</div>
-          <div style={{ display: "flex", color: "#6b655d" }}>{ceg.cim.teljes}</div>
+          <div style={{ display: "flex", color: "#58605f" }}>{ceg.cim.teljes}</div>
         </div>
       </div>
     ),

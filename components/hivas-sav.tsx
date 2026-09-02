@@ -17,7 +17,7 @@ export function HivasSav({
             <h2 className="plakat max-w-[16ch] text-[2.1rem] text-white sm:text-[2.7rem]">
               {cim}
             </h2>
-            <p className="mt-4 max-w-[46ch] text-[1.05rem] leading-relaxed text-white/85">
+            <p className="mt-4 max-w-[46ch] text-[1.05rem] leading-relaxed text-white">
               {szoveg}
             </p>
           </div>
@@ -33,7 +33,7 @@ export function HivasSav({
             <GombLink
               href="/kapcsolat"
               variant="masodlagos"
-              className="border-white/45 bg-transparent text-white hover:border-white hover:bg-white/10"
+              className="border-white/70 bg-transparent text-white hover:border-white hover:bg-white/15"
             >
               Kapcsolat
             </GombLink>

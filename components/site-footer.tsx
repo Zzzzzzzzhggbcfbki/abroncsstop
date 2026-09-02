@@ -12,6 +12,7 @@ export function SiteFooter() {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <Image
+              data-alatet=""
               src="/logo/abroncsstop.png"
               alt="Abroncs Stop"
               width={768}

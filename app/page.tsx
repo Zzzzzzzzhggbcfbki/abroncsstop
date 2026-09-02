@@ -220,11 +220,11 @@ export default function Fooldal() {
         <div className="mx-auto w-full max-w-[1240px] overflow-hidden rounded-[14px] bg-piros-tolt">
           <div className="grid gap-10 px-7 py-12 sm:px-12 sm:py-14 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-7">
-              <p className="plakat-vekony text-[12px] text-white/70">Bejelentkezés</p>
+              <p className="plakat-vekony text-[12px] text-white">Bejelentkezés</p>
               <h2 className="plakat mt-3 max-w-[13ch] text-[2.3rem] text-white sm:text-[3rem]">
                 Hívjon most
               </h2>
-              <p className="mt-5 max-w-[42ch] text-[1.05rem] leading-relaxed text-white/85">
+              <p className="mt-5 max-w-[42ch] text-[1.05rem] leading-relaxed text-white">
                 {ceg.kapcsolattarto} veszi fel. Mondja el, mi a gond az autóval, és
                 megbeszéljük a többit.
               </p>
@@ -237,9 +237,9 @@ export default function Fooldal() {
               >
                 {ceg.telefonKiiras}
               </a>
-              <dl className="mt-6 flex flex-col gap-2 border-t border-white/25 pt-6 lg:items-end">
+              <dl className="mt-6 flex flex-col gap-2 border-t border-white/60 pt-6 lg:items-end">
                 {nyitvatartas.map((n) => (
-                  <div key={n.nap} className="flex items-baseline gap-3 text-white/85">
+                  <div key={n.nap} className="flex items-baseline gap-3 text-white">
                     <dt>{n.nap}</dt>
                     <dd className="font-display font-semibold tabular-nums text-white">
                       {n.ora}
@@ -248,7 +248,7 @@ export default function Fooldal() {
                 ))}
                 <a
                   href={`mailto:${ceg.email}`}
-                  className="mt-1 text-white/85 underline decoration-white/40 underline-offset-4 hover:decoration-white"
+                  className="mt-1 text-white underline decoration-white/70 underline-offset-4 hover:decoration-white"
                 >
                   {ceg.email}
                 </a>

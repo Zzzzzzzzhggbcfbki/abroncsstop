@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { List, X, Phone } from "@phosphor-icons/react";
 import { ceg, navLinkek, nyitvatartas } from "@/lib/site";
+import { TemaValto } from "./tema-valto";
 
 export function SiteHeader() {
   const [nyitva, setNyitva] = useState(false);
@@ -24,12 +25,12 @@ export function SiteHeader() {
 
   return (
     <>
-      <div className="bg-tinta text-white">
+      <div className="border-b border-vonal bg-sav-hatter text-sav-szoveg">
         <div className="mx-auto flex w-full max-w-[1240px] items-center justify-between gap-4 px-5 py-2 sm:px-8">
-          <p className="plakat-vekony text-[11px] text-white sm:text-[12px]">
+          <p className="plakat-vekony text-[11px] sm:text-[12px]">
             Gumiszerviz Isaszegen
           </p>
-          <p className="plakat-vekony hidden text-[11px] text-white/70 sm:block sm:text-[12px]">
+          <p className="plakat-vekony hidden text-[11px] opacity-70 sm:block sm:text-[12px]">
             {nyitvatartas[0].nap} {nyitvatartas[0].ora}
           </p>
         </div>
@@ -39,7 +40,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-[68px] w-full max-w-[1240px] items-center gap-3 px-5 sm:gap-6 sm:px-8">
         <Link
           href="/"
-          className="flex shrink-0 items-center"
+          className="dark-alatet flex shrink-0 items-center rounded-[8px]"
           aria-label="Abroncs Stop, vissza a főoldalra"
         >
           <Image
@@ -71,6 +72,8 @@ export function SiteHeader() {
           <Phone size={17} weight="fill" aria-hidden />
           {ceg.telefonKiiras}
         </a>
+
+        <TemaValto />
 
         <button
           type="button"
