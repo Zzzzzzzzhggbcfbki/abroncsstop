@@ -9,19 +9,40 @@
 */
 :root {
   color-scheme: light;
-  --papir: #e9ebeb;
-  --papir-melyebb: #dcdfdf;
+  --papir: #e3e6e6;
+  --papir-melyebb: #d5d9d9;
   --lap: #ffffff;
   --tinta: #15191a;
-  --tinta-halvany: #58605f;
-  --vonal: #c7cbcb;
-  --piros: #c40007;          /* szöveg és ikon akcentus, világos háttéren AA */
+  --tinta-halvany: #4f5756;
+  --vonal: #bfc4c4;
+  --piros: #ba0006;          /* szöveg és ikon akcentus, a mélyebb sávon is 4,8:1 */
   --piros-tolt: #d40008;     /* a logóból mért piros. Fehér szöveggel 5,5:1 */
   --piros-tolt-erosebb: #a80006;
   --piros-halvany: #fdeaeb;
   --sav-hatter: #15191a;     /* legfelső sáv */
   --sav-szoveg: #ffffff;
-  --racs: rgb(21 25 26 / 0.022); /* a háttér ferde vonalkázása */
+  --racs: rgb(21 25 26 / 0.038);   /* futófelület-minta, vékony lamellák */
+  --racs-szeles: rgb(21 25 26 / 0.02); /* mögötte szélesebb, lágy sáv */
+  --lablec-hatter: #191d1f;        /* grafit lábléc: lezárja az oldalt */
+  --lablec-tinta: #e8ebec;
+  --lablec-halvany: #9aa2a4;
+  --lablec-vonal: #2e3436;
+  --lablec-piros: #ff6259;
+  --futofelulet:
+    repeating-linear-gradient(
+      118deg,
+      var(--racs) 0px,
+      var(--racs) 1.5px,
+      transparent 1.5px,
+      transparent 11px
+    ),
+    repeating-linear-gradient(
+      118deg,
+      var(--racs-szeles) 0px,
+      var(--racs-szeles) 26px,
+      transparent 26px,
+      transparent 66px
+    );
   --arnyek: 0 1px 2px rgb(21 25 26 / 0.06), 0 12px 32px -18px rgb(21 25 26 / 0.24);
   --arnyek-emelt: 0 2px 4px rgb(21 25 26 / 0.07), 0 24px 56px -26px rgb(21 25 26 / 0.32);
 }
@@ -40,7 +61,13 @@
   --piros-halvany: #2b1416;
   --sav-hatter: #262b2e;
   --sav-szoveg: #e9eced;
-  --racs: rgb(255 255 255 / 0.026);
+  --racs: rgb(255 255 255 / 0.032);
+  --racs-szeles: rgb(255 255 255 / 0.016);
+  --lablec-hatter: #1e2225;
+  --lablec-tinta: #e8ebec;
+  --lablec-halvany: #9aa2a4;
+  --lablec-vonal: #343a3d;
+  --lablec-piros: #ff6259;
   --arnyek: 0 1px 2px rgb(0 0 0 / 0.5), 0 12px 32px -18px rgb(0 0 0 / 0.75);
   --arnyek-emelt: 0 2px 4px rgb(0 0 0 / 0.55), 0 24px 56px -26px rgb(0 0 0 / 0.85);
 }
@@ -58,6 +85,11 @@
   --color-piros-halvany: var(--piros-halvany);
   --color-sav-hatter: var(--sav-hatter);
   --color-sav-szoveg: var(--sav-szoveg);
+  --color-lablec-hatter: var(--lablec-hatter);
+  --color-lablec-tinta: var(--lablec-tinta);
+  --color-lablec-halvany: var(--lablec-halvany);
+  --color-lablec-vonal: var(--lablec-vonal);
+  --color-lablec-piros: var(--lablec-piros);
   --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
   --shadow-lagy: var(--arnyek);
@@ -83,13 +115,7 @@ html {
 
 body {
   background-color: var(--papir);
-  background-image: repeating-linear-gradient(
-    118deg,
-    var(--racs) 0px,
-    var(--racs) 1px,
-    transparent 1px,
-    transparent 9px
-  );
+  background-image: var(--futofelulet);
   background-attachment: fixed;
   color: var(--tinta);
   font-family: var(--font-sans);
@@ -248,8 +274,14 @@ body {
    alátétre kerül, hogy a márkajel változatlan maradhasson: nem kell hozzá
    második képfájl, és nem villanhat fel a rossz változat. */
 :root[data-tema="sotet"] .dark-alatet,
-:root[data-tema="sotet"] [data-alatet] {
+[data-alatet] {
   background: #eef0f0;
   padding: 6px 10px;
   border-radius: 8px;
+}
+
+/* A mélyebb sávok saját háttérszíne ráfestene a test mintájára, ezért itt
+   külön megkapják ugyanazt a futófelület-mintát. */
+.bg-papir-melyebb {
+  background-image: var(--futofelulet);
 }
