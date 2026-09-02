@@ -112,3 +112,77 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
+
+/* ==================================================================
+   MOBILRA HANGOLÁS
+   Minden szabály 767 px alatt fut le, az asztali nézetet nem érinti.
+   A :not([class*="hidden"]) azért kell, mert ez a blokk a Tailwind
+   utilities rétegén kívül van, és enélkül felülírná a .hidden-t is.
+   ================================================================== */
+@media (max-width: 767px) {
+  /* Az iOS fekvő módban felnagyítja a szöveget, ha ezt nem rögzítjük */
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Semmi ne csúszhasson oldalra. A clip a hiddennel szemben nem csinál
+     görgetődobozt, ezért a ragadó fejléc és az alsó sáv működik tőle. */
+  html {
+    overflow-x: clip;
+  }
+
+  /* Koppintásra ne villanjon kék doboz, és ne várjon a böngésző 300 ms-ot
+     arra, hogy nem dupla koppintás-e */
+  a,
+  button,
+  summary,
+  label,
+  [role="button"],
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  /* 16 px alatt az iOS ráközelít a fókuszált mezőre, és ott is marad */
+  input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not(.sr-only),
+  select,
+  textarea {
+    font-size: max(16px, 1em);
+  }
+
+  /* Hosszú e-mail-cím ne feszítse szét a dobozát */
+  a[href^="mailto:"] {
+    overflow-wrap: anywhere;
+  }
+
+  /* A telefonszám a legfontosabb koppintási cél egy szervizoldalon, az
+     útvonalterv a második. Ezek 17-24 px magasak voltak, most ujjnyiak. */
+  a[href^="tel:"]:not([class*="hidden"]),
+  a[href*="google.com/maps"]:not([class*="hidden"]) {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /* A lábléc és a kapcsolati dobozok linkjei 18-24 px magasak voltak */
+  address a:not([class*="hidden"]),
+  footer ul a:not([class*="hidden"]),
+  footer ul button:not([class*="hidden"]) {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /* A fejléc logója 40 px magas céltábla volt */
+  header a[href="/"] {
+    min-height: 44px;
+  }
+
+  /* A rögzített sütisáv férjen el az iPhone gesztussávja fölött */
+  [role="dialog"].fixed.bottom-0 {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+}

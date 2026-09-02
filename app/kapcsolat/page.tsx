@@ -52,7 +52,7 @@ export default function Oldal() {
                 <div className="mt-7 flex flex-col gap-3 border-t border-vonal pt-7">
                   <a
                     href={`mailto:${ceg.email}`}
-                    className="inline-flex items-center gap-3 text-tinta transition-colors hover:text-piros"
+                    className="inline-flex items-center gap-3 text-tinta transition-colors hover:text-piros max-md:min-h-11"
                   >
                     <EnvelopeSimple size={20} className="text-piros" aria-hidden />
                     {ceg.email}
@@ -70,7 +70,7 @@ export default function Oldal() {
                     href={ceg.facebook}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-3 text-tinta transition-colors hover:text-piros"
+                    className="inline-flex items-center gap-3 text-tinta transition-colors hover:text-piros max-md:min-h-11"
                   >
                     <FacebookLogo size={20} className="text-piros" aria-hidden />
                     Abroncs Stop a Facebookon

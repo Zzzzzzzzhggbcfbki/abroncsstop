@@ -90,9 +90,9 @@ export function Cimsor({
     <As
       className={`plakat text-tinta ${
         As === "h1"
-          ? "text-[3.1rem] sm:text-[4.4rem] lg:text-[5.6rem]"
+          ? "text-[2.6rem] sm:text-[4.4rem] lg:text-[5.6rem]"
           : As === "h2"
-            ? "text-[2.5rem] sm:text-[3.4rem] lg:text-[4.2rem]"
+            ? "text-[2.1rem] sm:text-[3.4rem] lg:text-[4.2rem]"
             : "text-[1.45rem] sm:text-[1.7rem]"
       } ${className}`}
     >
