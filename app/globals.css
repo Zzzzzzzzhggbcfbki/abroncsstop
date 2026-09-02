@@ -19,8 +19,6 @@
   --piros-tolt: #d40008;     /* a logóból mért piros. Fehér szöveggel 5,5:1 */
   --piros-tolt-erosebb: #a80006;
   --piros-halvany: #fdeaeb;
-  --sav-hatter: #15191a;     /* legfelső sáv */
-  --sav-szoveg: #ffffff;
   --lablec-hatter: #191d1f;        /* grafit lábléc: lezárja az oldalt */
   --lablec-tinta: #e8ebec;
   --lablec-halvany: #9aa2a4;
@@ -42,8 +40,6 @@
   --piros-tolt: #d40008;     /* marad a márkapiros, fehér szöveggel 5,5:1 */
   --piros-tolt-erosebb: #b00006;
   --piros-halvany: #2b1416;
-  --sav-hatter: #262b2e;
-  --sav-szoveg: #e9eced;
   --lablec-hatter: #1e2225;
   --lablec-tinta: #e8ebec;
   --lablec-halvany: #9aa2a4;
@@ -64,8 +60,6 @@
   --color-piros-tolt: var(--piros-tolt);
   --color-piros-tolt-erosebb: var(--piros-tolt-erosebb);
   --color-piros-halvany: var(--piros-halvany);
-  --color-sav-hatter: var(--sav-hatter);
-  --color-sav-szoveg: var(--sav-szoveg);
   --color-lablec-hatter: var(--lablec-hatter);
   --color-lablec-tinta: var(--lablec-tinta);
   --color-lablec-halvany: var(--lablec-halvany);

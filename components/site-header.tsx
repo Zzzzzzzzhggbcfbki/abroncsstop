@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { List, X, Phone } from "@phosphor-icons/react";
-import { ceg, navLinkek, nyitvatartas } from "@/lib/site";
+import { ceg, navLinkek } from "@/lib/site";
 import { TemaValto } from "./tema-valto";
 
 export function SiteHeader() {
@@ -24,19 +24,7 @@ export function SiteHeader() {
   }, [nyitva]);
 
   return (
-    <>
-      <div className="border-b-[3px] border-piros-tolt bg-sav-hatter text-sav-szoveg">
-        <div className="mx-auto flex w-full max-w-[1240px] items-center justify-between gap-4 px-5 py-2 sm:px-8">
-          <p className="plakat-vekony text-[11px] sm:text-[12px]">
-            Isaszeg Gumiszerviz
-          </p>
-          <p className="plakat-vekony hidden text-[11px] opacity-70 sm:block sm:text-[12px]">
-            {nyitvatartas[0].nap} {nyitvatartas[0].ora}
-          </p>
-        </div>
-      </div>
-
-      <header className="sticky top-0 z-50 border-b border-vonal bg-papir/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-vonal bg-papir/85 backdrop-blur-md">
       <div className="mx-auto flex h-[68px] w-full max-w-[1240px] items-center gap-3 px-5 sm:gap-6 sm:px-8">
         <Link
           href="/"
@@ -113,7 +101,6 @@ export function SiteHeader() {
           </a>
         </div>
       )}
-      </header>
-    </>
+    </header>
   );
 }
