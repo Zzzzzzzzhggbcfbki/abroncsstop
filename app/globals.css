@@ -3,22 +3,24 @@
 /*
   Abroncs Stop design tokenek.
   A paletta a műhely valódi homlokzatáról jön: piros sáv, grafitszürke fal.
+  Az alapszín hűvös betonszürke, nem meleg krém: a műhelypadló és a salakbeton
+  fal színe, és hideg alapon a jelzőpiros forróbbnak látszik.
   Sarokpolitika (egy rendszer, végig): panel 14px, gomb és input 10px, apró jelölő 6px.
 */
 :root {
   color-scheme: light;
-  --papir: #f0ece3;
-  --papir-melyebb: #e6e0d4;
+  --papir: #e9ebeb;
+  --papir-melyebb: #dcdfdf;
   --lap: #ffffff;
-  --tinta: #1c1b19;
-  --tinta-halvany: #6b655d;
-  --vonal: #d6cebe;
+  --tinta: #15191a;
+  --tinta-halvany: #58605f;
+  --vonal: #c7cbcb;
   --piros: #c40007;          /* szöveg és ikon akcentus, világos háttéren AA */
   --piros-tolt: #d40008;     /* a logóból mért piros. Fehér szöveggel 5,5:1 */
   --piros-tolt-erosebb: #a80006;
   --piros-halvany: #fdeaeb;
-  --arnyek: 0 1px 2px rgb(28 27 25 / 0.05), 0 12px 32px -18px rgb(28 27 25 / 0.22);
-  --arnyek-emelt: 0 2px 4px rgb(28 27 25 / 0.06), 0 24px 56px -26px rgb(28 27 25 / 0.3);
+  --arnyek: 0 1px 2px rgb(21 25 26 / 0.06), 0 12px 32px -18px rgb(21 25 26 / 0.24);
+  --arnyek-emelt: 0 2px 4px rgb(21 25 26 / 0.07), 0 24px 56px -26px rgb(21 25 26 / 0.32);
 }
 
 @theme inline {
@@ -59,8 +61,8 @@ body {
   background-color: var(--papir);
   background-image: repeating-linear-gradient(
     118deg,
-    rgb(28 27 25 / 0.028) 0px,
-    rgb(28 27 25 / 0.028) 1px,
+    rgb(21 25 26 / 0.022) 0px,
+    rgb(21 25 26 / 0.022) 1px,
     transparent 1px,
     transparent 9px
   );
