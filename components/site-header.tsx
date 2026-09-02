@@ -49,7 +49,7 @@ export function SiteHeader() {
             width={768}
             height={320}
             priority
-            className="h-10 w-auto sm:h-12"
+            className="h-9 w-auto sm:h-11 lg:h-12"
           />
         </Link>
 
@@ -67,10 +67,11 @@ export function SiteHeader() {
 
         <a
           href={ceg.telefonHref}
-          className="ml-auto inline-flex shrink-0 touch-manipulation items-center gap-2 rounded-[10px] bg-piros-tolt px-3.5 py-3 font-display text-[14px] font-semibold text-white transition-colors hover:bg-piros-tolt-erosebb active:translate-y-px sm:px-4 sm:text-[15px] lg:ml-0"
+          aria-label={`Hívás: ${ceg.telefonKiiras}`}
+          className="ml-auto inline-flex shrink-0 touch-manipulation items-center gap-2 rounded-[10px] bg-piros-tolt px-3 py-3 font-display text-[14px] font-semibold text-white transition-colors hover:bg-piros-tolt-erosebb active:translate-y-px sm:px-4 sm:text-[15px] lg:ml-0"
         >
           <Phone size={17} weight="fill" aria-hidden />
-          {ceg.telefonKiiras}
+          <span className="hidden min-[400px]:inline">{ceg.telefonKiiras}</span>
         </a>
 
         <TemaValto />

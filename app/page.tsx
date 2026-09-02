@@ -4,6 +4,7 @@ import { Phone, MapPin, Clock, ArrowRight, ArrowUpRight } from "@phosphor-icons/
 import { ceg, nyitvatartas, szolgaltatasok } from "@/lib/site";
 import { Bevezeto, Cimsor, GombHoraf, GombLink, Szakasz } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
+import { AbroncsMinta } from "@/components/abroncs-minta";
 
 // A „Jó tudni” oldal első három témájának nyitómondatai, szó szerint.
 const jotudniKivonat = [
@@ -136,7 +137,11 @@ export default function Fooldal() {
 
       {/* 3. Szolgáltatások: a régi menü szolgáltatásai a fényszóró nélkül.
           Bento ritmus 3x2 / 3 / 3 / 6, négy cella, üres hely nélkül. */}
-      <Szakasz id="szolgaltatasok" className="border-y border-vonal bg-papir-melyebb">
+      <Szakasz
+        id="szolgaltatasok"
+        className="relative overflow-hidden border-y border-vonal bg-papir-melyebb"
+      >
+        <AbroncsMinta className="-top-28 right-[-70px] h-[150%] w-[250px] rotate-[13deg]" />
         <Reveal>
           <Cimsor className="max-w-[14ch] text-balance">Szolgáltatásaink</Cimsor>
         </Reveal>
@@ -303,7 +308,8 @@ export default function Fooldal() {
       </Szakasz>
 
       {/* 6. Jó tudni: a régi oldal cikkének első három témája. */}
-      <Szakasz>
+      <Szakasz className="relative overflow-hidden">
+        <AbroncsMinta className="-bottom-24 left-[-80px] h-[145%] w-[230px] -rotate-[11deg]" />
         <div className="grid gap-12 md:grid-cols-12">
           <Reveal className="md:col-span-4">
             <Cimsor className="text-balance">Jó tudni</Cimsor>

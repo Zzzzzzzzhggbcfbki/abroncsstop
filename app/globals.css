@@ -81,6 +81,8 @@
 }
 
 html {
+  background: var(--papir);
+  overscroll-behavior: none;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
@@ -96,6 +98,7 @@ html {
 
 body {
   background: var(--papir);
+  overscroll-behavior: none;
   color: var(--tinta);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -257,4 +260,23 @@ body {
   background: #eef0f0;
   padding: 6px 10px;
   border-radius: 8px;
+}
+
+/* Futófelület-rajz díszítésként. Maszk, nem háttérkép: a színt a token adja,
+   ezért nem kell külön világos és sötét változat. */
+.abroncsminta {
+  position: absolute;
+  pointer-events: none;
+  background-color: var(--tinta);
+  opacity: 0.05;
+  -webkit-mask-image: url("/abroncsminta.svg");
+  mask-image: url("/abroncsminta.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+.abroncsminta-vilagos {
+  background-color: var(--lablec-tinta);
+  opacity: 0.06;
 }

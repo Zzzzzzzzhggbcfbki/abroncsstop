@@ -23,6 +23,7 @@ export default function Oldal() {
             ["Székhely", uzemelteto.szekhely],
             ["Telephely", uzemelteto.telephely],
             ["Képviselő", uzemelteto.kepviselo],
+            ["Fő tevékenység", uzemelteto.fotevekenyseg],
             ["Cégjegyzékszám", uzemelteto.cegjegyzekszam],
             ["Nyilvántartó bíróság", uzemelteto.nyilvantartoBirosag],
             ["Adószám", uzemelteto.adoszam],
