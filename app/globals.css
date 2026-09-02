@@ -285,10 +285,16 @@ body {
 }
 
 /* A hero és a szolgáltatások sávja közti színváltást ez a feliratos keréknyom
-   takarja el. Erősebb, mint a háttérminta, mert itt olvasható a márkanév. */
+   takarja el. Jóval erősebb, mint a háttérminta: itt a márkanév olvasható,
+   és nem fut fölötte szöveg, tehát semmilyen kontrasztot nem ront. Sötét
+   módban egy fokkal vissza kell venni, mert a világos folt a sötét háttéren
+   ugyanazon az értéken hangosabbnak látszik. */
 .abroncsnyom-felirat {
   background-color: var(--tinta);
-  opacity: 0.16;
+  opacity: 0.45;
   -webkit-mask-image: url("/abroncs-nyom-felirat.png");
   mask-image: url("/abroncs-nyom-felirat.png");
+}
+:root[data-tema="sotet"] .abroncsnyom-felirat {
+  opacity: 0.38;
 }
