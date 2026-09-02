@@ -94,7 +94,9 @@ export default function Fooldal() {
 
       {/* 2. Adatsáv. Nyitvatartás és telefon a régi oldal fejlécéből.
           A cím feljebb, a heróban van, kiemelt kártyán. */}
-      <section className="px-5 pb-14 pt-10 sm:px-8 lg:pb-20 lg:pt-14">
+      {/* A kártya a keréknyom fölött van (z-20), így a nyom szemcséi
+          alábújnak, nem ülnek rá a világos lapra. */}
+      <section className="relative z-20 px-5 pb-14 pt-10 sm:px-8 lg:pb-20 lg:pt-14">
         <div className="mx-auto w-full max-w-[1240px] rounded-[14px] border border-vonal bg-lap shadow-lagy">
           <dl className="grid divide-y divide-vonal sm:grid-cols-2 sm:divide-x sm:divide-y-0">
             <div className="flex items-start gap-4 p-5 sm:p-6">
@@ -136,9 +138,11 @@ export default function Fooldal() {
       </section>
 
       {/* A hero és a szolgáltatások sávja közti színváltást a feliratos
-          keréknyom takarja el. Nulla magasságú tartó, hogy semmit ne toljon el. */}
-      <div className="relative z-10 mx-auto h-0 w-full max-w-[1240px] px-5 sm:px-8">
-        <AbroncsNyomFelirat className="inset-x-5 -top-[68px] h-[136px] sm:inset-x-8" />
+          keréknyom takarja el, szélről szélig. Nulla magasságú tartó, hogy
+          semmit ne toljon el; a nyom a saját magasságának felével csúszik
+          föl, így bármilyen szélességnél pont a színhatáron ül. */}
+      <div className="relative z-10 h-0 w-full">
+        <AbroncsNyomFelirat className="inset-x-0 top-0 aspect-[1600/452] w-full -translate-y-1/2" />
       </div>
 
       {/* 3. Szolgáltatások: a régi menü szolgáltatásai a fényszóró nélkül.
@@ -147,7 +151,7 @@ export default function Fooldal() {
         id="szolgaltatasok"
         className="relative overflow-hidden border-y border-vonal bg-papir-melyebb"
       >
-        <AbroncsMinta className="-right-[12%] top-[6%] h-[190px] w-[85%] -rotate-[7deg]" />
+        <AbroncsMinta className="-right-[18%] top-[2%] aspect-[1400/458] w-[120%] -rotate-[6deg]" />
         <Reveal>
           <Cimsor className="max-w-[14ch] text-balance">Szolgáltatásaink</Cimsor>
         </Reveal>
@@ -315,7 +319,7 @@ export default function Fooldal() {
 
       {/* 6. Jó tudni: a régi oldal cikkének első három témája. */}
       <Szakasz className="relative overflow-hidden">
-        <AbroncsMinta className="-left-[14%] bottom-[4%] h-[170px] w-[80%] rotate-[5deg]" />
+        <AbroncsMinta className="-left-[18%] bottom-0 aspect-[1400/458] w-[115%] rotate-[4deg]" />
         <div className="grid gap-12 md:grid-cols-12">
           <Reveal className="md:col-span-4">
             <Cimsor className="text-balance">Jó tudni</Cimsor>

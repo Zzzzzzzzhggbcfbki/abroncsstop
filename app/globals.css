@@ -263,15 +263,20 @@ body {
 }
 
 /* Keréknyom díszítésként. Maszkként használjuk, mert a grafika szemcséje az
-   alfa csatornában van: így a színt a token adja, és sötét módban is helyes. */
+   alfa csatornában van: így a színt a token adja, és sötét módban is helyes.
+   A maszk `contain`, nem `100% 100%`: a nyom megtartja a saját arányát, mert
+   a lapítás a szemcsét is széthúzza, és attól olcsó hatású lesz. A méretet
+   ezért mindig a szélesség és egy `aspect-[...]` adja, sosem fix magasság. */
 .abroncsminta,
 .abroncsnyom-felirat {
   position: absolute;
   pointer-events: none;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
 }
 .abroncsminta {
   background-color: var(--tinta);
@@ -285,10 +290,11 @@ body {
 }
 
 /* A hero és a szolgáltatások sávja közti színváltást ez a feliratos keréknyom
-   takarja el. Jóval erősebb, mint a háttérminta: itt a márkanév olvasható,
-   és nem fut fölötte szöveg, tehát semmilyen kontrasztot nem ront. Sötét
-   módban egy fokkal vissza kell venni, mert a világos folt a sötét háttéren
-   ugyanazon az értéken hangosabbnak látszik. */
+   takarja el, a képernyő teljes szélességében. Jóval erősebb, mint a
+   háttérminta: itt a márkanév olvasható, és nem fut fölötte szöveg, tehát
+   semmilyen kontrasztot nem ront. Sötét módban egy fokkal vissza kell venni,
+   mert a világos folt a sötét háttéren ugyanazon az értéken hangosabbnak
+   látszik. */
 .abroncsnyom-felirat {
   background-color: var(--tinta);
   opacity: 0.45;
