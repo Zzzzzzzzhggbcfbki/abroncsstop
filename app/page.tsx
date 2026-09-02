@@ -4,7 +4,7 @@ import { Phone, MapPin, Clock, ArrowRight, ArrowUpRight } from "@phosphor-icons/
 import { ceg, nyitvatartas, szolgaltatasok } from "@/lib/site";
 import { Bevezeto, Cimsor, GombHoraf, GombLink, Szakasz } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
-import { AbroncsMinta, AbroncsNyomFelirat } from "@/components/abroncs-minta";
+import { AbroncsMinta } from "@/components/abroncs-minta";
 
 // A „Jó tudni” oldal első három témájának nyitómondatai, szó szerint.
 const jotudniKivonat = [
@@ -94,9 +94,7 @@ export default function Fooldal() {
 
       {/* 2. Adatsáv. Nyitvatartás és telefon a régi oldal fejlécéből.
           A cím feljebb, a heróban van, kiemelt kártyán. */}
-      {/* A kártya a keréknyom fölött van (z-20), így a nyom szemcséi
-          alábújnak, nem ülnek rá a világos lapra. */}
-      <section className="relative z-20 px-5 pb-14 pt-10 sm:px-8 lg:pb-20 lg:pt-14">
+      <section className="px-5 pb-14 pt-10 sm:px-8 lg:pb-20 lg:pt-14">
         <div className="mx-auto w-full max-w-[1240px] rounded-[14px] border border-vonal bg-lap shadow-lagy">
           <dl className="grid divide-y divide-vonal sm:grid-cols-2 sm:divide-x sm:divide-y-0">
             <div className="flex items-start gap-4 p-5 sm:p-6">
@@ -136,14 +134,6 @@ export default function Fooldal() {
           </dl>
         </div>
       </section>
-
-      {/* A hero és a szolgáltatások sávja közti színváltást a feliratos
-          keréknyom takarja el, szélről szélig. Nulla magasságú tartó, hogy
-          semmit ne toljon el; a nyom a saját magasságának felével csúszik
-          föl, így bármilyen szélességnél pont a színhatáron ül. */}
-      <div className="relative z-10 h-0 w-full">
-        <AbroncsNyomFelirat className="inset-x-0 top-0 aspect-[1600/452] w-full -translate-y-1/2" />
-      </div>
 
       {/* 3. Szolgáltatások: a régi menü szolgáltatásai a fényszóró nélkül.
           Bento ritmus 3x2 / 3 / 3 / 6, négy cella, üres hely nélkül. */}
