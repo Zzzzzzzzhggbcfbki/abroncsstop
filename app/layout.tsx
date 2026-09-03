@@ -28,9 +28,12 @@ export const metadata: Metadata = {
     template: "%s | Abroncs Stop, Isaszeg",
   },
   description:
-    "Gumiszerviz Isaszegen. TPMS, gumihotel, klímatisztítás és felnijavítás a Kossuth Lajos utcában. Telefon: +36 30 621 1195.",
+    "Gumiszerviz Isaszegen: gumiszerelés, centírozás, gumiabroncs értékesítés, TPMS, gumihotel, klímatisztítás és felnijavítás. Tel: +36 30 621 1195.",
   keywords: [
     "gumiszerviz Isaszeg",
+    "gumiszerelés Isaszeg",
+    "centírozás Isaszeg",
+    "gumiabroncs Isaszeg",
     "gumihotel Isaszeg",
     "TPMS Isaszeg",
     "klímatisztítás Isaszeg",
@@ -58,7 +61,7 @@ const jsonLd = {
   "@type": "AutoRepair",
   name: ceg.nev,
   description:
-    "Gumiszerviz Isaszegen: TPMS, gumihotel, klímatisztítás és felnijavítás.",
+    "Gumiszerviz Isaszegen: gumiszerelés, centírozás, gumiabroncs értékesítés, TPMS, gumihotel, klímatisztítás és felnijavítás.",
   url: OLDAL_URL,
   telephone: ceg.telefon,
   email: ceg.email,

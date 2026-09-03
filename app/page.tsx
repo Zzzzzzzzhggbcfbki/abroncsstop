@@ -41,7 +41,8 @@ export default function Fooldal() {
                 Isaszeg <span className="text-piros">Gumiszerviz</span>
               </Cimsor>
               <Bevezeto className="mt-5 text-[1.05rem] sm:mt-7 sm:text-[1.1rem]">
-                {ceg.szlogen}. TPMS diagnosztika, gumihotel, klímatisztítás és
+                {ceg.szlogen}. Gumiszerelés, centírozás, gumiabroncs
+                értékesítés, TPMS diagnosztika, gumihotel, klímatisztítás és
                 felnijavítás.
               </Bevezeto>
               <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row">
