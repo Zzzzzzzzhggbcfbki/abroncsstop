@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
+import { OLDAL_URL } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: "https://abroncsstop.hu/sitemap.xml",
+    sitemap: `${OLDAL_URL}/sitemap.xml`,
   };
 }

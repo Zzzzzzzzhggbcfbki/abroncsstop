@@ -4,6 +4,11 @@
   Ide ne kerüljön olyan állítás, ami nem szerepel a régi oldalon.
 */
 
+// Az oldal saját címe. Ez a kanonikus domain: a canonical linkek, a sitemap,
+// a robots.txt és a strukturált adat is erre mutat. Ha a cég később másik
+// domaint tesz meg fő címnek, elég ezt az egy sort átírni.
+export const OLDAL_URL = "https://gumisisaszeg.hu";
+
 export const ceg = {
   nev: "Abroncs Stop Bt.",
   rovidNev: "Abroncs Stop",

@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { MobilHivosav } from "@/components/mobil-hivosav";
 import { SutiSav } from "@/components/suti-sav";
-import { ceg } from "@/lib/site";
+import { ceg, OLDAL_URL } from "@/lib/site";
 import "./globals.css";
 
 // A wdth tengely adja a keskenyített, plakátszerű címsorokat.
@@ -22,7 +22,7 @@ const publicSans = Public_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://abroncsstop.hu"),
+  metadataBase: new URL(OLDAL_URL),
   title: {
     default: "Abroncs Stop | Gumiszerviz Isaszegen",
     template: "%s | Abroncs Stop, Isaszeg",
@@ -59,7 +59,7 @@ const jsonLd = {
   name: ceg.nev,
   description:
     "Gumiszerviz Isaszegen: TPMS, gumihotel, klímatisztítás és felnijavítás.",
-  url: "https://abroncsstop.hu",
+  url: OLDAL_URL,
   telephone: ceg.telefon,
   email: ceg.email,
   address: {

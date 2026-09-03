@@ -4,7 +4,7 @@ import { uzemelteto, tarhelyszolgaltato } from "@/lib/jogi";
 
 export const metadata: Metadata = {
   title: "Impresszum",
-  description: "Az abroncsstop.hu üzemeltetőjének adatai.",
+  description: "A gumisisaszeg.hu üzemeltetőjének adatai.",
   alternates: { canonical: "/impresszum" },
   robots: { index: true, follow: true },
 };
@@ -13,7 +13,7 @@ export default function Oldal() {
   return (
     <JogiOldal
       cim="Impresszum"
-      bevezeto="Az abroncsstop.hu weboldal üzemeltetőjének adatai."
+      bevezeto="A gumisisaszeg.hu weboldal üzemeltetőjének adatai."
       frissitve="2026. szeptember 1."
       blokkok={[
         {

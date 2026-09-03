@@ -1,100 +1,91 @@
-# abroncsstop.hu — Rackhost teendők
+# Domain teendők
 
-Állapot 2026-09-02-án: a domain meg van rendelve a Rackhostnál, de **nincs
-kifizetve és nincs tulajdonos beállítva**. Mindkettőre 14 nap van a
-megrendeléstől. Ha lejár, a Rackhost törli az igénylést, és a domain
-visszakerül a szabad névtérbe — onnan bárki elviheti.
+Az oldal fő domainje **gumisisaszeg.hu**. A kódban ezt a `lib/site.ts`
+`OLDAL_URL` konstansa mondja ki, és innen veszi a canonical link, a sitemap,
+a robots.txt és a strukturált adat is. Ha később másik domain lesz a fő cím,
+elég azt az egy sort átírni.
 
-## Miért most kell a tulajdonost megadni
+## Állapot (2026-09-03)
 
-A `.hu` domain tulajdonosa a nyilvántartásban rögzített jogi személy. Amíg az
-igénylés nyitva van, a tulajdonos megadása **csak egy űrlap a Rackhost
-„Tennivalók" fülén**. Ha viszont a domain már be van jegyezve valaki másra
-(rám vagy a RAYO-ra), akkor az utólagos tulajdonosváltás:
+| | |
+|---|---|
+| Vercel projekt | `abroncsstop` (liftifys-projects) |
+| Hozzáadva | `gumisisaszeg.hu` és `www.gumisisaszeg.hu` |
+| Vercel állapot | `invalid-configuration` — a DNS-rekordok még nincsenek beállítva |
+| Regisztráció | a `.hu` nyilvántartásban ma jött létre, delegálás még nincs |
 
-- aláírt domainigénylő lap,
-- aláírási címpéldány vagy ügyvéd által ellenjegyzett aláírásminta,
-- adminisztrációs díj,
-- és a váltás alatt **30 napos zárolás**, ami alatt a domain nem mozgatható.
+A `whois` szerint a domain létezik, de **még nincs névszerverre delegálva**,
+ezért a DNS-kezelő valószínűleg csak a delegálás után lesz használható. Ez a
+`.hu`-nál rendszerint 1–3 munkanap.
 
-Ezért a tulajdonos az első pillanattól az ügyfél cége legyen.
+## A beállítandó rekordok
 
-## 1. Tulajdonosi adatok megadása (Tennivalók fül)
+A DNS-szolgáltatónál (Rackhost) pontosan ezt a két rekordfajtát kell felvenni.
 
-A tulajdonos az ügyfél cége. Az adatok a `lib/jogi.ts`-ben már ellenőrizve
-vannak, a cégnyilvántartásból (ceginformacio.hu, 2026-09-02):
+### Apex, azaz a `gumisisaszeg.hu`
 
-| Mező | Érték |
-|------|-------|
-| Tulajdonos neve | ABRONCS STOP Betéti Társaság |
-| Székhely | 2117 Isaszeg, Kossuth Lajos utca 126. A. ép. |
-| Cégjegyzékszám | 13-06-068300 |
-| Adószám | 25029372-2-13 |
-| Nyilvántartó bíróság | Budapest Környéki Törvényszék Cégbírósága |
-| Képviselő | Hammel Barnabás |
-| Telefon | +36 30 621 1195 |
-| E-mail | abroncs.stop@gmail.com |
+| Típus | Név | Érték | TTL |
+|-------|-----|-------|-----|
+| A | `@` | `216.198.79.1` | 3600 |
+| A | `@` | `64.29.17.1` | 3600 |
 
-Az adminisztratív és technikai kapcsolattartó maradhat a saját elérhetőségem,
-így a DNS-t és a megújítást én kezelem, de a domain az ügyfél vagyona marad.
+Két külön A rekord, ugyanazzal a névvel. Mindkettő kell.
 
-A tulajdonosi e-mail cím fontos: a nyilvántartó erre küld értesítést, és
-későbbi transzfernél is ez az azonosítás alapja. Az `abroncs.stop@gmail.com`
-az ügyfél saját fiókja, ezért jó választás.
+### `www.gumisisaszeg.hu`
 
-## 2. Kifizetés
+| Típus | Név | Érték | TTL |
+|-------|-----|-------|-----|
+| CNAME | `www` | `1301018af049039a.vercel-dns-017.com.` | 3600 |
 
-A megrendeléstől számított 14 napon belül ki kell fizetni, különben az
-igénylés törlődik. A Rackhostnál nincs tárolt bankkártya, tehát ez egy
-egyszeri, kézi utalás vagy kártyás fizetés a díjbekérő alapján.
+A CNAME értéke projektspecifikus, a végén a ponttal együtt kell beírni. Ha a
+Rackhost felülete nem fogadja el a záró pontot, hagyd le, de akkor ellenőrizd,
+hogy nem fűzi-e hozzá a saját domainnevét.
 
-## 3. Megújítás: kreditből megy
+### Amit NE használj
 
-A Rackhost automatikus megújítása **kreditből** vonja le a díjat, nem
-kártyáról. Ha nincs elég kredit az egyenlegen a lejárat előtt, a megújítás
-nem fut le, és a domain lejár. Teendő:
+A Vercel a régi értékeket másodlagosként még mindig felkínálja:
+`76.76.21.21` az apexre és `cname.vercel-dns.com` a www-re. Ezek a legacy
+célok. **Ne ezeket vedd fel**: róluk a HTTP kiszolgálás elindul, de a
+HTTPS-tanúsítvány kiállítása nem megy végig, és az oldal tanúsítványhibával
+jön be a böngészőben. Ez korábban egy másik projekten órákat vitt el.
 
-- a lejárati dátumot naptárba kell tenni, emlékeztetővel 30 nappal előtte,
-- a lejárat előtt legyen a fiókban legalább egy éves díjnyi kredit,
-- vagy évente kézzel kell megújítani.
+### Alternatíva: névszerver-átadás
 
-Ez a leggyakoribb módja annak, hogy egy élő ügyféloldal domainje némán
-lejárjon, ezért érdemes rögtön a naptárba rögzíteni.
+Ha egyszerűbb, a teljes DNS-t át lehet adni a Vercelnek, ekkor viszont minden
+más rekordot (e-mail, MX, TXT) is ott kell kezelni:
 
-## 4. DNS: a Vercel rákötése
-
-A domain a `abroncsstop.vercel.app` projektre mutat. A sorrend:
-
-1. A Vercel projekt **Settings → Domains** részén hozzáadni az
-   `abroncsstop.hu` és a `www.abroncsstop.hu` nevet.
-2. A Vercel ott kiírja a pontos DNS-értékeket. **Mindig az ott kiírt aktuális
-   értéket kell beírni**, nem egy korábbi projektből másolt IP-t.
-3. Ezeket az értékeket a Rackhost DNS-kezelőjében kell felvenni.
-4. Az egyik névre 301-es átirányítást állítani a másikra, hogy ne legyen két
-   indexelhető változat. A kanonikus a `www` nélküli alak.
-
-**Buktató, ami korábban órákat vitt el:** ha a Vercel a domain mellé
-„DNS Change Recommended" figyelmeztetést tesz ki, azt nem szabad ártalmatlan
-ajánlásnak venni. A régi, legacy DNS-célokról (például a `76.76.21.21`
-A rekordról) a HTTP kiszolgálás működik, de a HTTPS-tanúsítvány kiállítása
-nem megy végig, és az oldal hibaüzenettel jön be böngészőben. A megoldás a
-Vercel által aktuálisan javasolt célokra váltás.
-
-A `.hu` delegálás átfutása a tapasztalat szerint körülbelül 3 munkanap. Ha
-addig nem él, az önmagában nem hiba: a rossz DNS-t úgy lehet elkülöníteni a
-késő registrytől, hogy megnézzük, a `whois` szerint delegálva van-e már a
-domain a Rackhost névszervereire.
-
-## 5. Ellenőrzés élesítés után
-
-```bash
-whois abroncsstop.hu | head -30
-dig +short abroncsstop.hu
-dig +short www.abroncsstop.hu
-curl -sI https://abroncsstop.hu | head -5
-curl -sI https://www.abroncsstop.hu | head -5
+```
+ns1.vercel-dns.com
+ns2.vercel-dns.com
 ```
 
-A `curl` mindkét néven 200-at vagy 301-et adjon, és a HTTPS érvényes
-tanúsítvánnyal jöjjön. Ha a HTTP megy, de a HTTPS nem, az a 4. pontban leírt
-legacy DNS-cél problémája.
+A rekordos megoldás a biztonságosabb, mert a domain e-mail-beállításai a
+Rackhostnál maradnak.
+
+## Ellenőrzés a beállítás után
+
+```bash
+dig +short A gumisisaszeg.hu
+dig +short CNAME www.gumisisaszeg.hu
+curl -sI https://gumisisaszeg.hu | head -5
+curl -sI https://www.gumisisaszeg.hu | head -5
+```
+
+Az apexnek a két Vercel-IP-t kell visszaadnia, a www-nek a hosszú
+`vercel-dns-017.com` nevet. A `curl` mindkettőn 200-at vagy 301-et adjon,
+érvényes tanúsítvánnyal. A Vercel oldaláról a `vercel domains verify
+gumisisaszeg.hu` mondja meg, hogy rendben van-e.
+
+A tanúsítvány kiállítása a helyes DNS után pár perc. Ha a HTTP megy, de a
+HTTPS nem, az szinte biztosan a legacy célok esete.
+
+## Ami még hátravan
+
+- A `www` és a domain közül az egyik legyen átirányítás a másikra, hogy ne
+  legyen két indexelhető változat. A kanonikus a `www` nélküli alak, ezt a
+  Vercel Domains felületén egy kattintás beállítani.
+- A Google Search Console-ba csak azután érdemes beküldeni a sitemapot, hogy
+  a domain HTTPS-en él.
+- Az `abroncsstop.hu` külön ügy: az még nincs kifizetve és nincs tulajdonosa
+  beállítva a Rackhostnál. Ha később mégis élesedik, a helye egy 301-es
+  átirányítás a `gumisisaszeg.hu`-ra, nem egy második élő másolat.

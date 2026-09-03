@@ -5,7 +5,7 @@ import { sutik, uzemelteto } from "@/lib/jogi";
 export const metadata: Metadata = {
   title: "Cookie tájékoztató",
   description:
-    "Milyen sütiket és tárolt adatokat használ az abroncsstop.hu, és hogyan vonhatja vissza a hozzájárulását.",
+    "Milyen sütiket és tárolt adatokat használ a gumisisaszeg.hu, és hogyan vonhatja vissza a hozzájárulását.",
   alternates: { canonical: "/cookie-tajekoztato" },
 };
 
