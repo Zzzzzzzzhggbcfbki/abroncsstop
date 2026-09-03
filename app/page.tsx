@@ -156,11 +156,14 @@ export default function Fooldal() {
 
         <div className="mt-12 grid gap-4 md:auto-rows-[248px] md:grid-cols-6">
           {szolgaltatasok.map((sz, i) => {
+            // Öt cella, üres hely nélkül: az első kettős magasságú, mellette
+            // két fél, alattuk még két fél.
             const meret = [
               "md:col-span-3 md:row-span-2",
               "md:col-span-3",
               "md:col-span-3",
-              "md:col-span-6",
+              "md:col-span-3",
+              "md:col-span-3",
             ][i];
             const nagy = i === 0;
 
@@ -297,13 +300,13 @@ export default function Fooldal() {
               </div>
               <div className="flex items-baseline justify-between gap-6 py-4">
                 <dt className="text-tinta">Védelem</dt>
-                <dd className="plakat text-[1.35rem] text-tinta">Riasztó és őrszolgálat</dd>
+                <dd className="plakat text-[1.35rem] text-tinta">Riasztó és vonuló járőrszolgálat</dd>
               </div>
             </dl>
 
             <p className="mt-6 text-[0.95rem] leading-relaxed text-tinta-halvany">
               A nálunk tárolt kerekeit vagy abroncsait korszerű riasztórendszer és
-              vonuló biztonsági szolgálat védi. A tárolás díjáról telefonon
+              vonuló járőrszolgálat védi. A tárolás díjáról telefonon
               tájékoztatjuk.
             </p>
 

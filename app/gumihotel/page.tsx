@@ -4,7 +4,7 @@ import { SzolgaltatasOldal } from "@/components/szolgaltatas-oldal";
 export const metadata: Metadata = {
   title: "Gumihotel",
   description:
-    "Gumihotel szolgáltatás Isaszegen. Nyáron a télit, télen a nyárit nálunk hagyhatja. Korszerű riasztórendszer és vonuló biztonsági szolgálat védi. Hívjon: +36 30 621 1195.",
+    "Gumihotel szolgáltatás Isaszegen. Nyáron a télit, télen a nyárit nálunk hagyhatja. Korszerű riasztórendszer és vonuló járőrszolgálat védi. Hívjon: +36 30 621 1195.",
   alternates: { canonical: "/gumihotel" },
 };
 
@@ -17,7 +17,7 @@ export default function Oldal() {
       kepAlt="Gumiabroncsok és keréktárcsák a gumihotel állványain"
       arak={[
         { tetel: "Fizetés", ar: "A tárolás végén" },
-        { tetel: "Védelem", ar: "Riasztó és őrszolgálat" },
+        { tetel: "Védelem", ar: "Riasztó és vonuló járőrszolgálat" },
         { tetel: "Díjszabás", ar: "Hívásra" },
       ]}
       arakCime="Jó tudni"
@@ -31,7 +31,7 @@ export default function Oldal() {
         {
           cim: "Hogyan tároljuk",
           bekezdesek: [
-            "A nálunk tárolt kerekeit vagy abroncsait korszerű riasztórendszer és vonuló biztonsági szolgálat védi.",
+            "A nálunk tárolt kerekeit vagy abroncsait korszerű riasztórendszer és vonuló járőrszolgálat védi.",
           ],
         },
       ]}

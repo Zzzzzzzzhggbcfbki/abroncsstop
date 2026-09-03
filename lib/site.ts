@@ -47,6 +47,8 @@ export type Szolgaltatas = {
 
 // A régi oldal menüjének szolgáltatásai, az ott olvasható szöveggel.
 // A fényszóró felújítás 2026 szeptemberében kikerült: a cég már nem vállalja.
+// A gumiabroncs értékesítés 2026. szeptember 3-án került be, a tulajdonos
+// kérésére: a régi oldalon nem szerepelt, pedig a műhely árul abroncsot.
 export const szolgaltatasok: Szolgaltatas[] = [
   {
     slug: "tpms",
@@ -55,6 +57,14 @@ export const szolgaltatasok: Szolgaltatas[] = [
       "Műhelyünkben a TPMS vagy RDKS rendszerű defektvisszajelzővel ellátott autók is könnyedén szervizelhetőek.",
     kep: "/fotok/tpms-szenzor.jpg",
     kepAlt: "TPMS szenzor közelről, a keréktárcsa peremére szerelve",
+  },
+  {
+    slug: "gumiabroncs",
+    cim: "Gumiabroncs értékesítés",
+    osszefoglalo:
+      "Nálunk meg is vásárolhatja az abroncsot, és rögtön fel is szereljük.",
+    kep: "/fotok/hero-gumiszereles.jpg",
+    kepAlt: "Szerelő gumiabroncsot emel a szerelőgépre a műhelyben",
   },
   {
     slug: "felnijavitas",

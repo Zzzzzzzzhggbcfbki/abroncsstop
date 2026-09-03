@@ -3,6 +3,7 @@ import type { MetadataRoute } from "next";
 const utvonalak = [
   "",
   "tpms",
+  "gumiabroncs",
   "gumihotel",
   "klimatisztitas",
   "felnijavitas",

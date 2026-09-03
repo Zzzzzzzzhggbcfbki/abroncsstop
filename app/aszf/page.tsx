@@ -54,7 +54,7 @@ export default function Oldal() {
           cim: "Gumihotel",
           bekezdesek: [
             "A tárolás díjáról a szolgáltató telefonon vagy a telephelyen ad tájékoztatást, a megrendelést megelőzően. A díjat a tárolás végén kell megfizetni.",
-            "A tárolt kerekek átvételéről és kiadásáról a szolgáltató nyilvántartást vezet. A kerekek kiadására a megrendelő vagy az általa megjelölt személy jogosult. A tárolt kerekeket riasztórendszer és vonuló biztonsági szolgálat védi.",
+            "A tárolt kerekek átvételéről és kiadásáról a szolgáltató nyilvántartást vezet. A kerekek kiadására a megrendelő vagy az általa megjelölt személy jogosult. A tárolt kerekeket riasztórendszer és vonuló járőrszolgálat védi.",
             "A tárolási időszak lejárta után a megrendelő köteles a kerekeket elszállítani. A szolgáltató a lejárat után a további tárolásért díjat számíthat fel.",
           ],
         },
